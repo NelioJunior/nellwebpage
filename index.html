@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>Neil:Aplicativos para computadores, internet e mobiles</title> 
+	    <link rel="icon" href="img/logo.png">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">	
+		<meta name="description" content = "Aplicativos (apps) para consultorios, saloes de beleza e profissionais liberais, pequenas e médias empresas. Web, mobile e desktop. Principalmente Mogi das Cruzes e região.">		
+		<meta name="keywords" content = "aplicativos, apps, agendamentos, sistemas, iot , inteligencia, artificial"> 	    
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/icomoon.css">
+		<link rel="stylesheet" href="css/animate.css">
+		<script src="js/jquery.easing.1.3.js"></script>	
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-inverse">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>                        
+			  </button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+				<li class="active"><a href="index.php">Inicio</a></li>
+				<li ><a href="#customers">Nossos clientes</a></li>
+				<li><a href="#topQuemSomos">Quem somos</a></li>
+			    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">portifólio<span class="caret"></span></a>
+			        <ul class="dropdown-menu">
+                      <li><a onclick="$('#modalLogin').modal('show')">💋 Salão de Beleza</a></li>
+			          <li><a href="./ellaassistentevirtual">📱 Site promocional Ella </a></li>
+			          <li><a href="./pokemall"> 🛒 Pocket Mall - Seu Shopping de Bolso</a></li>
+			          <li><a href="https://minesweeper-flash-python.herokuapp.com/"> 💣 Campo Minado (API flash)</a></li>
+			        </ul>
+			    </li>
+				<li><a href="#miniLogo">Contato</a></li>
+              </ul>
+			</div>
+		</nav>
+
+		<video class = "video" autoplay loop muted>
+			<source src="video/nellclip.mp4" type="video/mp4" >
+		</video>
+
+		<div id = "oquefazemos">
+          <center class="slideImgA w3-animate-fading"> 
+				<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">                  
+                <span>&nbsp; Python</span>                   
+          </center>       
+          <center class="slideImgA w3-animate-fading"> 
+				<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">                  
+                <span>&nbsp; React</span>                   
+          </center>       
+          <center class="slideImgA w3-animate-fading"> 
+				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg">                  
+                <span>&nbsp; PHP</span>                   
+          </center> 
+          <center class="slideImgA w3-animate-fading"> 
+				<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+                <span>&nbsp; Javascript</span>                   
+          </center>       
+          <center class="slideImgA w3-animate-fading"> 				
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" />        
+                <span>&nbsp; Bootstrap</span>                   
+          </center>       
+          <center class="slideImgA w3-animate-fading"> 
+			    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />          
+                <span>&nbsp; NodeJs</span>                   
+          </center>       
+          <center class="slideImgA w3-animate-fading"> 
+		        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/electron/electron-original.svg" >  
+                <span>&nbsp; Electron</span>                   
+          </center>  
+          <center class="slideImgA w3-animate-fading"> 
+		        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
+                <span>&nbsp; MySQL</span>                   
+          </center>            
+        </div> 
+
+		<div id = "slides">	
+            <img class="slideImgB w3-animate-fading" src="img/img1_sketch_blue.png">			  
+            <img class="slideImgB w3-animate-fading" src="img/img2_sketch_blue.png">			  
+			<img class="slideImgB w3-animate-fading" src="img/img3_sketch_blue.png">			
+			<img class="slideImgB w3-animate-fading" src="img/img4_sketch_blue.png">
+			<img class="slideImgB w3-animate-fading" src="img/img6_sketch_blue.png">			
+			<img class="slideImgB w3-animate-fading" src="img/img7_sketch_blue.png">
+            <img class="slideImgB w3-animate-fading" src="img/img8_sketch_blue.png">
+			<img class="slideImgB w3-animate-fading" src="img/img9_sketch_blue.png">
+		</div>
+
+		<div id="quemSao"> 
+		   <center><p id="nossosClientes" class="title forbiddenland">Nossos clientes</p></center> 
+		</div>
+
+		<div class="customersBackground" id="customers"></div>								
+
+		<div class="logoDesk" id="logo"></div>
+
+        <div id="topQuemSomos"></div>  
+		<div class = "overFlowHidden">
+			<div class="relative relative--fill bg-img bg-img-icons-showcase bg-img-o-15"></div>
+		</div> 
+		<div id="team" class="teamDesk">
+			<div class="gtco-container" id="quemSomos" >
+				<div class="row animate-box">
+                    <br>
+                    <br>
+                    <br>       
+					<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+						<h3 class="title">Quem somos</h3>
+					</div>
+				</div>
+				<div class="row row-pb-md">
+					<div class="col-md-6 animate-box" data-animate-effect="fadeIn">
+						<div class="gtco-staff">
+							<img src="img/myself.jpg" width=100 height=100 >
+							<h3 style="color:#327EBB" >Nélio Júnior</h3>
+							<strong class="role">Engenheiro de Software</strong>
+							<p class="text-justify" style="color:#327EBB">
+                               Tendo frequentado as Universidades de Braz Cubas e Mogi das Cruzes, 
+                               Atende a empresas de médio e grande porte, nacionais e internacionais em desenvolvimento 
+                               full stack, tendo como principais skils python e react.js mas com experiências anteriores com 
+                               PHP, NodeJS entre outras.  
+                            </p>
+
+							<ul class="gtco-social-icons">
+                                <li><a href="https://www.linkedin.com/in/nelio-junior-python/"><i class="icon-linkedin"></i></a></li>
+                                <li><a href="https://github.com/NelioJunior"><i class="icon-github"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box" data-animate-effect="fadeIn">
+						<div class="gtco-staff">
+							<img src="img/angelaoliveira.jpg" width=100 height=100 >
+							<h3 style="color:#327EBB">Angela Oliveira</h3>
+							<strong class="role">Relacionamento e Qualidade</strong>
+							<p class="text-justify" style="color:#327EBB">
+                              Formada na Universidade de Mogi das Cruzes em Sistemas da informação, atualmente 
+                              cuida dos projetos relacionados a microempreendedores individuais, micro empresas além de pessoas físicas,
+                              assegurando fidelidade a prazos e qualidade em suas entregas.    
+                            </p>
+							<ul class="gtco-social-icons">
+                                <li><a href="https://www.linkedin.com/in/angeladeoliveira-ia"><i class="icon-linkedin"></i></a></li>
+								<li><a href="https://www.instagram.com/angelladeolliveira/"><i class="icon-instagram"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div id="gtco-subscribe">
+			<div class="gtco-container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+						<h2>Contato</h2>
+						<p>+55 (11) 99750-0734</p>
+					</div>
+				</div>
+				<div class="row animate-box">
+					<div class="col-md-12 ">
+						<form class="form-inline" method="post" id="FrmContato" action="./">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="name" class="sr-only">Nome</label>
+									<input type="text" class="form-control" id="name" name = "name" placeholder="Nome">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="email" class="sr-only">Email</label>
+									<input type="email" autocomplete class="form-control"id="email" name="email"   placeholder="Email">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="assunto" class="sr-only">Assunto</label>
+									<input type="text" class="form-control"id="assunto" name="assunto" placeholder="Assunto">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="name" class="sr-only">Email</label>
+									<textarea class="form-control"id="mensagem" name="mensagem" placeholder="Comment" rows="5"> </textarea>
+								</div>
+							</div>
+							<div class="row">										
+								<div class="col-md-12">
+									<div class="form-group">
+										<button type="submit" class="btn btn-primary pull-right" style="margin-right:15px; background-color:#005c99;" >Enviar</button>
+										<img id="wait" src="img\waiting.gif" style= "width:20px;height:20px;display:none; margin-left:17px">
+										<div id="resposta" style="display: none; color:white; margin-left:17px"></div>
+									</div>							
+								</div>
+							</div>																																
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<div class="col-xs-12 text-center">
+			  <i class="fa fa-3x fa-fw text-inverse fa-windows" style="color:white"></i>
+			  <i class="fa fa-3x fa-fw text-inverse fa-apple" style="color:white"></i>
+			  <i class="fa fa-3x fa-fw text-inverse fa-android" style="color:white"></i>
+			</div>			
+			<img id = "miniLogo" src ="img\neil.png"><a style="font-size:12px;color:white">Powered by Nell Tech</a>   
+		</footer>
+
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+
+	<div class="modal fade" id="modalLogin" role="dialog">
+			<div class="modal-dialog">
+
+				<div class="modal-content">
+					<div class="modal-header" style="padding:35px 50px;">
+					  <button type="button" class="close" data-dismiss="modal">&times;</button>
+					  <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+					</div>
+					<div class="modal-body" style="padding:40px 50px;">
+					  <form role="form">
+						<div class="form-group">
+						  <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+						  <input type="text" class="form-control" id="usrname" placeholder="Enter user login">
+						</div>
+						<div class="form-group">
+						  <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Senha</label>
+						  <input type="password" autocomplete class="form-control" id="psw" placeholder="Entre com a senha">
+						</div>
+						<div class="checkbox">
+						  <label><input type="checkbox" value="" checked>Remember me</label>
+						</div>
+						  <!--value="<span class='glyphicon glyphicon-off'>Login</span-->
+						  <input type="button" id = "btnLogin" class="btn btn-success btn-block" value="Login" > 
+					  </form>
+					</div>
+					<div class="modal-footer">
+					  <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+					</div>
+				</div>			  
+			</div>
+		</div>		
+	</body>
+</html>
