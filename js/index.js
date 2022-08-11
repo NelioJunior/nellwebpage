@@ -141,7 +141,6 @@ window.addEventListener('load', (event) => {
 			crossDomain: true, 
 			data: { nellUsuario: $("#usrname").val(), nellSenha: $("#psw").val() } ,
 			success: function(data){	
-				alert("navbar")
 				if (data == ""){
 					alert("usuário ou senha inválida");					
 				} else {				
