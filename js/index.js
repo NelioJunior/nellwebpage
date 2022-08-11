@@ -133,16 +133,19 @@ window.addEventListener('load', (event) => {
 	$("#btnLogin").click(function(){
 		$.ajax({
 			type: 'POST',
-			url: 'dummy.php',                                                
+			url: 'https://nellsite.herokuapp.com/dummy.php',  
+			// url: 'http://127.0.0.1/nellsite/dummy.php',   
 			error: function(result){
 				alert("erro no acesso do componente de segurança.")
 			},
+			crossDomain: true, 
 			data: { nellUsuario: $("#usrname").val(), nellSenha: $("#psw").val() } ,
-			success: function(data){				
+			success: function(data){	
+				alert("navbar")
 				if (data == ""){
 					alert("usuário ou senha inválida");					
 				} else {				
-					openWindowWithPost("redirect.php", data);					
+					openWindowWithPost("https://nellsite.herokuapp.com/redirect.php", data);					
 				}				
 			}
 		});
