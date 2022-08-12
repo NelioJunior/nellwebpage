@@ -133,9 +133,9 @@ window.addEventListener('load', (event) => {
 	$("#btnLogin").click(function(){
 
 	    $.ajax({
-	        method: "GET",
+	        method: "POST",
 	        data: { nellUsuario: $("#usrname").val(), nellSenha: $("#psw").val() },
-	        url: "https://nellsite.herokuapp.com/createurl.php", 
+	        url: "https://nellsite.herokuapp.com/dummy.php", 
 
 			error: function(result){
 				alert("erro no acesso do componente de segurança.")
