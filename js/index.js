@@ -129,8 +129,30 @@ window.addEventListener('load', (event) => {
 
 	});
 
-		
+    
 	$("#btnLogin").click(function(){
+
+	    $.ajax({
+	        method: "GET",
+	        data: { nellUsuario: $("#usrname").val(), nellSenha: $("#psw").val() },
+	        url: "https://nellsite.herokuapp.com/createurl.php", 
+
+			error: function(result){
+				alert("erro no acesso do componente de segurança.")
+			},		
+			success: function(data){
+				if (data == ""){
+					alert("usuário ou senha inválida");					
+				} else {				
+					openWindowWithPost("https://nellsite.herokuapp.com/redirect.php", data.location);					
+				}	
+	        },
+	        dataType: "jsonp",
+	    });
+		
+		
+		return;
+		
 		$.ajax({
 			type: 'POST',
 			url: 'https://nellsite.herokuapp.com/dummy.php',  
