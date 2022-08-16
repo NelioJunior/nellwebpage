@@ -157,21 +157,19 @@ window.addEventListener('load', (event) => {
 		$("#FrmContato #wait").show();
 		$("#FrmContato #resposta").hide();
 		$.ajax({
-			type: 'POST',
-			url: 'sendLocal.php',
+			type: 'GET',				
+			url: 'https://nellsite.herokuapp.com/sendmail.php?'+$(this).serialize() ,	       
+			// url: 'http://localhost/nellsite/sendemails.php',	
 			error: function(result){
 				$("#FrmContato #wait").hide(); 
-				$("#FrmContato #resposta").show();
-				$("#FrmContato #resposta").slideDown();
-				$("#FrmContato #resposta").html(result);
+				$("#FrmContato #resposta").html("Ocorreu um erro no componente de envio de email, por favor tente mais tarde ou entre em contato pelo telefone que se encontra em nosso site.");
 			},
 			crossDomain: true, 
-			data: $(this).serialize(),
 			success: function(data){
 				$("#FrmContato #wait").hide(); 
 				$("#FrmContato #resposta").show();
 				$("#FrmContato #resposta").slideDown();
-				$("#FrmContato #resposta").html(data);
+				$("#FrmContato #resposta").html(data.resposta);
 			}
 		})
 	})
