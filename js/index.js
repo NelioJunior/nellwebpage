@@ -169,7 +169,7 @@ window.addEventListener('load', (event) => {
 				$("#FrmContato #wait").hide(); 
 				$("#FrmContato #resposta").show();
 				$("#FrmContato #resposta").slideDown();
-				$("#FrmContato #resposta").html(data.resposta);
+				$("#FrmContato #resposta").html(data);
 			}
 		})
 	})
