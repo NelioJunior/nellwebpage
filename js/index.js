@@ -162,13 +162,13 @@ window.addEventListener('load', (event) => {
 			// url: 'http://localhost/nellsite/sendemails.php',	
 			error: function(result){
 				$("#FrmContato #wait").hide(); 
-				$("#FrmContato #resposta").html("Ocorreu um erro no componente de envio de email, por favor tente mais tarde ou entre em contato pelo telefone que se encontra em nosso site.");
+				$("#FrmContato #resposta").show();
+				$("#FrmContato #resposta").html("Erro no envio de email.Por favor entre em contato pelo telefone que se encontra em nosso site.");
 			},
 			crossDomain: true, 
 			success: function(data){
 				$("#FrmContato #wait").hide(); 
 				$("#FrmContato #resposta").show();
-				$("#FrmContato #resposta").slideDown();
 				$("#FrmContato #resposta").html(data);
 			}
 		})
