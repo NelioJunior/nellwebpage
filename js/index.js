@@ -168,8 +168,10 @@ window.addEventListener('load', (event) => {
 		$.ajax({
 			type: 'POST',				
 			url: 'https://nell-api-send-email.herokuapp.com/',	
+			contentType: "application/json",
+			dataType: "json",
 			crossDomain: true, 
-			data: jsonData, 
+			data:  JSON.stringify(jsonData), 
 			error: function(result){
 				$("#FrmContato #wait").hide(); 
 				$("#FrmContato #resposta").show();
@@ -180,7 +182,6 @@ window.addEventListener('load', (event) => {
 				$("#FrmContato #resposta").show();
 				$("#FrmContato #resposta").html(data);
 			}, 
-			dataType: "json",
 		})
 	})
 
