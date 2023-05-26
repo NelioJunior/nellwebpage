@@ -144,7 +144,7 @@ window.addEventListener('load', (event) => {
 				if (data == ""){
 					alert("usuário ou senha inválida");					
 				} else {				
-					openWindowWithPost("https://nellsite.herokuapp.com/redirect.php", data.location);					
+					openWindowWithPost("http://nelltek.ddns.net//nellSite/redirect.php", data.location);					
 				}	
 	        },
 	        dataType: "jsonp",
