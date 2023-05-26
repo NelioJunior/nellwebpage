@@ -135,7 +135,7 @@ window.addEventListener('load', (event) => {
 	    $.ajax({
 	        method: "GET",
 	        data: { nellUsuario: $("#usrname").val(), nellSenha: $("#psw").val() },
-	        url: "https://nellsite.herokuapp.com/dummy.php", 			
+	        url: "http:nelltek.ddns.net/nellSite/dummy.php", 			
 
 			error: function(result){
 				alert("erro no acesso do componente de segurança.")
@@ -144,7 +144,7 @@ window.addEventListener('load', (event) => {
 				if (data == ""){
 					alert("usuário ou senha inválida");					
 				} else {				
-					openWindowWithPost("http://nelltek.ddns.net//nellSite/redirect.php", data.location);					
+					openWindowWithPost("http://nelltek.ddns.net/nellSite/redirect.php", data.location);					
 				}	
 	        },
 	        dataType: "jsonp",
