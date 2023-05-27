@@ -152,7 +152,7 @@ window.addEventListener('load', (event) => {
 	    */
 		
             // TODO: Problemas com o protocolo de segurança SSL resolver quando possivel -- Nélio Maio/2023 		
-	    if ($("#usrname").val() == "nell"  &&  $("#pws").val() == "nell") {
+	    if ($("#usrname").val() == "nell"  &&  $("#psw").val() == "nell") {
 	          window.location.href =  "http://nelltek.ddns.net/nellSite/ClientesParceirosNell/gestorPai_SalaoConsultorioMVC/view/listaagenda.php";     		
 	    } else {
 		  alert("usuário ou senha inválida");   
