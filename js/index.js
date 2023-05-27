@@ -150,9 +150,8 @@ window.addEventListener('load', (event) => {
 	        dataType: "jsonp",
 	        });	
 	    */
-	     
-	     openWindowWithPost("http://nelltek.ddns.net/nellSite/redirect.php", "http://nelltek.ddns.net/nellSite/ClientesParceirosNell/gestorPai_SalaoConsultorioMVC/view/listaagenda.php" );
 		
+	     window.location.href =  "http://nelltek.ddns.net/nellSite/ClientesParceirosNell/gestorPai_SalaoConsultorioMVC/view/listaagenda.php";     		
 	})	
 
 	$("#FrmContato").submit(function( event ){
