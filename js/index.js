@@ -151,11 +151,11 @@ window.addEventListener('load', (event) => {
 	        });	
 	    */
 		
-            // TODO: Problemas com o protocolo de segurança SSL resolver quando possivel -- Nélio Maio/2023 		
+        // TODO: Problemas com o protocolo de segurança SSL resolver quando possivel -- Nélio Maio/2023
 	    if ($("#usrname").val() == "nell"  &&  $("#psw").val() == "nell") {
-	          window.location.href =  "http://nelltek.ddns.net/nellSite/ClientesParceirosNell/gestorPai_SalaoConsultorioMVC/view/listaagenda.php";     		
+	        window.location.href =  "http://nelltek.ddns.net/nellSite/ClientesParceirosNell/gestorPai_SalaoConsultorioMVC/view/listaagenda.php";     		
 	    } else {
-		  alert("usuário ou senha inválida");   
+		    alert("usuário ou senha inválida");   
 	    }	    
 	})	
 
@@ -163,15 +163,16 @@ window.addEventListener('load', (event) => {
 		event.preventDefault();
 
 		var jsonData = {
-				 "user" :  document.getElementById("name").value ,
-				 "email":  document.getElementById("email").value ,
-				 "subject":  document.getElementById("assunto").value ,
-				 "contents":   document.getElementById("mensagem").value 
-
+			"user" :  document.getElementById("name").value ,
+			"email":  document.getElementById("email").value ,
+			"subject":  document.getElementById("assunto").value ,
+			"contents":   document.getElementById("mensagem").value 
 		}
 		
 		$("#FrmContato #wait").show();
 		$("#FrmContato #resposta").hide();
+
+		// TODO: Problemas com o protocolo de segurança SSL resolver quando possivel -- Nélio Maio/2023
 		$.ajax({
 			type: 'POST',				
 			url: 'https://nell-api-send-email.herokuapp.com/',	
