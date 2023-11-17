@@ -1,3 +1,15 @@
+.modal-header, close {
+	background-color: #337CBB;
+	color:white !important;
+	text-align: center;
+	font-size: 30px;
+	border-radius: 5px 5px 0px 0px;
+}			
+		
+.modal-header > h4 {
+	color:white !important;
+}
+
 
 .chatbot-toggler {
   position: fixed;

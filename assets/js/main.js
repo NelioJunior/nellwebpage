@@ -1,10 +1,11 @@
-/**
-* Template Name: Impact
-* Updated: Sep 18 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
+function openLink() {
+  // Obtenha o elemento link
+  var link = "http://nelltek.ddns.net/nellSite/ClientesParceirosNell/gestorPai_SalaoConsultorioMVC/view/listaagenda.php";
+  // Abra o link na mesma aba
+  window.location.href = link;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
 
@@ -289,5 +290,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', () => {
     aos_init();
   });
-
+  
 });

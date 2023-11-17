@@ -31,7 +31,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
   <script src="script.js" defer></script>
 
-
 </head>
 
 <body>
@@ -67,7 +66,9 @@
           <li><a href="#services">Serviço</a></li>
           <li><a href="#portfolio">Portfólio</a></li>
           <li><a href="#team">Equipe</a></li>
-          <li><a href="#">Login</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</a>
+          </li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -768,6 +769,37 @@
     </div>
   </div>
 
+	<div class="modal fade" id="modalLogin" role="dialog">
+			<div class="modal-dialog">
+
+				<div class="modal-content">
+					<div class="modal-header" style="padding:35px 50px;">
+					  <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+					</div>
+					<div class="modal-body" style="padding:40px 50px;">
+					  <form role="form">
+						<div class="form-group">
+						  <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+						  <input type="text" class="form-control" id="usrname" placeholder="Enter user login">
+						</div>
+						<div class="form-group">
+						  <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Senha</label>
+						  <input type="password" autocomplete class="form-control" id="psw" placeholder="Entre com a senha">
+						</div>
+						<div class="checkbox">
+						  <label><input type="checkbox" value="" checked>Remember me</label>
+						</div>
+					  </form>
+					</div>
+					<div class="modal-footer">
+					  <input type="button" id = "btnLogin" class="btn btn-success btn-block" onclick="openLink()" value="Login"> 
+					</div>
+				</div>			  
+			</div>
+		</div>		
+
+
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
@@ -838,6 +870,12 @@
 
   </footer><!-- End Footer -->
   <!-- End Footer -->
+
+
+
+
+
+  
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
