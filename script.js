@@ -24,7 +24,7 @@ const createChatLi = (message, className) => {
 function callAPI(chatbox) {
     const outgoing_lst = chatbox.querySelectorAll(".outgoing");
     const last_user_msg = outgoing_lst[outgoing_lst.length-1].innerText;
-    const url = ngrok_link;
+    const url = ngrok_link.trim()+"question";
     
     fetch(url, {
         method: "POST",
