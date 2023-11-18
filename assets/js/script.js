@@ -42,7 +42,7 @@ function callAPI(chatbox) {
         last_bot_message.innerText = result['answer']
     })
     .catch(error => {
-         console.log("passei em erro");
+         alert("problemas no acesso a API da IA");
     });
 
 }
