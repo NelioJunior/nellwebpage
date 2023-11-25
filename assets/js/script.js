@@ -24,7 +24,7 @@ const createChatLi = (message, className) => {
 function callAPI(chatbox) {
     const outgoing_lst = chatbox.querySelectorAll(".outgoing");
     const last_user_msg = outgoing_lst[outgoing_lst.length-1].innerText;
-    const url = ngrok_link.trim()+"question";
+    const url = ngrok_link.trim()+"/question";
     
     fetch(url, {
         method: "POST",
@@ -83,11 +83,21 @@ chatInput.addEventListener("keydown", (e) => {
 
 sendChatBtn.addEventListener("click", handleChat);
 closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
-chatbotToggler.addEventListener("click", () => {
-   if (ngrok_link == "") {
-       ngrok_link = prompt("Digite com o subdominio ngrok:");    
-   } else {
-        document.body.classList.toggle("show-chatbot");       
-   }  
+chatbotToggler.addEventListener("click", () => {document.body.classList.toggle("show-chatbot")});
 
-});
+getNgrokLink = () => {  
+    fetch("http://nelltek.ddns.net:5000/getngroklink", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    .then(response => response.text())
+    .then(result => {
+       ngrok_link = result
+    })
+};
+
+setTimeout( () =>  { 
+   getNgrokLink() 
+}, 1000)
