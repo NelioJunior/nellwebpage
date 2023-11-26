@@ -1,9 +1,48 @@
+function openWindowWithPost(url, data) {
+  var form = document.createElement("form");
+  form.target = "_parent";
+  form.method = "POST";
+  form.action = url;
+  form.style.display = "none";
+
+  var input = document.createElement("input");
+  input.type = "hidden";
+  input.name = "pathUrl";
+  input.value = data;
+  form.appendChild(input);
+
+  document.body.appendChild(form);
+  form.submit();
+  document.body.removeChild(form);
+}
+
+
 
 function openLink() {
-  // Obtenha o elemento link
-  var link = "http://nelltek.ddns.net/nellSite/ClientesParceirosNell/gestorPai_SalaoConsultorioMVC/view/listaagenda.php";
-  // Abra o link na mesma aba
-  window.location.href = link;
+  var xhr = new XMLHttpRequest();
+
+  var params = "nellUsuario=" + encodeURIComponent(document.getElementById("usrname").value) +
+               "&nellSenha=" + encodeURIComponent(document.getElementById("psw").value);
+
+  xhr.open("GET", "https://nelltek.ddns.net/nellSite/dummy.php?" + params, true);
+
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+              var data =  JSON.parse(xhr.responseText.replace("(","").replace(");",""));
+
+              if (data === "") {
+                  alert("Usuário ou senha inválida");
+              } else {
+                  openWindowWithPost("https://nelltek.ddns.net/nellSite/redirect.php", data.location);
+              }
+          } else {
+              alert("Erro no acesso do componente de segurança.");
+          }
+      }
+  };
+
+  xhr.send();  
 }
 
 document.addEventListener('DOMContentLoaded', () => {
