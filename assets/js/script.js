@@ -86,16 +86,25 @@ closeBtn.addEventListener("click", () => document.body.classList.remove("show-ch
 chatbotToggler.addEventListener("click", () => {document.body.classList.toggle("show-chatbot")});
 
 getNgrokLink = () => {  
-    fetch("http://nelltek.ddns.net:5000/getngroklink", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-    .then(response => response.text())
-    .then(result => {
-       ngrok_link = result
-    })
+   const url = 'https://nelltek.ddns.net/nellSite/getngroklink.php';
+
+  fetch(url, {
+	  method: 'GET',
+	  mode: 'cors', 
+  })
+  .then(response => {
+		if (!response.ok) {
+		  throw new Error(`Erro de rede: ${response.status}`);
+		}
+		return response.text(); 
+  })
+  .then(data => {
+		ngrok_link = data; 
+  })
+  .catch(error => {
+	console.error('Erro durante a solicitação:', error);
+  });
+
 };
 
 setTimeout( () =>  { 
