@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<body>
+    <h1>Main Content</h1>
+
+    <script>
+        setTimeout(function() {
+            // Obtendo a referência para o iframe
+            var iframe = parent.document.getElementById('nelltekIframe');
+
+            // Enviando uma mensagem para o iframe
+            iframe.contentWindow.postMessage('https://www.google.com', '*');
+        }, 3000);
+    </script>
+</body>
+</html>

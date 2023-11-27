@@ -1,23 +1,3 @@
-function openWindowWithPost(url, data) {
-  var form = document.createElement("form");
-  form.target = "_parent";
-  form.method = "POST";
-  form.action = url;
-  form.style.display = "none";
-
-  var input = document.createElement("input");
-  input.type = "hidden";
-  input.name = "pathUrl";
-  input.value = data;
-  form.appendChild(input);
-
-  document.body.appendChild(form);
-  form.submit();
-  document.body.removeChild(form);
-}
-
-
-
 function openLink() {
   var xhr = new XMLHttpRequest();
 
@@ -34,7 +14,7 @@ function openLink() {
               if (data === "") {
                   alert("Usuário ou senha inválida");
               } else {
-                  openWindowWithPost("https://nelltek.ddns.net/nellSite/redirect.php", data.location);
+                  window.location.href = data.location; 
               }
           } else {
               alert("Erro no acesso do componente de segurança.");
