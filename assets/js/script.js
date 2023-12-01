@@ -42,7 +42,7 @@ function callAPI(chatbox) {
         last_bot_message.innerText = result['answer']
     })
     .catch(error => {
-         alert("problemas no acesso a API da IA");
+         alert("A API de comunicação com a I.A. neste momento esta em manutenção.\nTente novamente em alguns minutos, ou melhor, agende pelo nosso whatsapp com nossa equipe, para simulações customizadas para sua empresa.\nTemos certeza você irá se impressionar!");
     });
 
 }
