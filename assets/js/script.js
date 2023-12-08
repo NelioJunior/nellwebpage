@@ -4,7 +4,7 @@ const chatbox = document.querySelector(".chatbox");
 const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
 const inputInitHeight = chatInput.scrollHeight;
-var ngrok_link = ""
+var ngrok_or_aws_link = ""
 
 const createChatLi = (message, className) => {
     // Create a chat <li> element with passed message and className
@@ -24,7 +24,7 @@ const createChatLi = (message, className) => {
 function callAPI(chatbox) {
     const outgoing_lst = chatbox.querySelectorAll(".outgoing");
     const last_user_msg = outgoing_lst[outgoing_lst.length-1].innerText;
-    const url = ngrok_link.trim()+"/question";
+    const url = ngrok_or_aws_link.trim()+"/question";
     
     fetch(url, {
         method: "POST",
@@ -99,14 +99,25 @@ getNgrokLink = () => {
 		return response.text(); 
   })
   .then(data => {
-		ngrok_link = data; 
+		ngrok_or_aws_link = data; 
   })
   .catch(error => {
 	console.error('Erro durante a solicitação:', error);
   });
 
 };
-
-setTimeout( () =>  { 
-   getNgrokLink() 
-}, 1000)
+		
+const awsUrl = 'https://34.196.45.200:5000'
+fetch(awsUrl, {
+  method: 'GET',
+  mode: 'cors', 
+})
+.then(response => {
+	return response.text(); 
+})
+.then(data => {
+	ngrok_or_aws_link = awsUrl; 
+})
+.catch(error => {
+	getNgrokLink() 	
+});
