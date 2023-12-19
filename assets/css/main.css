@@ -10,61 +10,6 @@
 	color:white !important;
 }
 
-
-.chatbot-toggler {
-  z-index: 6;
-  position: fixed;
-  bottom: 14px;
-  right: 70px;
-  outline: none;
-  border: none;
-  height: 43px;
-  width: 43px;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #337EBF;
-  transition: all 0.2s ease;
-}
-
-body.show-chatbot .chatbot-toggler {
-  transform: rotate(90deg);
-}
-.chatbot-toggler span {
-  color: #fff;
-  position: absolute;
-}
-.chatbot-toggler span:last-child,
-body.show-chatbot .chatbot-toggler span:first-child  {
-  opacity: 0;
-}
-body.show-chatbot .chatbot-toggler span:last-child {
-  opacity: 1;
-}
-.chatbot {
-  z-index: 5;
-  position: fixed;
-  right: 90px;
-  bottom: 32px;
-  width: 420px;
-  background: #d9d9d9;
-  border-radius: 15px;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.5);
-  transform-origin: bottom right;
-  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
-              0 32px 64px -48px rgba(0,0,0,0.5);
-  transition: all 0.1s ease;
-}
-body.show-chatbot .chatbot {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
-}
 header h2 {
   font-size: 1.4rem;
 }
