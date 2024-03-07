@@ -1,3 +1,7 @@
+.didagent__fabio {
+    display: none; 
+}
+
 .modal-header, close {
 	background-color: #337CBB;
 	color:white !important;
