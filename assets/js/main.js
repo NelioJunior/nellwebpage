@@ -27,14 +27,18 @@ function openLink() {
 
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
-
+  
+  setTimeout(() => {
+    let element = document.evaluate("//*[contains(text(), 'welcome to agents')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
+    element.singleNodeValue.remove()
+  }, 3000);
+  
   var spanElement = document.querySelector(".didagent__fabio");
   var toggleButton = document.getElementById("toggleButton");
 
-  // Verifica se o elemento foi encontrado antes de tentar manipulá-lo
   if (spanElement && toggleButton) {      
       toggleButton.addEventListener("click", function() {
-          spanElement.style.display = (spanElement.style.display === "none") ? "block" : "none";
+          spanElement.style.display = (spanElement.style.display === "block") ? "none" : "block";
       });
   }
   

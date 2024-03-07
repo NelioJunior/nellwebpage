@@ -1,6 +1,14 @@
 .didagent__fabio {
     display: none; 
+    left: 2vw;
+    bottom: 4vh !important;    
 }
+
+.didagent__fabio__container {
+  top: -75vh;    
+  left: 39vw;
+}
+
 
 .modal-header, close {
 	background-color: #337CBB;
