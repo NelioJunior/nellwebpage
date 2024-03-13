@@ -1,3 +1,6 @@
+var enableAngelAvatar = false;  
+const lightbox = GLightbox();
+
 function openLink() {
   var xhr = new XMLHttpRequest();
 
@@ -28,20 +31,38 @@ function openLink() {
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
   
-  setTimeout(() => {
-    let element = document.evaluate("//*[contains(text(), 'welcome to agents')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
-    element.singleNodeValue.remove()
-  }, 3000);
-  
   var spanElement = document.querySelector(".didagent__fabio");
   var toggleButton = document.getElementById("toggleButton");
+  var spanInteragir = toggleButton.querySelector('span');
 
   if (spanElement && toggleButton) {      
-      toggleButton.addEventListener("click", function() {
-          spanElement.style.display = (spanElement.style.display === "block") ? "none" : "block";
-      });
+
+    toggleButton.addEventListener("click", function() {
+      if (enableAngelAvatar) {    
+        if (spanElement.style.display === "block") {
+          spanElement.style.display === "none"          
+          spanInteragir.textContent = 'interaja com Angel';      
+        } else {
+          spanElement.style.display === "block"          
+          spanInteragir.textContent = 'encerrar interação';      
+        } 
+        spanElement.style.display = (spanElement.style.display === "block") ? "none" : "block";         
+      } else {       
+        setTimeout(() => {
+          let element = document.evaluate("//*[contains(text(), 'welcome to agents')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
+          element.singleNodeValue.remove()
+          enableAngelAvatar = true                   
+        },3000);
+      }
+    });
   }
-  
+
+  lightbox.on('close', () => {
+    lightbox.destroy();
+    toggleButton.removeAttribute('href');
+    toggleButton.click();  
+  });
+
   /**
    * Preloader
    */
