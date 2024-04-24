@@ -1,6 +1,23 @@
 var enableAngelAvatar = false;  
 const lightbox = GLightbox();
 
+
+function verificarOrientacao() {
+  var fabioContainer = document.querySelector('.didagent__fabio__container');
+
+  if (window.innerHeight > window.innerWidth) {
+    // Orientação retrato
+    fabioContainer.style.position = 'fixed'; // Para manter o elemento fixo na tela
+    fabioContainer.style.top = '30px'; // Alinha o topo do elemento com o topo da janela
+    fabioContainer.style.left = '15px'; // Alinha a esquerda do elemento com a esquerda da janela
+    fabioContainer.style.height = '100vh'; // Define a altura do elemento como 100% da altura da janela
+
+    fabioContainer.style.cssText += 'max-width: 97vw !important;';
+    fabioContainer.style.cssText += 'max-height: 97vh !important;';
+  }  
+}
+
+
 function openLink() {
   var xhr = new XMLHttpRequest();
 
@@ -38,13 +55,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (spanElement && toggleButton) {      
 
     toggleButton.addEventListener("click", function() {
+      verificarOrientacao() 
+
       if (enableAngelAvatar) {    
         if (spanElement.style.display === "block") {
           spanElement.style.display === "none"          
           spanInteragir.textContent = 'interaja com Angel';      
         } else {
           spanElement.style.display === "block"          
-          spanInteragir.textContent = 'encerrar interação';      
+          spanInteragir.textContent = 'encerrar interação';               
         } 
         spanElement.style.display = (spanElement.style.display === "block") ? "none" : "block";         
       } else {       
