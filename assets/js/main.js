@@ -12,8 +12,8 @@ function verificarOrientacao() {
     fabioContainer.style.left = '15px'; // Alinha a esquerda do elemento com a esquerda da janela
     fabioContainer.style.height = '100vh'; // Define a altura do elemento como 100% da altura da janela
 
-    fabioContainer.style.cssText += 'max-width: 97vw !important;';
-    fabioContainer.style.cssText += 'max-height: 97vh !important;';
+    fabioContainer.style.cssText += 'max-width: 96vw !important;';
+    fabioContainer.style.cssText += 'max-height: 96vh !important;';
   }  
 }
 
