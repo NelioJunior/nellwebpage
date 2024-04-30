@@ -11,6 +11,9 @@
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#ffffff"
+    "theme_color": "#ffffff", 
+    "splash_screens": [
+      { "src": "/assets/img/logo2024.png", "type": "image/png", "sizes": "192x192" }
+    ]
   }
   
