@@ -1,3 +1,7 @@
+.gnext {
+    display: none !important;
+}
+
 .didagent__fabio {
     display: none; 
     left: 2vw;
@@ -1930,7 +1934,7 @@ section {
 }
 
 .hero .btn-watch-video {
-  font-size: 16px;
+  font-size: 37px;
   transition: 0.5s;
   margin-left: 1px;
   color: #fff;
@@ -1939,7 +1943,7 @@ section {
 
 .hero .btn-watch-video i {
   color: rgba(255, 255, 255, 0.5);
-  font-size: 32px;
+  font-size: 37px;
   transition: 0.3s;
   line-height: 0;
   margin-right: 8px;
@@ -2032,6 +2036,9 @@ section {
   padding: 60px 0 0 0;
 }
 
+.qrcode img {
+  width: 60%;
+}
 
 /*--------------------------------------------------------------
 # Blog

@@ -1,16 +1,27 @@
 var enableAngelAvatar = false;  
 const lightbox = GLightbox();
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(function(registration) {
+        console.log('Service Worker registrado com sucesso:', registration);
+      })
+      .catch(function(err) {
+        console.error('Erro ao registrar o Service Worker:', err);
+      });
+  });
+}
+
 function verificarOrientacao() {
   var fabioContainer = document.querySelector('.didagent__fabio__container');
 
   if (window.innerHeight > window.innerWidth) {
     fabioContainer.style.position = 'fixed';
-    fabioContainer.style.top = '30px'; 
-    fabioContainer.style.left = '15px'; 
-    fabioContainer.style.height = '100vh'; 
-    fabioContainer.style.cssText += 'max-width: 96vw !important;';
-    fabioContainer.style.cssText += 'max-height: 96vh !important;';
+    fabioContainer.style.top = '5vh'; 
+    fabioContainer.style.left = '20px'; 
+    fabioContainer.style.cssText += 'max-width: 90vw !important;';
+    fabioContainer.style.cssText += 'max-height: 90vh !important;';
   }  
 }
 
@@ -43,7 +54,7 @@ function openLink() {
 
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
-  
+ 
   var spanElement = document.querySelector(".didagent__fabio");
   var toggleButton = document.getElementById("toggleButton");
   var spanInteragir = toggleButton.querySelector('span');
