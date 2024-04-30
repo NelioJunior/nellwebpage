@@ -1,22 +1,18 @@
 var enableAngelAvatar = false;  
 const lightbox = GLightbox();
 
-
 function verificarOrientacao() {
   var fabioContainer = document.querySelector('.didagent__fabio__container');
 
   if (window.innerHeight > window.innerWidth) {
-    // Orientação retrato
-    fabioContainer.style.position = 'fixed'; // Para manter o elemento fixo na tela
-    fabioContainer.style.top = '30px'; // Alinha o topo do elemento com o topo da janela
-    fabioContainer.style.left = '15px'; // Alinha a esquerda do elemento com a esquerda da janela
-    fabioContainer.style.height = '100vh'; // Define a altura do elemento como 100% da altura da janela
-
+    fabioContainer.style.position = 'fixed';
+    fabioContainer.style.top = '30px'; 
+    fabioContainer.style.left = '15px'; 
+    fabioContainer.style.height = '100vh'; 
     fabioContainer.style.cssText += 'max-width: 96vw !important;';
     fabioContainer.style.cssText += 'max-height: 96vh !important;';
   }  
 }
-
 
 function openLink() {
   var xhr = new XMLHttpRequest();
@@ -51,6 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
   var spanElement = document.querySelector(".didagent__fabio");
   var toggleButton = document.getElementById("toggleButton");
   var spanInteragir = toggleButton.querySelector('span');
+  var qrcode = document.querySelector('.qrcode');
+  
+  if (window.innerHeight > window.innerWidth) {
+    qrcode.style.display = 'block';   
+  }  
 
   if (spanElement && toggleButton) {      
 

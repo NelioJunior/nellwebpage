@@ -572,7 +572,7 @@ section {
     padding: 10px 0;
     margin: 10px 20px;
     transition: all 0.5s ease-in-out;
-    background-color: #73a9d9
+    background-color: #73a9d9;
     border: 1px solid #347EBF;
   }
 
@@ -1932,7 +1932,7 @@ section {
 .hero .btn-watch-video {
   font-size: 16px;
   transition: 0.5s;
-  margin-left: 25px;
+  margin-left: 1px;
   color: #fff;
   font-weight: 600;
 }
@@ -2019,6 +2019,19 @@ section {
 .hero .icon-box:hover .icon {
   color: #fff;
 }
+
+
+/*--------------------------------------------------------------
+# qrcode Section
+--------------------------------------------------------------*/
+.qrcode {
+  display: none;
+  width: 100%;
+  position: relative;
+  background: var(--color-primary);
+  padding: 60px 0 0 0;
+}
+
 
 /*--------------------------------------------------------------
 # Blog
