@@ -59,7 +59,25 @@ document.addEventListener('DOMContentLoaded', () => {
   var toggleButton = document.getElementById("toggleButton");
   var spanInteragir = toggleButton.querySelector('span');
   var qrcode = document.querySelector('.qrcode');
-  
+ 
+  // Verifica se o navegador suporta a API de permissões
+  if (navigator.permissions && navigator.permissions.query) {
+    // Solicita permissão para acessar o microfone
+    navigator.permissions.query({ name: 'microphone' }).then(function(permissionStatus) {
+      // Verifica o status da permissão
+      if (permissionStatus.state === 'granted') {
+        // O usuário já concedeu permissão
+        // Execute a lógica para acessar o microfone aqui
+      } else if (permissionStatus.state === 'prompt') {
+        // A permissão ainda não foi concedida, solicite ao usuário
+        // Exiba uma mensagem ou um prompt para solicitar permissão
+      } else {
+        // O usuário negou explicitamente a permissão
+        // Forneça uma experiência alternativa ou explique ao usuário como conceder a permissão manualmente
+      }
+    });
+  }
+
   if (window.innerHeight > window.innerWidth) {
     qrcode.style.display = 'block';   
   }  
