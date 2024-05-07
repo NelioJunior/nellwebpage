@@ -1,4 +1,8 @@
+var fabioContainer;
 var enableAngelAvatar = false;  
+var shadowFound = false;
+var spanInteragir;
+var spanElement ;
 const lightbox = GLightbox();
 
 if ('serviceWorker' in navigator) {
@@ -8,21 +12,111 @@ if ('serviceWorker' in navigator) {
         console.log('Service Worker registrado com sucesso:', registration);
       })
       .catch(function(err) {
-        console.error('Erro ao registrar o Service Worker:', err);
+        console.log('Erro ao registrar o Service Worker:', err);
       });
   });
 }
 
-function verificarOrientacao() {
-  var fabioContainer = document.querySelector('.didagent__fabio__container');
+function fecharVideo() {
+  var videoContainer = document.querySelector('.video-frame');
+  videoContainer.style.display = 'none';
+  var video = document.querySelector(".video-frame video");
+  video.pause();
+  toggleButton.click(); 
+}
+
+function encontrarElementoComShadowEClasse(elemento) {
+
+  var toggleButton = document.getElementById("toggleButton");
+  var qrcode = document.querySelector('.qrcode');
 
   if (window.innerHeight > window.innerWidth) {
-    fabioContainer.style.position = 'fixed';
-    fabioContainer.style.top = '5vh'; 
-    fabioContainer.style.left = '20px'; 
-    fabioContainer.style.cssText += 'max-width: 90vw !important;';
-    fabioContainer.style.cssText += 'max-height: 90vh !important;';
+    qrcode.style.display = 'block';   
   }  
+
+  if (elemento.shadowRoot) {
+      var shadowRoot = elemento.shadowRoot;
+      fabioContainer = shadowRoot.querySelector(".didagent__fabio__container");
+      spanElement = shadowRoot.querySelector(".didagent__fabio");
+      spanElement.style.display = "none";       
+
+      agent_name = shadowRoot.querySelector(".didagent__header__name");  
+      agent_name.remove();  
+
+      if (fabioContainer) {
+        if (window.innerHeight > window.innerWidth) {
+            fabioContainer.style.position = 'fixed';
+            fabioContainer.style.top = '5vh'; 
+            fabioContainer.style.left = '20px'; 
+            fabioContainer.style.cssText += 'max-width: 90vw !important;';
+            fabioContainer.style.cssText += 'max-height: 90vh !important;';
+        } else {
+            fabioContainer.style.position = 'fixed';
+            fabioContainer.style.top = '5vh'; 
+            fabioContainer.style.left = '35vw'; 
+            fabioContainer.style.cssText += 'max-width: 100vw !important;';
+            fabioContainer.style.cssText += 'max-height: 100vh !important;';
+        } 
+      }
+
+      const videoButton = shadowRoot.querySelector('.didagent__fabio'); 
+      if (videoButton){
+          videoButton.style.left = '2vw'; 
+      }
+
+      var spanInteragir = toggleButton.querySelector('span');
+
+      if (spanElement && toggleButton) {      
+    
+        toggleButton.addEventListener("click", function() {   
+          if (enableAngelAvatar) {    
+            if (spanElement.style.display === "block") {
+              spanElement.style.display === "none"          
+              spanInteragir.textContent = 'interaja com Angel';      
+            } else {
+              spanElement.style.display === "block"          
+              spanInteragir.textContent = 'encerrar interação';               
+            } 
+            spanElement.style.display = (spanElement.style.display === "block") ? "none" : "block";         
+          } else {       
+            enableAngelAvatar = true 
+            var videoContainer = document.querySelector('.video-frame');
+            videoContainer.style.display = 'block';      
+            var video = document.querySelector(".video-frame video");
+            video.play();
+          }
+        });
+      }
+    
+      setTimeout(()=>{
+          const welcome = shadowRoot.querySelector('span .appear-animation'); 
+          if (welcome){
+              welcome.remove();
+          }
+          
+          const footer = shadowRoot.querySelector('.didagent__branding_footer'); 
+          if (footer){
+              footer.remove();
+          }
+
+      }, 2000); 
+  }
+
+  if (elemento.children && elemento.children.length > 0) {
+      for (var i = 0; i < elemento.children.length; i++) {
+          encontrarElementoComShadowEClasse(elemento.children[i]);
+          if (shadowFound) {
+              break;
+          }
+      }
+  }
+
+  lightbox.on('close', () => {
+    lightbox.destroy();
+    toggleButton.removeAttribute('href');
+    toggleButton.click();  
+  });
+
 }
 
 function openLink() {
@@ -54,63 +148,10 @@ function openLink() {
 
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
- 
-  var spanElement = document.querySelector(".didagent__fabio");
-  var toggleButton = document.getElementById("toggleButton");
-  var spanInteragir = toggleButton.querySelector('span');
-  var qrcode = document.querySelector('.qrcode');
- 
-  // Verifica se o navegador suporta a API de permissões
-  if (navigator.permissions && navigator.permissions.query) {
-    // Solicita permissão para acessar o microfone
-    navigator.permissions.query({ name: 'microphone' }).then(function(permissionStatus) {
-      // Verifica o status da permissão
-      if (permissionStatus.state === 'granted') {
-        // O usuário já concedeu permissão
-        // Execute a lógica para acessar o microfone aqui
-      } else if (permissionStatus.state === 'prompt') {
-        // A permissão ainda não foi concedida, solicite ao usuário
-        // Exiba uma mensagem ou um prompt para solicitar permissão
-      } else {
-        // O usuário negou explicitamente a permissão
-        // Forneça uma experiência alternativa ou explique ao usuário como conceder a permissão manualmente
-      }
-    });
-  }
-
-  if (window.innerHeight > window.innerWidth) {
-    qrcode.style.display = 'block';   
-  }  
-
-  if (spanElement && toggleButton) {      
-
-    toggleButton.addEventListener("click", function() {
-      verificarOrientacao() 
-
-      if (enableAngelAvatar) {    
-        if (spanElement.style.display === "block") {
-          spanElement.style.display === "none"          
-          spanInteragir.textContent = 'interaja com Angel';      
-        } else {
-          spanElement.style.display === "block"          
-          spanInteragir.textContent = 'encerrar interação';               
-        } 
-        spanElement.style.display = (spanElement.style.display === "block") ? "none" : "block";         
-      } else {       
-        setTimeout(() => {
-          let element = document.evaluate("//*[contains(text(), 'welcome to agents')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
-          element.singleNodeValue.remove()
-          enableAngelAvatar = true                   
-        },3000);
-      }
-    });
-  }
-
-  lightbox.on('close', () => {
-    lightbox.destroy();
-    toggleButton.removeAttribute('href');
-    toggleButton.click();  
-  });
+  
+  setTimeout(()=>{
+    encontrarElementoComShadowEClasse(document.documentElement);
+  }, 500); 
 
   /**
    * Preloader
@@ -184,7 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function mobileNavToogle() {
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavShow.classList.toggle('d-none');
-    mobileNavHide.classList.toggle('d-none');
   }
 
   /**

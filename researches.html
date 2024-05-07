@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação de Estilo com JavaScript</title>
+
+    <style>
+        #video_link_txt {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin: 10px;
+            width: 800px; /* Largura da caixa de texto */
+            height: 150px; /* Altura da caixa de texto */
+            resize: none; /* Impede o redimensionamento da caixa de texto */            
+        }
+    </style>
+
+</head>
+<body>
+
+    <textarea id="video_link_txt" name="texto" rows="4" cols="50"></textarea>
+
+<script 
+    type="module"
+    src="https://agent.d-id.com/v1/index.js"
+    data-name="did-agent"
+    data-mode="fabio"
+    data-client-key="Z29vZ2xlLW9hdXRoMnwxMDg2MTA3NjE5NjE0NzA0ODkwNzQ6cGo2eEVtQ3JqNE1jWmU1SmRPTUJH"
+    data-agent-id="agt_FeAuhv_s">
+</script>
+
+<script>
+    let shadowFound = false;
+    let videoLnk = "";
+
+    function encontrarElementoComShadowEClasse(elemento) {
+        if (elemento.shadowRoot) {
+            var shadowRoot = elemento.shadowRoot;
+            var fabioContainer = shadowRoot.querySelector(".didagent__fabio__container");
+
+            if (fabioContainer) {
+                if (window.innerHeight > window.innerWidth) {
+                    fabioContainer.style.position = 'fixed';
+                    fabioContainer.style.top = '5vh'; 
+                    fabioContainer.style.left = '20px'; 
+                    fabioContainer.style.cssText += 'max-width: 90vw !important;';
+                    fabioContainer.style.cssText += 'max-height: 90vh !important;';
+                } else {
+                    fabioContainer.style.position = 'fixed';
+                    fabioContainer.style.top = '5vh'; 
+                    fabioContainer.style.left = '35vw'; 
+                    fabioContainer.style.cssText += 'max-width: 100vw !important;';
+                    fabioContainer.style.cssText += 'max-height: 100vh !important;';
+                } 
+            }
+
+            const videoButton = shadowRoot.querySelector('.didagent__fabio'); 
+            if (videoButton){
+                videoButton.style.left = '2vw'; 
+            }
+
+            setTimeout(()=>{
+                const welcome = shadowRoot.querySelector('span .appear-animation'); 
+                if (welcome){
+                    welcome.remove();
+                }
+                
+                const footer = shadowRoot.querySelector('.didagent__branding_footer'); 
+                if (footer){
+                    footer.remove();
+                }
+
+                //Abaixo, obten  os links dos videos do avatar - 03 Abril 2024 - Nell Jr 
+
+                setInterval(() => {
+                    var divVideoContainer = shadowRoot.querySelector(".didagent__embedded__video__container");
+
+                    if (divVideoContainer) {
+
+                        var videos = divVideoContainer.querySelectorAll("video");
+                        var srcDoVideo = videos[1].getAttribute("src");
+                        var caixaDeTexto = document.getElementById("video_link_txt");
+
+                        if (srcDoVideo){
+                            if (videoLnk != srcDoVideo) {
+                                videoLnk = srcDoVideo;
+
+                                if (caixaDeTexto.value === "") {
+                                    caixaDeTexto.value = srcDoVideo;
+                                } else {
+                                    caixaDeTexto.value += "\n" + srcDoVideo;
+                                }                        
+                            }
+                        }
+                    } else {
+                        alert("A div com a classe .didagent__embedded__video__container não foi encontrada.");
+                    }
+                }, 1000);
+
+            }, 2000); 
+        }
+
+        if (elemento.children && elemento.children.length > 0) {
+            for (var i = 0; i < elemento.children.length; i++) {
+                encontrarElementoComShadowEClasse(elemento.children[i]);
+                if (shadowFound) {
+                    break;
+                }
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(()=>{
+            encontrarElementoComShadowEClasse(document.documentElement);
+        }, 500); 
+    })
+
+</script>
+
+</body>
+</html>
