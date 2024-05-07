@@ -84,6 +84,11 @@ function encontrarElementoComShadowEClasse(elemento) {
             videoContainer.style.display = 'block';      
             var video = document.querySelector(".video-frame video");
             video.play();
+
+            video.addEventListener("ended", function() {
+              fecharVideo()
+            });
+            
           }
         });
       }
