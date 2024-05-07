@@ -830,6 +830,7 @@ section {
 --------------------------------------------------------------*/
 .clients {
   padding: 40px 0;
+  height: 380px;
 }
 
 .clients .swiper {
