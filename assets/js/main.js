@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   setTimeout(()=>{
     encontrarElementoComShadowEClasse(document.documentElement);
-  }, 500); 
+  }, 2000); 
 
   /**
    * Preloader
