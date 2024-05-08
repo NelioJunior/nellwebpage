@@ -28,11 +28,6 @@ function fecharVideo() {
 function encontrarElementoComShadowEClasse(elemento) {
 
   var toggleButton = document.getElementById("toggleButton");
-  var qrcode = document.querySelector('.qrcode');
-
-  if (window.innerHeight > window.innerWidth) {
-    qrcode.style.display = 'block';   
-  }  
 
   if (elemento.shadowRoot) {
       var shadowRoot = elemento.shadowRoot;
@@ -156,7 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
   setTimeout(()=>{
     encontrarElementoComShadowEClasse(document.documentElement);
-  }, 2000); 
+  }, 1000); 
+
+  var qrcode = document.querySelector('.qrcode');
+
+  if (window.innerHeight > window.innerWidth) {
+    qrcode.style.display = 'block';   
+  }  
 
   /**
    * Preloader
