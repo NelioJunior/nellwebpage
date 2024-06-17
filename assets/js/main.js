@@ -125,7 +125,7 @@ function openLink() {
   var params = "nellUsuario=" + encodeURIComponent(document.getElementById("usrname").value) +
                "&nellSenha=" + encodeURIComponent(document.getElementById("psw").value);
 
-  xhr.open("GET", "https://nelltek.ddns.net/nellSite/dummy.php?" + params, true);
+  xhr.open("GET", "https://iaeiot.com.br/nellSite/dummy.php?" + params, true);
 
   xhr.onreadystatechange = function () {
       if (xhr.readyState == 4) {
