@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura dos elementos */
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    flex-wrap: nowrap; /* Impede que as colunas quebrem para baixo */
+    width: 100%;
+}
+
+/* Coluna da esquerda */
+.left-column {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    width: 30%;
+    min-width: 300px; 
+    max-width: 300px;
+
+}
+
+.left-column img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 5px solid #7ED957;
+    float: left;
+    margin-right: 20px;
+}
+
+.left-column video {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #7ED957;
+}
+
+
+.left-column h1 {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.left-column h2 {
+    font-size: 1.2em;
+    color: #7ED957;
+    margin-bottom: 20px;
+}
+
+.left-column h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.left-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.left-column li {
+    margin-bottom: 5px;
+}
+
+/* Coluna da direita */
+.right-column {
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    width: 70%;
+    min-width: 500px; /* Evita que a coluna direita quebre muito cedo */
+}
+
+.cursos-container {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    justify-content: space-between; /* Mantém espaço entre os elementos */
+    flex-wrap: wrap; /* Garante adaptação em telas menores */
+    width: 100%;
+}
+
+.right-header  {
+   display: flex;
+}
+
+.qrcode-container {
+    top: 20px;
+    position: relative;
+    margin-left: 50%;
+}
+
+.qrcode {
+    width: 200px;
+    height: 200px;
+}
+
+.right-column h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.right-column ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.right-column li {
+    margin-bottom: 10px;
+}
+
+.right-column h4 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-wrap: wrap; /* Permite que as colunas fiquem uma abaixo da outra */
+    }
+
+    .left-column, .right-column {
+        width: 100%;
+        min-width: auto; /* Remove limites mínimos para melhor adaptação */
+    }
+
+    .left-column img {
+        float: none;
+        display: block;
+        margin: 0 auto 20px; /* Centraliza a imagem */
+    }
+
+    .left-column h1, .left-column h2 {
+        text-align: center;
+    }
+}
+
+.startupContent {
+      font-size: 14px;
+    
+}
+
+
+
+
+
