@@ -11,6 +11,15 @@ body {
     line-height: 1.6;
 }
 
+.left-column h4 {
+    color: #7ED957;
+}
+
+section {
+    text-align: justify;
+    margin: 0 auto; /* Centraliza o bloco na página */
+    font-family: Arial, sans-serif;    
+}
 
 /* Container principal */
 .container {
@@ -29,8 +38,6 @@ body {
 }
 
 .left-column img {
-    width: 150px;
-    height: 150px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
@@ -40,6 +47,8 @@ body {
 }
 
 .left-column video {
+    width: 210px;
+    height: 210x;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid #7ED957;
@@ -101,7 +110,11 @@ right-detail {
     align-items: center; /* Alinha verticalmente */
     justify-content: space-between; /* Mantém espaço entre os elementos */
     flex-wrap: wrap; /* Garante adaptação em telas menores */
-    width: 100%;
+    width: 100%;   
+}
+
+#cursos{
+    margin-left: 0px;
 }
 
 .right-header  {
