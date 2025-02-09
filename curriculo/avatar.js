@@ -5,18 +5,13 @@ let srcObject
 let isRecording = false;
 let flagFail = false;
 
-
 const agentId = "agt_e0QFzXSp"  
 const auth = { type: 'key', clientKey: "Z29vZ2xlLW9hdXRoMnwxMDg2MTA3NjE5NjE0NzA0ODkwNzQ6cGo2eEVtQ3JqNE1jWmU1SmRPTUJH" };
-
-/*
-const agentId = "agt_e0QFzXSp"  
-const auth = { type: 'key', clientKey: "bGlua2VkaW58VDU3RU00a3hsTjp0RVpSSFBGVno0c1dJVDlfV0d2cmI=" };
-*/
 
 const microphone = document.getElementById("microphone");
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 let  recognition = null;
+let spokenText = "";
 
 if (SpeechRecognition) {
     recognition = new SpeechRecognition();
@@ -107,24 +102,10 @@ function timeDisplay() {
 let agentManager = await sdk.createAgentManager(agentId, { auth, callbacks, streamOptions });    
 agentManager.connect()    
 
-const createChatLi = (message, className) => {
-    const chatLi = document.createElement("li");
-    chatLi.classList.add("chat", `${className}`);
-
-    let chatContent = "<p></p>";
-    
-    chatLi.innerHTML = chatContent;
-
-    if (message === "image"){
-        chatLi.querySelector("p").innerHTML = "<div class='thinking-div'><img class='thinking-image' src='./images/typing.gif'></div>";
-    } else {
-        chatLi.querySelector("p").textContent = message;
-    }
-    return chatLi;
-}
-
 function callResumeChat (last_user_msg) {
-    const urlApi = "http://localhost:8000/interactive_resume";
+    const urlApi = "./redirect.php";  
+
+    spokenText = "";
 
     fetch(urlApi, {
         method: "POST",
@@ -146,70 +127,27 @@ function callResumeChat (last_user_msg) {
         
     })
     .catch(error => {
-        console.log("Ocorreu um erro na resposta do avatar")
+        let speak = agentManager.speak({
+            type: "text",
+            input: "Ocorreu um erro na A P I de resposta do avatar"
+        });
+
     });
 }
 
-// Deixado aqui so pra estudar, apagar quando possivel - Nell Junior - Fev/2025
-function callChat (chatbox) {
-    const urlApi = "./redirect.php";    
-    const outgoing_lst = chatbox.querySelectorAll(".outgoing");
-    const last_user_msg = outgoing_lst[outgoing_lst.length-1].innerText;
-
-    try {
-        fetch(urlApi, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                saleTransaction: saleTransaction,
-                shopProducts: prodLst,
-                shoppingCartProducts: shoppingCart  
-            }),
-        })
-        .then(response => response.json())
-        .then(result => {
-            const incoming_lst = chatbox.querySelectorAll(".chat.incoming");
-            const last_bot_message = incoming_lst[incoming_lst.length-1].querySelector('p');
-            
-            microphoneOff(); 
-    
-            alert(result["response"]);
-
-    
-            let speak = agentManager.speak({
-                type: "text",
-                input: saleTransaction["seller_message"]
-            });
-    
-        })
-        .catch(error => {
-            microphoneOff();
-            agentManager.connect()        
-        });
-    
-    } catch (error) {
-        microphoneOff();
-        agentManager.connect()            
-    } 
-
-    saleTransaction["products_found_and_quantity"] = [];
-}
-
 const handleChat = () => {
-
-    microphoneOff();
-
-    callResumeChat ("Porque voce acha que devemos te contratar?")        
-        
+    microphoneOff();       
 }
 
 function microphoneOff() {
     if (SpeechRecognition) {
         recognition.stop();
         isRecording = false;
-        microphone.src = "./microphone.png"; 
+
+        microphone.src = "./microphone.png";
+        microphone.style.marginRight = "0px"
+        microphone.style.width = "180px";
+
     }      
 } 
 
@@ -223,23 +161,30 @@ if (!SpeechRecognition) {
     microphone.addEventListener("click", () => {
         try {
             if (isRecording) {
-              isRecording = false;  
+              microphoneOff()
+
+                setTimeout(() => {
+                   if (spokenText) {
+                       callResumeChat(spokenText);                           
+                   }  
+                },500);         
+
             } else {
               isRecording = true;    
               recognition.start();
+               
+              microphone.style.width = "120px"; 
+              microphone.style.marginRight = "20px"  
               microphone.src = "./microphone.gif";
+
             }
         } catch {
             microphoneOff();
-        }      
+        }          
     });
     
     recognition.addEventListener("result", (event) => {
-        const transcript = Array.from(event.results)
-          .map(result => result[0])
-          .map(result => result.transcript)
-          .join('');
-        
+        spokenText = Array.from(event.results).map(result => result[0]).map(result => result.transcript).join('');
     });
     
     recognition.addEventListener("end", () => {
@@ -253,5 +198,3 @@ if (!SpeechRecognition) {
         microphoneOff()
     });   
 }
-
-microphone.addEventListener("click", handleChat);
