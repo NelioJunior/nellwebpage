@@ -1,9 +1,7 @@
 <?php
     $response = array();
     $response['response'] = "";
-    // $url = 'http://raspnellzero2w.local:8000/interactive_resume';
-
-    $url = 'http://localhost:8000/interactive_resume';
+    $url = 'http://raspnellzero2w.local:8000/interactive_resume';
 
     $payload = file_get_contents('php://input');
     
