@@ -410,7 +410,7 @@ function Ee(e) {
           }])
         })
       };
-      // return fetch("https://api-js.mixpanel.com/track/?verbose=1&ip=1", l).then((d) => d.json()).catch((d) => console.error(d));
+      return fetch("https://api-js.mixpanel.com/track/?verbose=1&ip=1", l).then((d) => d.json()).catch((d) => console.error(d));
     },
     linkTrack(t, r, i, o) {
       U[t] || (U[t] = {

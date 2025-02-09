@@ -1,4 +1,4 @@
-import * as sdk from './avatar/index.js';
+import * as sdk from './libs/index.js';
 
 let videoElement = document.querySelector("#videoElement")
 let srcObject
@@ -6,9 +6,13 @@ let isRecording = false;
 let flagFail = false;
 
 
-const agentId = "agt_P6nahKZ8"  
+const agentId = "agt_e0QFzXSp"  
 const auth = { type: 'key', clientKey: "Z29vZ2xlLW9hdXRoMnwxMDg2MTA3NjE5NjE0NzA0ODkwNzQ6cGo2eEVtQ3JqNE1jWmU1SmRPTUJH" };
 
+/*
+const agentId = "agt_e0QFzXSp"  
+const auth = { type: 'key', clientKey: "bGlua2VkaW58VDU3RU00a3hsTjp0RVpSSFBGVno0c1dJVDlfV0d2cmI=" };
+*/
 
 const microphone = document.getElementById("microphone");
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -197,7 +201,7 @@ const handleChat = () => {
 
     microphoneOff();
 
-    callResumeChat ("Qual seu nome?")        
+    callResumeChat ("Porque voce acha que devemos te contratar?")        
         
 }
 
@@ -249,6 +253,5 @@ if (!SpeechRecognition) {
         microphoneOff()
     });   
 }
-
 
 microphone.addEventListener("click", handleChat);
