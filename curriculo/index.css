@@ -15,6 +15,20 @@ body {
     color: #7ED957;
 }
 
+.microphone-fixed-image {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 180px;
+    height: 140px;
+    margin: 0 0 50px 0;
+}
+
+.microphone-fixed-image:hover {
+    transform: scale(1.1); /* Aumenta a imagem em 10% quando o mouse passa por cima */
+    cursor: pointer; /* Muda o cursor para a mãozinha */
+}
+
 section {
     text-align: justify;
     margin: 0 auto; /* Centraliza o bloco na página */

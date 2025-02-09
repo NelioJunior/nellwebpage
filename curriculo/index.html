@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <script src="./index.js"></script>
+    <script type="module" src="./avatar.js"></script>
 
     <div class="container">
         <aside class="left-column">
             
             <center>
-                <video src="nell.mp4" autoplay loop muted playsinline></video>
+                <video id="videoElement" src="nell.mp4" autoplay loop muted playsinline></video>
                 <h1>Nell Júnior</h1>
                 <h2>AI developer <br> "Startapeiro"</h2>
             </center>     
@@ -152,6 +152,8 @@
             </div>    
         </main>
     </div>
+
+    <img id="microphone" src="microphone.png" alt="Microphone" class="microphone-fixed-image">
 
 </body>
 </html>
