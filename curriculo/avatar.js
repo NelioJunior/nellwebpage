@@ -103,7 +103,7 @@ let agentManager = await sdk.createAgentManager(agentId, { auth, callbacks, stre
 agentManager.connect()    
 
 function callResumeChat (last_user_msg) {
-    const urlApi = "./redirect.php";  
+    const urlApi = "https://nelltek.ddns.me/resume/";  
 
     spokenText = "";
 
