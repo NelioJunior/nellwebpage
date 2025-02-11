@@ -43,7 +43,6 @@ const callbacks = {
     onVideoStateChange(state) {
       if (state == "STOP") {
             videoElement.srcObject = undefined;    
-            // videoElement.src = agentManager.agent.presenter.idle_video;  
             videoElement.src = "./nell.mp4";   
       }
       else {
@@ -68,19 +67,6 @@ const callbacks = {
 }
 
 let streamOptions = { compatibilityMode: "auto", streamWarmup: true }
-
-async function speak(message) {
-    let inputText = message;
-    
-    microphoneOff();
-    
-    if (inputText !== "" && inputText.length > 2) {
-        let speak = agentManager.speak({
-            type: "text",
-            input: message
-        });
-    }
-}
 
 function reconnect() {
     let reconnect = agentManager.reconnect()
@@ -131,15 +117,8 @@ function callResumeChat (last_user_msg) {
             type: "text",
             input: "Ocorreu um erro na A P I de resposta do avatar"
         });
-
-    })
-    .finally(() => {
-       microphoneOff() 
-    });    
-}
-
-const handleChat = () => {
-    microphoneOff();       
+    });
+    
 }
 
 function microphoneOff() {
@@ -150,7 +129,6 @@ function microphoneOff() {
         microphone.src = "./microphone.png";
         microphone.style.marginRight = "0px"
         microphone.style.width = "180px";
-
     }      
 } 
 
@@ -167,6 +145,8 @@ if (!SpeechRecognition) {
               microphone.style.width = "120px"; 
               microphone.style.marginRight = "20px"  
               microphone.src = "./green_cloud.gif";
+              recognition.stop();
+              isRecording = false;
 
               setTimeout(() => {
                    if (spokenText) {
