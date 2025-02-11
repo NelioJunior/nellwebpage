@@ -107,7 +107,7 @@ function callResumeChat (last_user_msg) {
         
         setTimeout(()=> {
             microphoneOff()    
-        },5000)      
+        },3000)      
         
         
         let last_avatar_message = result['response']
@@ -120,7 +120,7 @@ function callResumeChat (last_user_msg) {
     .catch(error => {
         setTimeout(()=> {
             microphoneOff()    
-        },5000)      
+        },3000)      
         
         let speak = agentManager.speak({
             type: "text",
