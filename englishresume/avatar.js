@@ -103,9 +103,10 @@ function callResumeChat (last_user_msg) {
         }),
     })
     .then(response => response.json())
-    .then(result => {
+    .then(result => {        
+        microphoneOff()
+        
         let last_avatar_message = result['response']
-
         let speak = agentManager.speak({
             type: "text",
             input: last_avatar_message
@@ -113,6 +114,8 @@ function callResumeChat (last_user_msg) {
         
     })
     .catch(error => {
+        microphoneOff()
+        
         let speak = agentManager.speak({
             type: "text",
             input: "Ocorreu um erro na A P I de resposta do avatar"
