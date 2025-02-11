@@ -132,7 +132,10 @@ function callResumeChat (last_user_msg) {
             input: "Ocorreu um erro na A P I de resposta do avatar"
         });
 
-    });
+    })
+    .finally(() => {
+       microphoneOff() 
+    });    
 }
 
 const handleChat = () => {
@@ -161,17 +164,15 @@ if (!SpeechRecognition) {
     microphone.addEventListener("click", () => {
         try {
             if (isRecording) {
-              microphoneOff()
+              microphone.style.width = "120px"; 
+              microphone.style.marginRight = "20px"  
+              microphone.src = "./green_cloud.gif";
 
-                setTimeout(() => {
+              setTimeout(() => {
                    if (spokenText) {
-                       microphone.style.width = "120px"; 
-                       microphone.style.marginRight = "20px"  
-                       microphone.src = "./green_cloud.gif";
-                       
                        callResumeChat(spokenText);                           
                    }  
-                },500);         
+              },500);         
 
             } else {
               isRecording = true;    
