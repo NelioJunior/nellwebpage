@@ -103,8 +103,12 @@ function callResumeChat (last_user_msg) {
         }),
     })
     .then(response => response.json())
-    .then(result => {        
-        microphoneOff()
+    .then(result => {  
+        
+        setTimeout(()=> {
+            microphoneOff()    
+        },5000)      
+        
         
         let last_avatar_message = result['response']
         let speak = agentManager.speak({
@@ -114,7 +118,9 @@ function callResumeChat (last_user_msg) {
         
     })
     .catch(error => {
-        microphoneOff()
+        setTimeout(()=> {
+            microphoneOff()    
+        },5000)      
         
         let speak = agentManager.speak({
             type: "text",
