@@ -43,7 +43,6 @@ const callbacks = {
     onVideoStateChange(state) {
       if (state == "STOP") {
             videoElement.srcObject = undefined;    
-            // videoElement.src = agentManager.agent.presenter.idle_video;  
             videoElement.src = "./nell.mp4";   
       }
       else {
@@ -68,19 +67,6 @@ const callbacks = {
 }
 
 let streamOptions = { compatibilityMode: "auto", streamWarmup: true }
-
-async function speak(message) {
-    let inputText = message;
-    
-    microphoneOff();
-    
-    if (inputText !== "" && inputText.length > 2) {
-        let speak = agentManager.speak({
-            type: "text",
-            input: message
-        });
-    }
-}
 
 function reconnect() {
     let reconnect = agentManager.reconnect()
@@ -117,9 +103,14 @@ function callResumeChat (last_user_msg) {
         }),
     })
     .then(response => response.json())
-    .then(result => {
+    .then(result => {  
+        
+        setTimeout(()=> {
+            microphoneOff()    
+        },3000)      
+        
+        
         let last_avatar_message = result['response']
-
         let speak = agentManager.speak({
             type: "text",
             input: last_avatar_message
@@ -127,16 +118,16 @@ function callResumeChat (last_user_msg) {
         
     })
     .catch(error => {
+        setTimeout(()=> {
+            microphoneOff()    
+        },3000)      
+        
         let speak = agentManager.speak({
             type: "text",
             input: "Ocorreu um erro na A P I de resposta do avatar"
         });
-
     });
-}
-
-const handleChat = () => {
-    microphoneOff();       
+    
 }
 
 function microphoneOff() {
@@ -147,7 +138,6 @@ function microphoneOff() {
         microphone.src = "./microphone.png";
         microphone.style.marginRight = "0px"
         microphone.style.width = "180px";
-
     }      
 } 
 
@@ -161,13 +151,17 @@ if (!SpeechRecognition) {
     microphone.addEventListener("click", () => {
         try {
             if (isRecording) {
-              microphoneOff()
+              microphone.style.width = "120px"; 
+              microphone.style.marginRight = "20px"  
+              microphone.src = "./green_cloud.gif";
+              recognition.stop();
+              isRecording = false;
 
-                setTimeout(() => {
+              setTimeout(() => {
                    if (spokenText) {
                        callResumeChat(spokenText);                           
                    }  
-                },500);         
+              },500);         
 
             } else {
               isRecording = true;    
