@@ -151,8 +151,7 @@ if (!SpeechRecognition) {
     microphone.addEventListener("click", () => {
         try {
             if (isRecording) {
-              recognition.stop();
-              isRecording = false;
+              microphoneOff(); 
 
               setTimeout(() => {
                    if (spokenText) {
