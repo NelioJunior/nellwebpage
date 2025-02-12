@@ -151,14 +151,13 @@ if (!SpeechRecognition) {
     microphone.addEventListener("click", () => {
         try {
             if (isRecording) {
-              microphone.style.width = "120px"; 
-              microphone.style.marginRight = "20px"  
-              microphone.src = "./green_cloud.gif";
-              recognition.stop();
-              isRecording = false;
+              microphoneOff(); 
 
               setTimeout(() => {
                    if (spokenText) {
+                       microphone.style.width = "120px"; 
+                       microphone.style.marginRight = "20px"  
+                       microphone.src = "./green_cloud.gif";
                        callResumeChat(spokenText);                           
                    }  
               },500);         
