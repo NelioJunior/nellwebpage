@@ -52,7 +52,6 @@ const callbacks = {
 
 
     onError(error, errorData) {  
-        console.log("Something went wrong");
         agentManager.connect();
         
         microphoneOff();
@@ -60,7 +59,7 @@ const callbacks = {
         setTimeout(() => {
             let speak = agentManager.speak({
                 type: "text",
-                input:"Something went wrong"
+                input:"Desculpe, você pode repetir?"
             });
         },10000);         
     }    
