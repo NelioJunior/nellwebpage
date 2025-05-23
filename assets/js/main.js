@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   setTimeout(()=>{
     encontrarElementoComShadowEClasse(document.documentElement);
-  }, 1800); 
+  }, 2000); 
 
 
   var qrcode = document.querySelector('.qrcode');
