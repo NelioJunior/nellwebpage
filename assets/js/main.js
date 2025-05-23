@@ -6,8 +6,6 @@ const lightbox = GLightbox();
 
 function encontrarElementoComShadowEClasse(elemento) {
 
-  var toggleButton = document.getElementById("toggleButton");
-
   if (elemento.shadowRoot) {
       var shadowRoot = elemento.shadowRoot;
       fabioContainer = shadowRoot.querySelector(".didagent__fabio__container");
@@ -26,12 +24,16 @@ function encontrarElementoComShadowEClasse(elemento) {
           videoButton.style.left = '2vw'; 
       }
 
+      document.querySelectorAll('.didagent_target').forEach(item => {
+        item.style.display = '';
+      });
+
       const videos = shadowRoot.querySelectorAll('video[src*="idle_1747955449560.mp4"]');
       videos.forEach(video => {
-        video.src = './assets/video/manu.mp4';
+        video.src = './assets/video/isabel.mp4';
+        video.style.display = '';
         video.load();
-      });
-  
+      });  
   }
 
   if (elemento.children && elemento.children.length > 0) {
@@ -74,10 +76,14 @@ function openLink() {
 
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
+
+  document.querySelectorAll('.didagent_target').forEach(item => {
+    item.style.display = 'none';
+  });
   
   setTimeout(()=>{
     encontrarElementoComShadowEClasse(document.documentElement);
-  }, 2000); 
+  }, 3000); 
 
 
   var qrcode = document.querySelector('.qrcode');
