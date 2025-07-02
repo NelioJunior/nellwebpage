@@ -85,7 +85,7 @@
 }
 
 .modal-header, close {
-	background-color: #337CBB;
+	background-color: #611A42;
 	color:white !important;
 	text-align: center;
 	font-size: 30px;
@@ -109,7 +109,7 @@ header h2 {
 /* Colors */
 :root {
   --color-default: #222222;
-  --color-primary: #337EBF;
+  --color-primary: #611A42;
   --color-secondary: #f85a40;
 }
 
@@ -269,7 +269,7 @@ section {
 }
 
 .scroll-top:hover {
-  background: rgba(52, 126, 191, 0.8);
+  background: rgba(207, 74, 149, 0.8);
   color: #fff;
 }
 
@@ -327,7 +327,7 @@ section {
 # Header
 --------------------------------------------------------------*/
 .topbar {
-  background: #255d8d;
+  background: #340220;
   height: 40px;
   font-size: 14px;
   transition: all 0.5s;
@@ -2730,7 +2730,7 @@ section {
 
 .footer .footer-links ul i {
   padding-right: 2px;
-  color: #337EBF;
+  color: #611A42;
   font-size: 12px;
   line-height: 0;
 }
