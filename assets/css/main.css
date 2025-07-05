@@ -3084,3 +3084,18 @@ section {
 .slide-1 .slide-badge {
   background: #667eea;
 }
+
+/* Para o backdrop do modal */
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+
+/* Para o modal em si */
+.modal {
+  z-index: 1050 !important;
+}
+
+/* Se necessário, diminuir z-index da navbar */
+.navbar {
+  z-index: 1030 !important;
+}

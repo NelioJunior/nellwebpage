@@ -26163,3 +26163,28 @@ if (qe) {
       })
     });
   };
+  
+  document.addEventListener('DOMContentLoaded', function() {
+	  const modal = document.getElementById('modalLogin');
+	  
+	  const closeHamburgerMenu = () => {
+		const navbarCollapse = document.querySelector('.navbar-collapse');
+		const navbarToggler = document.querySelector('.navbar-toggler');
+		
+		navbarCollapse?.classList.remove('show');
+		navbarToggler?.classList.add('collapsed');
+		navbarToggler?.setAttribute('aria-expanded', 'false');
+	  };
+	  
+	  // Quando o modal fechar
+	  modal?.addEventListener('hidden.bs.modal', closeHamburgerMenu);
+	  
+	  // Botão X para fechar modal
+	  const closeButton = modal?.querySelector('.close, .btn-close');
+	  closeButton?.addEventListener('click', function() {
+		// Força uma nova instância do modal
+		const bsModal = new bootstrap.Modal(modal);
+		bsModal.hide();
+  });
+});
+ 
