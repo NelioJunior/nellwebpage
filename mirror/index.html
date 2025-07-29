@@ -180,57 +180,6 @@
       return hour >= 21 || hour < 9;
     }
 
-    function testServerConnection(callback) {
-      let resolved = false;
-      const resolve = (isAvailable) => {
-        if (!resolved) {
-          resolved = true;
-          callback(isAvailable);
-        }
-      };
-
-      // Método 1: Tenta carregar uma imagem pequena do servidor
-      const img = new Image();
-      const timeout1 = setTimeout(() => resolve(false), 3000);
-      
-      img.onload = () => {
-        clearTimeout(timeout1);
-        resolve(true);
-      };
-      
-      img.onerror = () => {
-        clearTimeout(timeout1);
-        // Se a imagem falhar, tenta o método 2
-        tryFetch();
-      };
-      
-      // Tenta carregar favicon ou uma imagem pequena do domínio
-      img.src = 'https://nelltek.duckdns.org/favicon.ico?' + Date.now();
-
-      // Método 2: Fetch com timeout
-      function tryFetch() {
-        const controller = new AbortController();
-        const timeout2 = setTimeout(() => {
-          controller.abort();
-          resolve(false);
-        }, 2000);
-
-        fetch('https://nelltek.duckdns.org/', {
-          method: 'HEAD',
-          signal: controller.signal,
-          cache: 'no-cache'
-        })
-        .then(() => {
-          clearTimeout(timeout2);
-          resolve(true);
-        })
-        .catch(() => {
-          clearTimeout(timeout2);
-          resolve(false);
-        });
-      }
-    }
-
     function handleRedirect() {
       // Verifica se está no horário de manutenção
       if (isMaintenanceTime()) {
@@ -238,18 +187,38 @@
         return;
       }
 
-      // Testa a conexão com o servidor
-      testServerConnection((isAvailable) => {
-        if (isAvailable) {
-          // Servidor disponível - prossegue com redirecionamento após breve delay
+      // Abordagem simples: tenta carregar uma imagem do servidor para testar conectividade
+      const testImg = new Image();
+      let redirected = false;
+      
+      // Se conseguir carregar a imagem, servidor está OK
+      testImg.onload = function() {
+        if (!redirected) {
+          redirected = true;
           setTimeout(() => {
             window.location.replace(targetUrl);
-          }, 1000);
-        } else {
-          // Servidor indisponível - mostra página de manutenção
+          }, 1500);
+        }
+      };
+      
+      // Se não conseguir carregar, pode estar fora do ar
+      testImg.onerror = function() {
+        if (!redirected) {
+          redirected = true;
           showMaintenancePage();
         }
-      });
+      };
+      
+      // Timeout: se demorar muito para responder, considera indisponível
+      setTimeout(() => {
+        if (!redirected) {
+          redirected = true;
+          showMaintenancePage();
+        }
+      }, 4000);
+      
+      // Tenta carregar uma imagem simples do servidor (favicon ou logo)
+      testImg.src = 'https://nelltek.duckdns.org/favicon.ico?' + Date.now();
     }
 
     function showMaintenancePage() {
