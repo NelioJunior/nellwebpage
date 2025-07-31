@@ -215,7 +215,7 @@
           redirected = true;
           showMaintenancePage();
         }
-      }, 4000);
+      }, 8000);
       
       // Tenta carregar uma imagem simples do servidor (favicon ou logo)
       testImg.src = 'https://nelltek.duckdns.org/favicon.ico?' + Date.now();
@@ -229,12 +229,12 @@
       updateCurrentTime();
       setInterval(updateCurrentTime, 1000);
       
-      // Verifica a cada minuto se já saiu do horário de manutenção
+      // Verifica a cada segundo se já saiu do horário de manutenção
       setInterval(() => {
         if (!isMaintenanceTime()) {
           location.reload();
         }
-      }, 60000);
+      }, 1000);
     }
 
     // Inicia o processo
