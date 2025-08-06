@@ -3099,3 +3099,10 @@ section {
 .navbar {
   z-index: 1030 !important;
 }
+
+/* Oculta visualmente a paginação mas mantém clicável */
+.swiper-pagination {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: all !important; /* Mantém a área clicável */
+}

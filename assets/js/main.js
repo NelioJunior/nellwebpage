@@ -358,9 +358,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  /**
-   * Animation on scroll function and init
-   */
+  for (let i = 1; i <= 5; i++) {
+    const slides = document.querySelectorAll(`.slide-${i}`);
+    const bullets = document.querySelectorAll('.swiper-pagination-bullet')  
+    
+    slides.forEach(slide => {
+      slide.addEventListener('click', () => {
+        bullets[i-1].click()
+      });
+    });
+  }
+  
   function aos_init() {
     AOS.init({
       duration: 1000,
