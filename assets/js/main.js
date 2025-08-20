@@ -5,6 +5,8 @@ var spanInteragir;
 const lightbox = GLightbox();
 
 function encontrarElementoComShadowEClasse(elemento) {
+	
+  /*  Removido a avatar provissoriamente - Nell Junior - 20/Ago/25 
 
   if (elemento.shadowRoot) {
       var shadowRoot = elemento.shadowRoot;
@@ -44,7 +46,7 @@ function encontrarElementoComShadowEClasse(elemento) {
           }
       }
   }
-
+  */  
 }
 
 function openLink() {
