@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   setTimeout(()=>{
-    encontrarElementoComShadowEClasse(document.documentElement);
+    //  encontrarElementoComShadowEClasse(document.documentElement);     Removido a avatar provissoriamente - Nell Junior - 20/Ago/25 
   }, 3000); 
 
 
