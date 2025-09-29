@@ -19,6 +19,7 @@
       align-items: center;
       justify-content: center;
       color: white;
+      padding: 20px;
     }
 
     .container {
@@ -29,8 +30,8 @@
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-      width: 90%;
+      max-width: 700px;
+      width: 100%;
     }
 
     .logo {
@@ -42,7 +43,11 @@
     }
 
     .redirecting {
-      display: block;
+      display: none;
+    }
+
+    .warning {
+      display: none;
     }
 
     .maintenance {
@@ -53,6 +58,89 @@
       font-size: 4em;
       margin-bottom: 20px;
       animation: pulse 2s infinite;
+    }
+
+    .warning-box {
+      background: rgba(255, 193, 7, 0.2);
+      border: 3px solid #ffc107;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px 0;
+      box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+    }
+
+    .warning-title {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #ffd700;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .warning-text {
+      font-size: 1.1em;
+      line-height: 1.8;
+      margin: 15px 0;
+      text-align: left;
+    }
+
+    .warning-text strong {
+      color: #ffd700;
+      font-size: 1.15em;
+    }
+
+    .warning-list {
+      text-align: left;
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+
+    .warning-list li {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-accept {
+      background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+      color: white;
+    }
+
+    .btn-accept:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    }
+
+    .btn-decline {
+      background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+      color: white;
+    }
+
+    .btn-decline:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
     }
 
     .message {
@@ -125,15 +213,55 @@
   </style>
 </head>
 <body>
+  <br> 	
   <div class="container">
     <div class="logo">NellTek</div>
     
+    <!-- TELA DE AVISO DE PRIVACIDADE -->
+    <div id="warning" class="warning">
+      <div class="warning-box">
+        <div class="warning-text">
+          <strong>🔴 ATENÇÃO:AS CONSULTAS SERÃO GRAVADAS!</strong>
+        </div>
+        
+        <div class="warning-text">
+          Antes de prosseguir, você precisa estar ciente de que:
+        </div>
+        
+        <ul class="warning-list">
+          <li><strong>📹 Todas as consultas serão gravadas</strong> em  vídeo</li>
+          <li><strong>👁️ O acesso aos registros é livre</strong> para análise e treinamento</li>
+          <li><strong>🧪 Esta é uma experiência de teste</strong> destinada exclusivamente a simular e demonstrar o funcionamento de nossos avatares consultores</li>
+          <li><strong>⚕️ Não discuta informações médicas confidenciais</strong> ou dados que possam comprometer sua privacidade</li>
+        </ul>
+        
+        <div class="warning-text">
+          <strong>💡 Recomendação:</strong> Tenha cautela com o que será dito durante a conversa com o avatar consultor.🚫 Evite compartilhar informações que você não gostaria que fossem acessíveis publicamente.
+        </div>
+      </div>
+      
+      <div class="button-container">
+        <button class="btn btn-accept" onclick="acceptAndContinue()">
+          ✅ Entendi e Aceito
+        </button>
+        <button class="btn btn-decline" onclick="declineAndExit()">
+          ❌ Não Aceito
+        </button>
+      </div>
+      
+      <div class="subtitle" style="margin-top: 20px;">
+        🔒 Sua privacidade é importante. Prossiga com responsabilidade.
+      </div>
+    </div>
+    
+    <!-- TELA DE REDIRECIONAMENTO -->
     <div id="redirecting" class="redirecting">
       <div class="message">Redirecionando você para nossa plataforma...</div>
       <div class="spinner"></div>
       <div class="subtitle">Aguarde um momento</div>
     </div>
 
+    <!-- TELA DE MANUTENÇÃO -->
     <div id="maintenance" class="maintenance">
       <div class="maintenance-icon">🔧</div>
       <div class="message">
@@ -157,6 +285,24 @@
 
   <script type="text/javascript">
     const targetUrl = "https://nellhairstyle.ddns.net/avatares_especialistas/";
+    let userAccepted = false;
+    
+    function acceptAndContinue() {
+      userAccepted = true;
+      document.getElementById('warning').style.display = 'none';
+      document.getElementById('redirecting').style.display = 'block';
+      handleRedirect();
+    }
+    
+    function declineAndExit() {
+      // Verifica se há histórico de navegação
+      if (window.history.length > 1) {
+        // Retorna para a página anterior
+        window.history.back();
+      } else {
+        window.location.href = 'about:blank';
+      }
+    }
     
     function updateCurrentTime() {
       const now = new Date();
@@ -176,22 +322,18 @@
     function isMaintenanceTime() {
       const now = new Date();
       const hour = now.getHours();
-      // Horário de manutenção: 21h às 9h (21:00 - 08:59)
       return hour >= 21 || hour < 9;
     }
 
     function handleRedirect() {
-      // Verifica se está no horário de manutenção
       if (isMaintenanceTime()) {
         showMaintenancePage();
         return;
       }
 
-      // Abordagem simples: tenta carregar uma imagem do servidor para testar conectividade
       const testImg = new Image();
       let redirected = false;
       
-      // Se conseguir carregar a imagem, servidor está OK
       testImg.onload = function() {
         if (!redirected) {
           redirected = true;
@@ -201,7 +343,6 @@
         }
       };
       
-      // Se não conseguir carregar, pode estar fora do ar
       testImg.onerror = function() {
         if (!redirected) {
           redirected = true;
@@ -209,7 +350,6 @@
         }
       };
       
-      // Timeout: se demorar muito para responder, considera indisponível
       setTimeout(() => {
         if (!redirected) {
           redirected = true;
@@ -217,19 +357,17 @@
         }
       }, 8000);
       
-      // Tenta carregar uma imagem simples do servidor (favicon ou logo)
       testImg.src = 'https://nellhairstyle.ddns.net/favicon.ico?' + Date.now();
     }
 
     function showMaintenancePage() {
       document.getElementById('redirecting').style.display = 'none';
+      document.getElementById('warning').style.display = 'none';
       document.getElementById('maintenance').style.display = 'block';
       
-      // Atualiza o horário atual a cada segundo
       updateCurrentTime();
       setInterval(updateCurrentTime, 1000);
       
-      // Verifica a cada segundo se já saiu do horário de manutenção
       setInterval(() => {
         if (!isMaintenanceTime()) {
           location.reload();
@@ -237,8 +375,16 @@
       }, 1000);
     }
 
-    // Inicia o processo
-    handleRedirect();
+    // Inicia mostrando o aviso ou manutenção
+    function init() {
+      if (isMaintenanceTime()) {
+        showMaintenancePage();
+      } else {
+        document.getElementById('warning').style.display = 'block';
+      }
+    }
+    
+    init();
   </script>
 </body>
 </html>
