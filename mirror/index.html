@@ -177,7 +177,7 @@
       const now = new Date();
       const hour = now.getHours();
       // Horário de manutenção: 21h às 9h (21:00 - 08:59)
-      return hour >= 21 || hour < 7;
+      return hour >= 23 || hour < 7;
     }
 
     function handleRedirect() {
