@@ -323,7 +323,7 @@
     function isMaintenanceTime() {
       const now = new Date();
       const hour = now.getHours();
-      return hour >= 21 || hour < 9;
+      return hour >= 23 || hour < 7;
     }
 
     function handleRedirect() {
