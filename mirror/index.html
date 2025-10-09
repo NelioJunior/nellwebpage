@@ -13,32 +13,177 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
+      overflow-x: hidden;
     }
 
     .container {
-      text-align: center;
-      padding: 40px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      width: 100%;
+      height: 100vh;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 100vh;
+      }
+    }
+
+    /* Left Section - Video */
+    .video-section {
+      position: relative;
+      background: linear-gradient(135deg, #d4a617 0%, #b8860b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 75%;
+      height: 75%;
+      overflow: hidden;
       border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-      width: 90%;
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-section video {
+      width: 100%;
+      height: calc(100% + 100px);
+      object-fit: cover;
+      position: relative;
+      top: 0;
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(15, 12, 41, 0.3) 100%);
+      pointer-events: none;
+    }
+
+    /* Right Section - Content */
+    .content-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px;
+      background: linear-gradient(135deg, rgba(15, 12, 41, 0.95) 0%, rgba(48, 43, 99, 0.95) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, transparent 70%);
+      animation: pulse-glow 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+      50% { transform: scale(1.1) rotate(180deg); opacity: 0.8; }
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 75%;
+      width: 100%;
     }
 
     .logo {
-      font-size: 2.5em;
+      font-size: 2.6em;
       font-weight: bold;
-      margin-bottom: 20px;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: 22px;
+      background: linear-gradient(135deg, #a78bfa 0%, #ec4899 50%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(167, 139, 250, 0.5);
+      animation: gradient-shift 3s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+      0%, 100% { filter: hue-rotate(0deg); }
+      50% { filter: hue-rotate(20deg); }
+    }
+
+    .product-title {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: #e0e7ff;
+      line-height: 1.3;
+    }
+
+    .product-title .highlight {
+      color: #a78bfa;
+      text-shadow: 0 0 20px rgba(167, 139, 250, 0.6);
+    }
+
+    .product-description {
+      font-size: 0.82em;
+      line-height: 1.8;
+      color: #c7d2fe;
+      margin-bottom: 22px;
+      text-align: justify;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 11px;
+      margin-bottom: 22px;
+    }
+
+    .feature-item {
+      background: rgba(167, 139, 250, 0.1);
+      padding: 11px;
+      border-radius: 10px;
+      border: 1px solid rgba(167, 139, 250, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      background: rgba(167, 139, 250, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(167, 139, 250, 0.3);
+    }
+
+    .feature-icon {
+      font-size: 1.1em;
+    }
+
+    .feature-text {
+      font-size: 0.68em;
+      color: #e0e7ff;
     }
 
     .redirecting {
@@ -47,6 +192,36 @@
 
     .maintenance {
       display: none;
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 25px;
+      background: rgba(167, 139, 250, 0.15);
+      border-radius: 50px;
+      border: 1px solid rgba(167, 139, 250, 0.4);
+      width: fit-content;
+    }
+
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(167, 139, 250, 0.3);
+      border-top: 3px solid #a78bfa;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .status-text {
+      color: #e0e7ff;
+      font-weight: 500;
+    }
+
+    /* Maintenance Page Styles */
+    .maintenance-content {
+      text-align: center;
     }
 
     .maintenance-icon {
@@ -59,6 +234,7 @@
       font-size: 1.2em;
       line-height: 1.6;
       margin-bottom: 20px;
+      color: #e0e7ff;
     }
 
     .maintenance .message {
@@ -66,27 +242,18 @@
     }
 
     .schedule {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 15px;
-      border-radius: 10px;
-      margin: 20px 0;
+      background: rgba(167, 139, 250, 0.15);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 25px 0;
       font-weight: 500;
-    }
-
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      border-top: 4px solid white;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 20px auto;
+      border: 1px solid rgba(167, 139, 250, 0.3);
     }
 
     .maintenance-spinner {
       width: 60px;
       height: 60px;
-      border: 4px solid rgba(255, 255, 255, 0.3);
+      border: 4px solid rgba(167, 139, 250, 0.3);
       border-top: 4px solid #ffd700;
       border-radius: 50%;
       animation: spin 2s linear infinite;
@@ -122,36 +289,116 @@
       font-family: 'Courier New', monospace;
       font-size: 1.1em;
     }
+
+    @media (max-width: 768px) {
+      .content-section {
+        padding: 30px;
+      }
+
+      .logo {
+        font-size: 2.5em;
+      }
+
+      .product-title {
+        font-size: 1.5em;
+      }
+
+      .product-description {
+        font-size: 1em;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-section {
+        min-height: 50vh;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="logo">NellTek</div>
-    
-    <div id="redirecting" class="redirecting">
-      <div class="message">Redirecionando você para nossa plataforma...</div>
-      <div class="spinner"></div>
-      <div class="subtitle">Aguarde um momento</div>
+    <!-- Left Section - Video -->
+    <div class="video-section">
+      <div class="video-wrapper">
+        <video autoplay loop muted playsinline>
+          <source src="./mirror/smartmirror.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos HTML5.
+        </video>
+      </div>
+      <div class="video-overlay"></div>
     </div>
 
-    <div id="maintenance" class="maintenance">
-      <div class="maintenance-icon">🔧</div>
-      <div class="message">
-        Nossos serviços estão temporariamente indisponíveis para manutenção preventiva
+    <!-- Right Section - Content -->
+    <div class="content-section">
+      <div class="content-wrapper">
+        <div class="logo">NellTek</div>
+        
+        <div id="redirecting" class="redirecting">
+          <div class="product-title">
+            O que é um <span class="highlight">espelho inteligente</span>?
+          </div>
+          
+          <div class="product-description">
+            É muito mais do que um simples reflexo. O <strong>Smart Mirror</strong> integra Inteligência Artificial, Realidade Aumentada e conectividade para transformar sua rotina de beleza e estilo. Além de simular cortes, cores e penteados em tempo real, ele exibe informações úteis como hora, clima e notificações, tudo direto na superfície do espelho.
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-item">
+              <span class="feature-icon">🤖</span>
+              <span class="feature-text">Inteligência Artificial</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">✨</span>
+              <span class="feature-text">Realidade Aumentada</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">💡</span>
+              <span class="feature-text">Iluminação Ajustável</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">📱</span>
+              <span class="feature-text">Conectividade IoT</span>
+            </div>
+          </div>
+
+          <div class="product-description">
+            Com iluminação ajustável, comandos por toque e conexão à internet, ele oferece uma experiência prática, moderna e totalmente interativa. Nos salões, acelera atendimentos e impulsiona vendas. Em casa, leva tecnologia de ponta para o seu dia a dia.
+          </div>
+
+          <div class="product-description" style="margin-top: 20px; font-size: 1.15em; color: #a78bfa; font-weight: 600;">
+            👉 O espelho inteligente é a fusão perfeita entre beleza, informação e inovação.
+          </div>
+
+          <div class="status-indicator">
+            <div class="spinner"></div>
+            <span class="status-text">Conectando à plataforma...</span>
+          </div>
+        </div>
+
+        <div id="maintenance" class="maintenance">
+          <div class="maintenance-content">
+            <div class="maintenance-icon">🔧</div>
+            <div class="message">
+              Nossos serviços estão temporariamente indisponíveis para manutenção preventiva
+            </div>
+            <div class="schedule">
+              <strong>Horário de Manutenção:</strong><br>
+              23h00 às 07h00 (todos os dias)
+            </div>
+            <div class="maintenance-spinner"></div>
+            <div class="message">
+              Este período é dedicado ao aprimoramento de nossos sistemas para oferecer<br>
+              a melhor experiência aos nossos clientes e parceiros.
+            </div>
+            <div class="subtitle">
+              ⏰ Retornaremos em breve com novidades!
+            </div>
+            <div id="currentTime" class="time-display"></div>
+          </div>
+        </div>
       </div>
-      <div class="schedule">
-        <strong>Horário de Manutenção:</strong><br>
-        21h00 às 09h00 (todos os dias)
-      </div>
-      <div class="maintenance-spinner"></div>
-      <div class="message">
-        Este período é dedicado ao aprimoramento de nossos sistemas para oferecer<br>
-        a melhor experiência aos nossos clientes e parceiros.
-      </div>
-      <div class="subtitle">
-        ⏰ Retornaremos em breve com novidades!
-      </div>
-      <div id="currentTime" class="time-display"></div>
     </div>
   </div>
 
