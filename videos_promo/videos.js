@@ -1,33 +1,43 @@
 const API_KEY = "AIzaSyCEaKyQwvP5mrJwLlNaM9mnFyI3FIWDZOk";
 const CHANNEL_ID = "UCRF5UoygXtvNBEQdOfs2ATA";
-
 const PLAYLIST_ID = "PLCUrEz4V2g4KZRH3dKskXczAeqTdui_Hu"
 
 const grid = document.getElementById("videoGrid")
 
 async function loadVideos() {
-  const url = `https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${PLAYLIST_ID}&part=snippet&maxResults=50`
-
   try {
-    const res = await fetch(url)
-    const data = await res.json()
+    // 1. Buscar vídeos da playlist
+    const playlistUrl = `https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${PLAYLIST_ID}&part=snippet&maxResults=50`
+    const playlistRes = await fetch(playlistUrl)
+    const playlistData = await playlistRes.json()
 
-    console.log("Playlist API Response:", data)
-
-    if (!data.items || !Array.isArray(data.items)) {
-      console.error("Nenhum vídeo encontrado na playlist.")
+    if (!playlistData.items) {
+      console.error("Nenhum vídeo encontrado na playlist")
       return
     }
 
-    data.items
+    // 2. Extrair IDs dos vídeos
+    const videoIds = playlistData.items
+      .map(item => item.snippet.resourceId.videoId)
+      .filter(Boolean)
+
+    if (!videoIds.length) return
+
+    // 3. Buscar detalhes reais dos vídeos
+    const videosUrl = `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds.join(",")}&part=snippet,contentDetails`
+    const videosRes = await fetch(videosUrl)
+    const videosData = await videosRes.json()
+
+    if (!videosData.items) return
+
+    // 4. Ordenar por data REAL de publicação
+    videosData.items
       .sort((a, b) => new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt))
-      .forEach(item => {
+      .forEach(video => {
 
-        const videoId = item.snippet.resourceId.videoId
-        if (!videoId) return
-
-        const title = item.snippet.title
-        const date = new Date(item.snippet.publishedAt)
+        const videoId = video.id
+        const title = video.snippet.title
+        const date = new Date(video.snippet.publishedAt)
         const thumb = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
 
         const card = document.createElement("div")
@@ -55,7 +65,7 @@ async function loadVideos() {
       })
 
   } catch (err) {
-    console.error("Erro ao carregar playlist:", err)
+    console.error("Erro ao carregar vídeos:", err)
   }
 }
 
