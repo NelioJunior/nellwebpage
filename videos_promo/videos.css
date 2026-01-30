@@ -1,29 +1,33 @@
+/* =========================
+   Base
+========================= */
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Cantarell;
-  background: #5E2750;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Ubuntu, Cantarell;
+  background: #5E2750; /* púrpura Ubuntu claro */
   color: #E95420;
+  margin: 0;
 }
 
-/* Header */
-
-.page-header {
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  margin-bottom: 20px;
-  background: #2C001E;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
+/* =========================
+   Header
+========================= */
 
 .page-header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  padding: 20px 0;
+  margin-bottom: 20px;
   background: #2C001E; /* púrpura Ubuntu escuro */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .page-header h1 {
   font-size: 1.8rem;
   font-weight: 700;
+  margin: 0;
 }
 
 .page-title {
@@ -31,43 +35,54 @@ body {
   font-weight: 700;
 }
 
-/* Masonry grid */
+/* =========================
+   Main
+========================= */
+
+main {
+  padding-top: 20px;
+}
+
+/* =========================
+   Masonry container
+========================= */
+
 .masonry-grid {
-  column-count: 4;
-  column-gap: 16px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: 1600px;
+
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-  .masonry-grid { column-count: 3; }
-}
 
-@media (max-width: 768px) {
-  .masonry-grid { column-count: 2; }
-}
+/* =========================
+   Video card
+========================= */
 
-@media (max-width: 480px) {
-  .masonry-grid { column-count: 1; }
-}
-
-/* Video card */
 .video-card {
+  width: 300px; /* controla responsividade do Masonry */
+  margin-bottom: 16px;
   background: #181818;
   border-radius: 14px;
   overflow: hidden;
-  margin-bottom: 16px;
-  break-inside: avoid;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
 
 .video-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
 }
 
-/* Thumbnail */
+/* =========================
+   Thumbnail
+========================= */
+
 .thumb {
   position: relative;
   width: 100%;
@@ -80,7 +95,10 @@ body {
   border-radius: 14px 14px 0 0;
 }
 
-/* Play overlay */
+/* =========================
+   Play overlay
+========================= */
+
 .play-overlay {
   position: absolute;
   inset: 0;
@@ -88,9 +106,13 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  color: white;
+  color: #fff;
   opacity: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5),
+    transparent
+  );
   transition: opacity 0.2s ease;
 }
 
@@ -98,7 +120,10 @@ body {
   opacity: 1;
 }
 
-/* Title */
+/* =========================
+   Title
+========================= */
+
 .video-title {
   font-size: 0.9rem;
   padding: 10px 12px 12px;
@@ -106,7 +131,10 @@ body {
   line-height: 1.4;
 }
 
-/* iframe player */
+/* =========================
+   iframe player
+========================= */
+
 .video-card iframe {
   width: 100%;
   aspect-ratio: 9 / 16;
@@ -114,6 +142,9 @@ body {
   border-radius: 14px;
 }
 
+/* =========================
+   Buttons / Brand
+========================= */
 
 .back-btn {
   border-radius: 999px;
@@ -124,9 +155,13 @@ body {
 
 .brand-logo {
   height: 42px;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
 }
 
-main {
-  padding-top: 20px;
+@media (max-width: 480px) {
+  .video-card {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
+
