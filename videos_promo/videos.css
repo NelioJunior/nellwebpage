@@ -64,7 +64,7 @@ main {
 ========================= */
 
 .video-card {
-  width: 300px; /* controla responsividade do Masonry */
+  /* Largura será definida dinamicamente pelo JS */
   margin-bottom: 16px;
   background: #181818;
   border-radius: 14px;
@@ -72,6 +72,10 @@ main {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  
+  /* ALTURA FIXA para evitar variação */
+  display: flex;
+  flex-direction: column;
 }
 
 .video-card:hover {
@@ -86,12 +90,12 @@ main {
 .thumb {
   position: relative;
   width: 100%;
+  flex-shrink: 0; /* Não encolhe */
 }
 
 .thumb img {
   width: 100%;
   display: block;
-  object-fit: cover;
   border-radius: 14px 14px 0 0;
 }
 
@@ -121,14 +125,34 @@ main {
 }
 
 /* =========================
-   Title
+   Title - ALTURA LIMITADA
 ========================= */
 
 .video-title {
   font-size: 0.9rem;
-  padding: 10px 12px 12px;
+  padding: 10px 12px 4px;
   color: #ddd;
   line-height: 1.4;
+  margin: 0;
+  
+  /* LIMITAR A 2 LINHAS */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  /* Altura fixa para 2 linhas */
+  height: 2.8em; /* 1.4 line-height × 2 linhas */
+}
+
+.video-date {
+  font-size: 0.75rem;
+  padding: 0 12px 10px;
+  color: #999;
+  display: block;
+  margin: 0;
+  flex-shrink: 0;
 }
 
 /* =========================
@@ -137,7 +161,6 @@ main {
 
 .video-card iframe {
   width: 100%;
-  aspect-ratio: 9 / 16;
   border: none;
   border-radius: 14px;
 }
@@ -164,4 +187,3 @@ main {
     margin-right: auto;
   }
 }
-
