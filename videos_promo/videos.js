@@ -45,12 +45,16 @@ async function loadVideos() {
 
         card.innerHTML = `
           <div class="thumb">
-            <img src="${thumb}" alt="${title}">
+            <img src="${thumb}" alt="">
             <div class="play-overlay">▶</div>
           </div>
-          <p class="video-title">${title}</p>
+          <p class="video-title"></p>
           <small class="video-date">${date.toLocaleDateString("pt-BR")}</small>
         `;
+
+        // Adiciona o título de forma segura
+        const titleElement = card.querySelector('.video-title');
+        titleElement.textContent = title;
 
         card.addEventListener("click", () => {
           card.innerHTML = `
