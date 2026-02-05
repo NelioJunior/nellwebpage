@@ -61,13 +61,11 @@ async function loadVideos() {
         const card = document.createElement("div");
         card.className = "video-card";
         
-        // Definir dimensões balanceadas
+        // Definir apenas largura para desktop (CSS mobile sobrescreverá)
         if (isVideoShort) {
-          // Shorts: 180px × 320px (ratio 9:16)
           card.style.width = '180px';
           card.setAttribute('data-type', 'short');
         } else {
-          // Vídeos normais: 360px × 202px (ratio 16:9)
           card.style.width = '360px';
           card.setAttribute('data-type', 'video');
         }
@@ -81,18 +79,8 @@ async function loadVideos() {
         img.alt = '';
         img.loading = 'lazy';
         
-        // Definir dimensões exatas da thumbnail
-        if (isVideoShort) {
-          // Short: 180px width, 320px height
-          img.style.width = '180px';
-          img.style.height = '320px';
-          img.style.objectFit = 'cover';
-        } else {
-          // Normal: 360px width, 202px height
-          img.style.width = '360px';
-          img.style.height = '202px';
-          img.style.objectFit = 'cover';
-        }
+        // REMOVIDO: definições de width/height inline
+        // Deixa o CSS controlar as dimensões via media queries
         
         const playOverlay = document.createElement('div');
         playOverlay.className = 'play-overlay';
@@ -114,22 +102,15 @@ async function loadVideos() {
         card.appendChild(dateElement);
 
         card.addEventListener("click", () => {
-          // Criar iframe mantendo as proporções corretas
+          // Criar iframe
           const iframe = document.createElement('iframe');
           iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0&modestbranding=1`;
           iframe.allowFullscreen = true;
-          iframe.style.width = '100%';
           iframe.style.border = 'none';
           iframe.style.borderRadius = '14px';
           
-          // Definir altura do iframe baseado no tipo
-          if (isVideoShort) {
-            // Shorts: 180px width → 320px height (9:16)
-            iframe.style.height = '320px';
-          } else {
-            // Vídeos normais: 360px width → 202px height (16:9)
-            iframe.style.height = '202px';
-          }
+          // REMOVIDO: definições de width/height inline
+          // CSS vai controlar via aspect-ratio e media queries
           
           card.innerHTML = '';
           card.appendChild(iframe);

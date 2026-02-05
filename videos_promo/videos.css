@@ -84,19 +84,31 @@ main {
 }
 
 /* =========================
-   Thumbnail
+   Thumbnail - DESKTOP
 ========================= */
 
 .thumb {
   position: relative;
   width: 100%;
-  flex-shrink: 0; /* Não encolhe */
+  flex-shrink: 0;
 }
 
 .thumb img {
   width: 100%;
   display: block;
   border-radius: 14px 14px 0 0;
+  object-fit: cover;
+}
+
+/* Dimensões específicas para desktop */
+.video-card[data-type="short"] .thumb img {
+  width: 180px;
+  height: 320px;
+}
+
+.video-card[data-type="video"] .thumb img {
+  width: 360px;
+  height: 202px;
 }
 
 /* =========================
@@ -156,13 +168,21 @@ main {
 }
 
 /* =========================
-   iframe player
+   iframe player - DESKTOP
 ========================= */
 
 .video-card iframe {
   width: 100%;
   border: none;
   border-radius: 14px;
+}
+
+.video-card[data-type="short"] iframe {
+  height: 320px;
+}
+
+.video-card[data-type="video"] iframe {
+  height: 202px;
 }
 
 /* =========================
@@ -199,7 +219,6 @@ main {
     height: 36px;
   }
   
-  /* Cards mantêm tamanhos proporcionais em tablets */
   .video-card {
     margin-left: auto;
     margin-right: auto;
@@ -215,31 +234,33 @@ main {
   
   /* CARDS OCUPAM LARGURA TOTAL MENOS MARGENS */
   .video-card {
-    width: calc(100vw - 24px) !important; /* 12px de cada lado */
+    width: calc(100vw - 24px) !important;
     margin-left: auto;
     margin-right: auto;
   }
   
-  /* Ajustar altura das imagens proporcionalmente */
+  /* Imagens responsivas no mobile */
   .video-card[data-type="short"] .thumb img {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
     aspect-ratio: 9 / 16;
   }
   
   .video-card[data-type="video"] .thumb img {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
     aspect-ratio: 16 / 9;
   }
   
-  /* Ajustar altura dos iframes no mobile */
+  /* iframes responsivos no mobile */
   .video-card[data-type="short"] iframe {
+    width: 100% !important;
     height: auto !important;
     aspect-ratio: 9 / 16;
   }
   
   .video-card[data-type="video"] iframe {
+    width: 100% !important;
     height: auto !important;
     aspect-ratio: 16 / 9;
   }
@@ -265,6 +286,6 @@ main {
   }
   
   .video-card {
-    width: calc(100vw - 16px) !important; /* 8px de cada lado */
+    width: calc(100vw - 16px) !important;
   }
 }
