@@ -1,4 +1,4 @@
-const API_KEY = "AIzaSyCEaKyQwvP5mrJwLlNaM9mnFyI3FIWDZOk";
+const API_KEY = "AIzaSyBMJXf6f7q5a_GXkhaQ_x2qU9gDvkI4OX0";
 const CHANNEL_ID = "UCRF5UoygXtvNBEQdOfs2ATA";
 const PLAYLIST_ID = "PLCUrEz4V2g4KZRH3dKskXczAeqTdui_Hu";
 
@@ -21,7 +21,7 @@ async function loadVideos() {
     const playlistData = await playlistRes.json();
 
     if (!playlistData.items) {
-      console.error("Nenhum vídeo encontrado na playlist");
+      console.log("Nenhum vídeo encontrado na playlist");
       return;
     }
 
