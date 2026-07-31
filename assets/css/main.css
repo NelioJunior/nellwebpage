@@ -1,4 +1,43 @@
 
+/* Título de apoio do SEO (Apenas para contexto técnico) */
+.seo-title {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #77216F; /* Cinza discreto */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+
+/* O Slogan com o Degradê Animado da Paleta Completa Ubuntu (Purpuras + Laranja) */
+.slogan-nell {
+    font-size: 3rem; /* Garante o destaque do slogan no layout */
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    
+    /* Fusão sutil: Toledo (#2c001e), Finn (#5e2750) e o oficial Ubuntu Orange (#E95420) */
+    background: linear-gradient(270deg, #2c001e, #5e2750, #E95420, #5e2750, #2c001e);
+    background-size: 400% 400%;
+    
+    /* Recorta o fundo exatamente no formato das letras */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    
+    /* Animação lenta de 14 segundos para manter o efeito elegante e corporativo */
+    animation: brilhoUbuntuCompleto 14s ease infinite;
+}
+
+/* O movimento sutil que faz o laranja passar como um reflexo de luz */
+@keyframes brilhoUbuntuCompleto {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 @media screen and (orientation: landscape) {
   .video-frame {
     margin: auto;
@@ -159,28 +198,15 @@ section {
 
 .section-header {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 10px;
 }
 
 .section-header h2 {
   font-size: 32px;
   font-weight: 600;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
   position: relative;
-}
-
-.section-header h2:after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: var(--color-primary);
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
 }
 
 .section-header p {
