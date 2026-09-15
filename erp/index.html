@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecionando - Nell</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .redirecting {
+      display: none;
+    }
+
+    .warning {
+      display: none;
+    }
+
+    .maintenance {
+      display: none;
+    }
+
+    .maintenance-icon {
+      font-size: 4em;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    .warning-box {
+      background: rgba(255, 193, 7, 0.2);
+      border: 3px solid #ffc107;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px 0;
+      box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+    }
+
+    .warning-title {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #ffd700;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .warning-text {
+      font-size: 1.1em;
+      line-height: 1.8;
+      margin: 15px 0;
+      text-align: left;
+    }
+
+    .warning-text strong {
+      color: #ffd700;
+      font-size: 1.0em;
+    }
+
+    .warning-list {
+      text-align: left;
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+
+    .warning-list li {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-accept {
+      background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+      color: white;
+    }
+
+    .btn-accept:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    }
+
+    .btn-decline {
+      background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+      color: white;
+    }
+
+    .btn-decline:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+    }
+
+    .message {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .maintenance .message {
+      font-size: 1.1em;
+    }
+
+    .schedule {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-weight: 500;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    .maintenance-spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid #ffd700;
+      border-radius: 50%;
+      animation: spin 2s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    .subtitle {
+      font-size: 0.9em;
+      opacity: 0.8;
+      margin-top: 15px;
+    }
+
+    .maintenance .subtitle {
+      color: #ffd700;
+      font-weight: 500;
+    }
+
+    .time-display {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 15px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <br> 	
+  <div class="container">
+    <div class="logo">Nell</div>
+    
+    <!-- TELA DE AVISO DE PRIVACIDADE -->
+    <div id="warning" class="warning">
+      <div class="warning-box">
+        <div class="warning-text">
+          <center><strong>🔴 OS DADOS CADASTRADOS SERÃO EXCLUÍDOS NO PRAZO DE 24 HORAS!</strong></center>
+        </div>
+        
+        <div class="warning-text">
+          Antes de prosseguir, você precisa estar ciente de que:
+        </div>
+        
+        <ul class="warning-list">
+          <li><strong>🗓️🕑 Todos os dados cadastrados</strong> (agendamentos, clientes e funcionários) serão apagados automaticamente a cada 24 horas</li>
+          <li><strong>🧪 Este é um ambiente de avaliação</strong> destinado exclusivamente a demonstrar as funcionalidades do sistema de gestão de salões</li>
+          <li><strong>⚕️ Não insira dados sensíveis ou reais</strong> (saúde, documentos, biometria, entre outros) — use apenas dados fictícios para possiveis testes</li>
+        </ul>
+        
+      </div>
+      
+      <div class="button-container">
+        <button class="btn btn-accept" onclick="acceptAndContinue()">
+          ✅ Entendi e Aceito
+        </button>
+        <button class="btn btn-decline" onclick="declineAndExit()">
+          ❌ Não Aceito
+        </button>
+      </div>
+      
+      <div class="subtitle" style="margin-top: 20px;">
+        🔒 Sua privacidade é importante. Prossiga com responsabilidade.
+      </div>
+
+	  <div style="width: 50%; margin: 0 auto; position: relative; top: 20px; transform-origin: center; text-align: center;">
+	     <img src="./avatares/lgpd.png" alt="LGPD" style="width: 20%; height: auto;">
+	  </div>
+	
+    </div>
+    
+    <!-- TELA DE REDIRECIONAMENTO -->
+    <div id="redirecting" class="redirecting">
+      <div class="message">Redirecionando você para nossa plataforma...</div>
+      <div class="spinner"></div>
+      <div class="subtitle">Aguarde um momento</div>
+    </div>
+
+    <!-- TELA DE MANUTENÇÃO -->
+    <div id="maintenance" class="maintenance">
+      <div class="maintenance-icon">🔧</div>
+      <div class="message">
+        Nossos serviços estão temporariamente indisponíveis para manutenção preventiva
+      </div>
+      <div class="schedule">
+        <strong>Horário de Manutenção:</strong><br>
+        23h00 às 07h00 (todos os dias)
+      </div>
+      <div class="maintenance-spinner"></div>
+      <div class="message">
+        Este período é dedicado ao aprimoramento de nossos sistemas para oferecer<br>
+        a melhor experiência aos nossos clientes e parceiros.
+      </div>
+      <div class="subtitle">
+        ⏰ Retornaremos em breve com novidades!
+      </div>
+      <div id="currentTime" class="time-display"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    const targetUrl = "https://nelltekbrazil.ddns.net/nellSite/ClientesParceirosNell/gestorPai_SalaoConsultorioMVC/view/listaagenda.php";
+    let userAccepted = false;
+    
+    function acceptAndContinue() {
+      userAccepted = true;
+      document.getElementById('warning').style.display = 'none';
+      document.getElementById('redirecting').style.display = 'block';
+      handleRedirect();
+    }
+    
+    function declineAndExit() {
+      // Verifica se há histórico de navegação
+      if (window.history.length > 1) {
+        // Retorna para a página anterior
+        window.history.back();
+      } else {
+        window.location.href = 'about:blank';
+      }
+    }
+    
+    function updateCurrentTime() {
+      const now = new Date();
+      const timeString = now.toLocaleString('pt-BR', {
+        timeZone: 'America/Sao_Paulo',
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      document.getElementById('currentTime').textContent = `Horário atual: ${timeString}`;
+    }
+
+    function isMaintenanceTime() {
+      const now = new Date();
+      const hour = now.getHours();
+      return hour >= 23 || hour < 7;
+    }
+
+    function handleRedirect() {
+      if (isMaintenanceTime()) {
+        showMaintenancePage();
+        return;
+      }
+
+      const testImg = new Image();
+      let redirected = false;
+      
+      testImg.onload = function() {
+        if (!redirected) {
+          redirected = true;
+          setTimeout(() => {
+            window.location.replace(targetUrl);
+          }, 1500);
+        }
+      };
+      
+      testImg.onerror = function() {
+        if (!redirected) {
+          redirected = true;
+          showMaintenancePage();
+        }
+      };
+      
+      setTimeout(() => {
+        if (!redirected) {
+          redirected = true;
+          showMaintenancePage();
+        }
+      }, 8000);
+      
+      testImg.src = 'https://nelltekbrazil.ddns.net/favicon.ico?' + Date.now();
+    }
+
+    function showMaintenancePage() {
+      document.getElementById('redirecting').style.display = 'none';
+      document.getElementById('warning').style.display = 'none';
+      document.getElementById('maintenance').style.display = 'block';
+      
+      updateCurrentTime();
+      setInterval(updateCurrentTime, 1000);
+      
+      setInterval(() => {
+        if (!isMaintenanceTime()) {
+          location.reload();
+        }
+      }, 1000);
+    }
+
+    // Inicia mostrando o aviso ou manutenção
+    function init() {
+      if (isMaintenanceTime()) {
+        showMaintenancePage();
+      } else {
+        document.getElementById('warning').style.display = 'block';
+      }
+    }
+    
+    init();
+  </script>
+</body>
+</html>
