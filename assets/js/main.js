@@ -82,6 +82,27 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.didagent_target').forEach(item => {
     item.style.display = 'none';
   });
+
+  /**
+   * Toggle mostrar/ocultar senha no login
+   */
+  const toggleSenha = document.getElementById('toggleSenha');
+  if (toggleSenha) {
+    toggleSenha.addEventListener('click', function() {
+      const input = document.getElementById('psw');
+      const icon = document.getElementById('iconToggleSenha');
+
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('bi-eye');
+        icon.classList.add('bi-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('bi-eye-slash');
+        icon.classList.add('bi-eye');
+      }
+    });
+  }
   
   setTimeout(()=>{
     //  encontrarElementoComShadowEClasse(document.documentElement);     Removido a avatar provissoriamente - Nell Junior - 20/Ago/25 

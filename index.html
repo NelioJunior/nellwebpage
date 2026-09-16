@@ -247,8 +247,13 @@
             <input type="text" class="form-control" id="usrname" placeholder="Digite seu login">
           </div>
           <div class="mb-3">
-            <label for="psw" class="form-label"><i class="bi bi-eye"></i> Senha</label>
-            <input type="password" class="form-control" id="psw" placeholder="Digite sua senha" autocomplete="off">
+            <label for="psw" class="form-label"><i class="bi bi-lock"></i> Senha</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="psw" placeholder="Digite sua senha" autocomplete="off">
+              <span class="input-group-text" style="cursor:pointer" id="toggleSenha">
+                <i class="bi bi-eye" id="iconToggleSenha"></i>
+              </span>
+            </div>
           </div>
           <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" id="rememberMe" checked>
