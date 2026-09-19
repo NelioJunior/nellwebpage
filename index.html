@@ -213,7 +213,7 @@
                   <span class="tech-tag">💳 Pagamentos</span>
                   <span class="tech-tag">📱 Responsivo</span>
                 </div>
-                <a href="/avatares">  <!--Anteiormente /Loja -->
+                <a href="/loja">  
                     <button class="cta-button">Loja conceito</button>
                 </a>  
               </div>
@@ -326,15 +326,30 @@
 <script src="assets/js/main.js"></script>
 
 <script>
-  if ('serviceWorker' in navigator) {
+  // Só registra o Service Worker em produção (HTTPS e domínio real)
+  const isProducao = location.protocol === 'https:' && 
+                     location.hostname !== 'localhost' && 
+                     location.hostname !== '127.0.0.1';
+
+  if ('serviceWorker' in navigator && isProducao) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')
-        .then(() => console.log('SW registrado'))
-        .catch(err => console.error('Erro SW:', err));
+        .then(() => console.log('✅ SW registrado (produção)'))
+        .catch(err => console.error('❌ Erro SW:', err));
     });
+  } else {
+    // Em desenvolvimento, garante que nenhum SW antigo atrapalhe
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(registrations => {
+        registrations.forEach(reg => {
+          reg.unregister();
+          console.log('� SW antigo removido (desenvolvimento)');
+        });
+      });
+    }
   }
-</script>  
-
+</script>
+  
 </body>
 
 </html>

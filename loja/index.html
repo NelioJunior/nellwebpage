@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecionando - Nell</title>
+  <title>Nell · Simulação de Loja Virtual</title>
   <style>
     * {
       margin: 0;
@@ -19,6 +19,7 @@
       align-items: center;
       justify-content: center;
       color: white;
+      padding: 20px;
     }
 
     .container {
@@ -29,68 +30,116 @@
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-      width: 90%;
+      max-width: 560px;
+      width: 100%;
     }
 
     .logo {
-      font-size: 2.5em;
+      font-size: 2.8em;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 8px;
       color: #fff;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      letter-spacing: 1px;
     }
 
-    .redirecting {
+    .tagline {
+      font-size: 0.95em;
+      opacity: 0.85;
+      margin-bottom: 28px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    .simulation-badge {
+      display: inline-block;
+      background: rgba(255, 215, 0, 0.2);
+      border: 1px solid rgba(255, 215, 0, 0.5);
+      color: #ffd700;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.8em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+
+    .icon {
+      font-size: 3.5em;
+      margin-bottom: 16px;
       display: block;
     }
 
-    .maintenance {
-      display: none;
-    }
-
-    .maintenance-icon {
-      font-size: 4em;
-      margin-bottom: 20px;
-      animation: pulse 2s infinite;
-    }
-
     .message {
-      font-size: 1.2em;
+      font-size: 1.15em;
       line-height: 1.6;
       margin-bottom: 20px;
     }
 
-    .maintenance .message {
+    .message strong {
+      color: #ffd700;
+    }
+
+    .features {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 24px 0;
+      text-align: left;
+    }
+
+    .features h3 {
+      font-size: 1em;
+      margin-bottom: 14px;
+      text-align: center;
+      opacity: 0.9;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .features ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 20px;
+    }
+
+    .features li {
+      font-size: 0.92em;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .features li span {
       font-size: 1.1em;
     }
 
     .schedule {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 15px;
-      border-radius: 10px;
+      background: rgba(255, 215, 0, 0.12);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      padding: 16px;
+      border-radius: 12px;
       margin: 20px 0;
       font-weight: 500;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+
+    .schedule strong {
+      color: #ffd700;
     }
 
     .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      border-top: 4px solid white;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 20px auto;
-    }
-
-    .maintenance-spinner {
-      width: 60px;
-      height: 60px;
-      border: 4px solid rgba(255, 255, 255, 0.3);
+      width: 44px;
+      height: 44px;
+      border: 4px solid rgba(255, 255, 255, 0.25);
       border-top: 4px solid #ffd700;
       border-radius: 50%;
-      animation: spin 2s linear infinite;
-      margin: 20px auto;
+      animation: spin 1s linear infinite;
+      margin: 24px auto;
     }
 
     @keyframes spin {
@@ -98,66 +147,127 @@
       100% { transform: rotate(360deg); }
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.8; }
-    }
-
     .subtitle {
       font-size: 0.9em;
       opacity: 0.8;
-      margin-top: 15px;
-    }
-
-    .maintenance .subtitle {
-      color: #ffd700;
-      font-weight: 500;
+      margin-top: 16px;
+      line-height: 1.5;
     }
 
     .time-display {
       background: rgba(0, 0, 0, 0.2);
-      padding: 10px;
+      padding: 10px 14px;
       border-radius: 8px;
-      margin-top: 15px;
+      margin-top: 18px;
       font-family: 'Courier New', monospace;
+      font-size: 0.95em;
+      letter-spacing: 0.5px;
+    }
+
+    .redirecting-view .icon {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.85; }
+    }
+
+    .redirecting-view .message {
       font-size: 1.1em;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 28px 20px;
+      }
+      .logo {
+        font-size: 2.2em;
+      }
+      .features ul {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="logo">Nell</div>
-    
-    <div id="redirecting" class="redirecting">
-      <div class="message">Redirecionando você para nossa plataforma...</div>
+    <div class="tagline">Recepção virtual inteligente para o seu negócio</div>
+
+    <!-- VIEW: Redirecionamento (dentro do horário permitido) -->
+    <div id="redirecting" class="redirecting-view hidden">
+      <div class="simulation-badge">Ambiente de demonstração</div>
+      <span class="icon">🛍️</span>
+      <div class="message">
+        Você está prestes a entrar em uma <strong>simulação de loja virtual</strong>.<br>
+        Uma demonstração criada para mostrar, na prática, como a recepcionista virtual da Nell funciona.
+      </div>
       <div class="spinner"></div>
-      <div class="subtitle">Aguarde um momento</div>
+      <div class="subtitle">
+        Preparando o ambiente de demonstração...<br>
+        Você será redirecionado em instantes.
+      </div>
     </div>
 
-    <div id="maintenance" class="maintenance">
-      <div class="maintenance-icon">🔧</div>
+    <!-- VIEW: Fora do horário de acesso -->
+    <div id="maintenance" class="maintenance-view hidden">
+      <div class="simulation-badge">Ambiente de demonstração</div>
+      <span class="icon">🛍️</span>
       <div class="message">
-        Nossos serviços estão temporariamente indisponíveis para manutenção preventiva
+        Esta é uma <strong>simulação de compras e vendas</strong> de uma loja virtual.<br>
+        Nosso objetivo é demonstrar, na prática, as funcionalidades da nossa recepcionista virtual.
       </div>
+
+      <div class="features">
+        <h3>O que você poderá explorar</h3>
+        <ul>
+          <li><span>🛒</span> Catálogo de produtos</li>
+          <li><span>💬</span> Atendimento automatizado</li>
+          <li><span>📦</span> Fluxo de pedidos</li>
+          <li><span>💳</span> Simulação de checkout</li>
+        </ul>
+      </div>
+
       <div class="schedule">
-        <strong>Horário de Manutenção:</strong><br>
-        23h00 às 07h00 (todos os dias)
+        <strong>⏰ Acesso disponível das 07h00 às 23h00 (horário de Brasília)</strong><br>
+        Fora desse período, o ambiente de demonstração fica temporariamente indisponível.
       </div>
-      <div class="maintenance-spinner"></div>
-      <div class="message">
-        Este período é dedicado ao aprimoramento de nossos sistemas para oferecer<br>
-        a melhor experiência aos nossos clientes e parceiros.
-      </div>
+
+      <div class="spinner"></div>
+
       <div class="subtitle">
-        ⏰ Retornaremos em breve com novidades!
+        Assim que o horário de acesso for retomado, você será redirecionado automaticamente.<br>
+        Agradecemos pela compreensão — estamos preparando tudo para oferecer a melhor experiência.
       </div>
+
       <div id="currentTime" class="time-display"></div>
     </div>
   </div>
 
   <script type="text/javascript">
-    const targetUrl = "https://nellhairstyle.ddns.net/nelly_spa_shop/";
     
+    const targetUrl = "https://nelltekbrazil.ddns.net/nelly_spa_shop/";
+
+    // Horário de acesso: 07h00 às 23h00 (horário de Brasília)
+    const ACCESS_START_HOUR = 7;
+    const ACCESS_END_HOUR = 23;
+
+    // Retorna a hora atual no fuso de Brasília (0-23)
+    function getBrazilHour() {
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'America/Sao_Paulo',
+        hour: '2-digit',
+        hour12: false
+      });
+      return parseInt(formatter.format(now), 10);
+    }
+
     function updateCurrentTime() {
       const now = new Date();
       const timeString = now.toLocaleString('pt-BR', {
@@ -170,66 +280,28 @@
         minute: '2-digit',
         second: '2-digit'
       });
-      document.getElementById('currentTime').textContent = `Horário atual: ${timeString}`;
+      document.getElementById('currentTime').textContent = `Horário atual (Brasília): ${timeString}`;
     }
 
+    // Indisponível: antes das 07h ou a partir das 23h (horário de Brasília)
     function isMaintenanceTime() {
-      const now = new Date();
-      const hour = now.getHours();
-      // Horário de manutenção: 21h às 9h (21:00 - 08:59)
-      return hour >= 23 || hour < 7;
+      const hour = getBrazilHour();
+      return hour < ACCESS_START_HOUR || hour >= ACCESS_END_HOUR;
     }
 
-    function handleRedirect() {
-      // Verifica se está no horário de manutenção
-      if (isMaintenanceTime()) {
-        showMaintenancePage();
-        return;
-      }
-
-      // Abordagem simples: tenta carregar uma imagem do servidor para testar conectividade
-      const testImg = new Image();
-      let redirected = false;
-      
-      // Se conseguir carregar a imagem, servidor está OK
-      testImg.onload = function() {
-        if (!redirected) {
-          redirected = true;
-          setTimeout(() => {
-            window.location.replace(targetUrl);
-          }, 1500);
-        }
-      };
-      
-      // Se não conseguir carregar, pode estar fora do ar
-      testImg.onerror = function() {
-        if (!redirected) {
-          redirected = true;
-          showMaintenancePage();
-        }
-      };
-      
-      // Timeout: se demorar muito para responder, considera indisponível
-      setTimeout(() => {
-        if (!redirected) {
-          redirected = true;
-          showMaintenancePage();
-        }
-      }, 8000);
-      
-      // Tenta carregar uma imagem simples do servidor (favicon ou logo)
-      testImg.src = 'https://nellhairstyle.ddns.net/favicon.ico?' + Date.now();
+    function showView(viewId) {
+      document.getElementById('redirecting').classList.add('hidden');
+      document.getElementById('maintenance').classList.add('hidden');
+      document.getElementById(viewId).classList.remove('hidden');
     }
 
     function showMaintenancePage() {
-      document.getElementById('redirecting').style.display = 'none';
-      document.getElementById('maintenance').style.display = 'block';
-      
-      // Atualiza o horário atual a cada segundo
+      showView('maintenance');
+
       updateCurrentTime();
       setInterval(updateCurrentTime, 1000);
-      
-      // Verifica a cada segundo se já saiu do horário de manutenção
+
+      // Verifica periodicamente se já entrou no horário de acesso
       setInterval(() => {
         if (!isMaintenanceTime()) {
           location.reload();
@@ -237,7 +309,45 @@
       }, 1000);
     }
 
-    // Inicia o processo
+    function handleRedirect() {
+      // Dentro do horário permitido? Mostra a tela de redirecionamento
+      if (!isMaintenanceTime()) {
+        showView('redirecting');
+
+        const testImg = new Image();
+        let resolved = false;
+
+        testImg.onload = function () {
+          if (!resolved) {
+            resolved = true;
+            setTimeout(() => {
+              window.location.replace(targetUrl);
+            }, 1800);
+          }
+        };
+
+        testImg.onerror = function () {
+          if (!resolved) {
+            resolved = true;
+            showMaintenancePage();
+          }
+        };
+
+        setTimeout(() => {
+          if (!resolved) {
+            resolved = true;
+            showMaintenancePage();
+          }
+        }, 8000);
+
+        testImg.src = 'https://nelltekbrazil.ddns.net/favicon.ico?' + Date.now();
+        return;
+      }
+
+      // Fora do horário permitido? Mostra a tela de indisponibilidade
+      showMaintenancePage();
+    }
+
     handleRedirect();
   </script>
 </body>
