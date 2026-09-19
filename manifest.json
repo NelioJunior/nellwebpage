@@ -1,10 +1,10 @@
 {
   "name": "NELL",
-  "short_name": "NELL APP",
+  "short_name": "NELL",
   "description": "Inteligencia Artificial para quem usa sua Inteligencia Natural",
   "icons": [
     {
-      "src": "/assets/img/logo2026v3.png",
+      "src": "/assets/img/logo2026.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
