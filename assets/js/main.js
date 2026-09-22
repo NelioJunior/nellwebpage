@@ -55,7 +55,7 @@ function openLink() {
   var params = "nellUsuario=" + encodeURIComponent(document.getElementById("usrname").value) +
                "&nellSenha=" + encodeURIComponent(document.getElementById("psw").value);
 
-  xhr.open("GET", "https://nelltekbrazil.ddns.net/erp_multi_salao/dummy.php?" + params, true);
+  xhr.open("GET", "https://nelltekbrazil.ddns.net/dummy.php?" + params, true);
 
   xhr.onreadystatechange = function () {
       if (xhr.readyState == 4) {
@@ -103,12 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  
-  setTimeout(()=>{
-    //  encontrarElementoComShadowEClasse(document.documentElement);     Removido a avatar provissoriamente - Nell Junior - 20/Ago/25 
-  }, 3000); 
-
-
+    
   var qrcode = document.querySelector('.qrcode');
 
   if (window.innerHeight > window.innerWidth) {
