@@ -234,7 +234,7 @@
       </div>
 
       <div class="schedule">
-        <strong>⏰ Acesso disponível das 07h00 às 23h00 (horário de Brasília)</strong><br>
+        <strong>⏰ Acesso disponível das 07h00 às 23h30 (horário de Brasília)</strong><br>
         Fora desse período, o ambiente de demonstração fica temporariamente indisponível.
       </div>
 
@@ -253,20 +253,9 @@
     
     const targetUrl = "https://nelltekbrazil.ddns.net/nelly_spa_shop/";
 
-    // Horário de acesso: 07h00 às 23h00 (horário de Brasília)
-    const ACCESS_START_HOUR = 7;
-    const ACCESS_END_HOUR = 23;
-
-    // Retorna a hora atual no fuso de Brasília (0-23)
-    function getBrazilHour() {
-      const now = new Date();
-      const formatter = new Intl.DateTimeFormat('pt-BR', {
-        timeZone: 'America/Sao_Paulo',
-        hour: '2-digit',
-        hour12: false
-      });
-      return parseInt(formatter.format(now), 10);
-    }
+    // Horário de acesso: 07h00 às 23h30 (horário de Brasília)
+    const ACCESS_START_MINUTES = 7 * 60;
+    const ACCESS_END_MINUTES = 23 * 60 + 30;
 
     function updateCurrentTime() {
       const now = new Date();
@@ -283,10 +272,18 @@
       document.getElementById('currentTime').textContent = `Horário atual (Brasília): ${timeString}`;
     }
 
-    // Indisponível: antes das 07h ou a partir das 23h (horário de Brasília)
+    // Indisponível: antes das 07h00 ou a partir das 23h30 (horário de Brasília)
     function isMaintenanceTime() {
-      const hour = getBrazilHour();
-      return hour < ACCESS_START_HOUR || hour >= ACCESS_END_HOUR;
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'America/Sao_Paulo',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+      const [hour, minute] = formatter.format(now).split(':').map(Number);
+      const totalMinutes = hour * 60 + minute;
+      return totalMinutes < ACCESS_START_MINUTES || totalMinutes >= ACCESS_END_MINUTES;
     }
 
     function showView(viewId) {
@@ -310,45 +307,17 @@
     }
 
     function handleRedirect() {
-      // Dentro do horário permitido? Mostra a tela de redirecionamento
-      if (!isMaintenanceTime()) {
-        showView('redirecting');
-
-        const testImg = new Image();
-        let resolved = false;
-
-        testImg.onload = function () {
-          if (!resolved) {
-            resolved = true;
-            setTimeout(() => {
-              window.location.replace(targetUrl);
-            }, 1800);
-          }
-        };
-
-        testImg.onerror = function () {
-          if (!resolved) {
-            resolved = true;
-            showMaintenancePage();
-          }
-        };
-
-        setTimeout(() => {
-          if (!resolved) {
-            resolved = true;
-            showMaintenancePage();
-          }
-        }, 8000);
-
-        testImg.src = 'https://nelltekbrazil.ddns.net/favicon.ico?' + Date.now();
+      if (isMaintenanceTime()) {
+        showMaintenancePage();
         return;
       }
 
-      // Fora do horário permitido? Mostra a tela de indisponibilidade
-      showMaintenancePage();
+      showView('redirecting');
+      window.location.replace(targetUrl);
     }
 
-    handleRedirect();
+    // A ponte redireciona automaticamente após 7 segundos.
+    setTimeout(handleRedirect, 7000);
   </script>
 </body>
 </html>

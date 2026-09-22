@@ -102,47 +102,6 @@
       line-height: 1.6;
     }
 
-    .button-container {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      margin-top: 25px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 15px 30px;
-      font-size: 1.1em;
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .btn-accept {
-      background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-      color: white;
-    }
-
-    .btn-accept:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-    }
-
-    .btn-decline {
-      background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
-      color: white;
-    }
-
-    .btn-decline:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
-    }
-
     .message {
       font-size: 1.2em;
       line-height: 1.6;
@@ -234,22 +193,12 @@
         </ul>
         
       </div>
-      
-      <div class="button-container">
-        <button class="btn btn-accept" onclick="acceptAndContinue()">
-          ✅ Entendi e Aceito
-        </button>
-        <button class="btn btn-decline" onclick="declineAndExit()">
-          ❌ Não Aceito
-        </button>
-      </div>
-      
-      <div class="subtitle" style="margin-top: 20px;">
+<div class="subtitle" style="margin-top: 20px;">
         🔒 Sua privacidade é importante. Prossiga com responsabilidade.
       </div>
 
 	  <div style="width: 50%; margin: 0 auto; position: relative; top: 20px; transform-origin: center; text-align: center;">
-	     <img src="./lgpd.png" alt="LGPD" style="width: 20%; height: auto;">
+	     <img  src="./erp/lgpd.png" alt="LGPD" style="width: 20%; height: auto;">
 	  </div>
 	
     </div>
@@ -269,7 +218,7 @@
       </div>
       <div class="schedule">
         <strong>Horário de Manutenção:</strong><br>
-        23h00 às 07h00 (todos os dias)
+        23h30 às 07h00 (todos os dias)
       </div>
       <div class="maintenance-spinner"></div>
       <div class="message">
@@ -285,25 +234,13 @@
 
   <script type="text/javascript">
     const targetUrl = "https://nelltekbrazil.ddns.net/nellSite/ClientesParceirosNell/gestorPai_SalaoConsultorioMVC/view/listaagenda.php";
-    let userAccepted = false;
-    
-    function acceptAndContinue() {
-      userAccepted = true;
+    // Redireciona automaticamente para a página principal após 7 segundos.
+    setTimeout(() => {
       document.getElementById('warning').style.display = 'none';
       document.getElementById('redirecting').style.display = 'block';
       handleRedirect();
-    }
-    
-    function declineAndExit() {
-      // Verifica se há histórico de navegação
-      if (window.history.length > 1) {
-        // Retorna para a página anterior
-        window.history.back();
-      } else {
-        window.location.href = 'about:blank';
-      }
-    }
-    
+    }, 7000);
+
     function updateCurrentTime() {
       const now = new Date();
       const timeString = now.toLocaleString('pt-BR', {
@@ -321,8 +258,15 @@
 
     function isMaintenanceTime() {
       const now = new Date();
-      const hour = now.getHours();
-      return hour >= 23 || hour < 7;
+      const timeString = now.toLocaleTimeString('en-GB', {
+        timeZone: 'America/Sao_Paulo',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+      const [hour, minute] = timeString.split(':').map(Number);
+      const totalMinutes = hour * 60 + minute;
+      return totalMinutes < 7 * 60 || totalMinutes >= 23 * 60 + 30;
     }
 
     function handleRedirect() {
@@ -331,33 +275,7 @@
         return;
       }
 
-      const testImg = new Image();
-      let redirected = false;
-      
-      testImg.onload = function() {
-        if (!redirected) {
-          redirected = true;
-          setTimeout(() => {
-            window.location.replace(targetUrl);
-          }, 1500);
-        }
-      };
-      
-      testImg.onerror = function() {
-        if (!redirected) {
-          redirected = true;
-          showMaintenancePage();
-        }
-      };
-      
-      setTimeout(() => {
-        if (!redirected) {
-          redirected = true;
-          showMaintenancePage();
-        }
-      }, 8000);
-      
-      testImg.src = 'https://nelltekbrazil.ddns.net/favicon.ico?' + Date.now();
+      window.location.replace(targetUrl);
     }
 
     function showMaintenancePage() {

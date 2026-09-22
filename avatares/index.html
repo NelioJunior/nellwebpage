@@ -270,7 +270,7 @@
       </div>
       <div class="schedule">
         <strong>Horário de Manutenção:</strong><br>
-        23h00 às 07h00 (todos os dias)
+        23h30 às 07h00 (todos os dias)
       </div>
       <div class="maintenance-spinner"></div>
       <div class="message">
@@ -294,6 +294,13 @@
       document.getElementById('redirecting').style.display = 'block';
       handleRedirect();
     }
+    
+    // Se o usuário não confirmar manualmente, a ponte segue automaticamente após 7 segundos.
+    setTimeout(() => {
+      if (!userAccepted) {
+        acceptAndContinue();
+      }
+    }, 7000);
     
     function declineAndExit() {
       // Verifica se há histórico de navegação
@@ -322,8 +329,15 @@
 
     function isMaintenanceTime() {
       const now = new Date();
-      const hour = now.getHours();
-      return hour >= 23 || hour < 7;
+      const timeString = now.toLocaleTimeString('en-GB', {
+        timeZone: 'America/Sao_Paulo',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+      const [hour, minute] = timeString.split(':').map(Number);
+      const totalMinutes = hour * 60 + minute;
+      return totalMinutes < 7 * 60 || totalMinutes >= 23 * 60 + 30;
     }
 
     function handleRedirect() {
@@ -332,33 +346,7 @@
         return;
       }
 
-      const testImg = new Image();
-      let redirected = false;
-      
-      testImg.onload = function() {
-        if (!redirected) {
-          redirected = true;
-          setTimeout(() => {
-            window.location.replace(targetUrl);
-          }, 1500);
-        }
-      };
-      
-      testImg.onerror = function() {
-        if (!redirected) {
-          redirected = true;
-          showMaintenancePage();
-        }
-      };
-      
-      setTimeout(() => {
-        if (!redirected) {
-          redirected = true;
-          showMaintenancePage();
-        }
-      }, 8000);
-      
-      testImg.src = 'https://twilio-heygen-avatar-70537013131.us-east1.run.app/favicon.ico?' + Date.now();
+      window.location.replace(targetUrl);
     }
 
     function showMaintenancePage() {
