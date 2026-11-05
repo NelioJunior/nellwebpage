@@ -7,6 +7,7 @@
 
   const PAIRS_COUNT = 6;
   const FLIP_BACK_DELAY = 950;
+  const MEMORIZE_DURATION = 10000; // 10s de pré-visualização
   const DATA_URL = "dicas_ingles.txt";
   const SOUND_STORAGE_KEY = "emg-sound-enabled";
 
@@ -44,6 +45,9 @@
     seconds: 0,
     started: false,
     soundEnabled: true,
+    memorizeActive: false,
+    memorizeTimeoutId: null,
+    memorizeCountdownId: null,
   };
 
   /* =========================================================
@@ -250,6 +254,38 @@
     return false;
   }
 
+  /**
+   * Divide um texto no formato "<inglês> : <português>".
+   * Usa apenas o PRIMEIRO ":" como separador.
+   * Retorna { english, portuguese } ou null.
+   */
+  function splitByColon(text) {
+    if (!text || !text.includes(":")) return null;
+
+    const idx = text.indexOf(":");
+    const en = text.slice(0, idx).trim();
+    const pt = text.slice(idx + 1).trim();
+
+    if (!en || !pt) return null;
+    return { english: en, portuguese: pt };
+  }
+
+  /**
+   * Divide uma string em partes por "|" (delimitador de sinônimos).
+   * Retorna array de partes trimadas, sem vazios.
+   */
+  function splitPipes(text) {
+    if (!text || !text.includes("|")) return [String(text || "").trim()].filter(Boolean);
+    return text
+      .split("|")
+      .map((s) => s.trim())
+      .filter(Boolean);
+  }
+
+  /**
+   * Heurística de fallback: divide "inglês português" pela transição
+   * de idioma (usada apenas em linhas sem ":" — compatibilidade).
+   */
   function splitEnglishPortuguese(text) {
     const words = text.split(/\s+/).filter(Boolean);
     if (words.length < 2) return null;
@@ -271,6 +307,18 @@
     return null;
   }
 
+  /**
+   * Extrai pares de uma linha. O novo formato é:
+   *   <inglês> : <português>
+   * com "|" opcional em ambos os lados (sinônimos).
+   *
+   * Regras:
+   *  - Se ambos os lados têm o MESMO número de partes "|", pareia 1:1.
+   *  - Caso contrário, mantém EN e PT inteiros como um único par
+   *    (sinônimos agrupados) — desde que passem no filtro de qualidade.
+   *  - Linhas sem ":" caem na heurística antiga (fallback).
+   *  - Linhas começando ou terminando com ":" são descartadas.
+   */
   function extractPairsFromLine(rawLine) {
     let line = rawLine
       .replace(PREFIX_REGEX, "")
@@ -281,95 +329,116 @@
 
     if (!line) return [];
 
+    // Normaliza "=" como sinônimo de "|"
     line = line.replace(/\s*=\s*/g, " | ");
 
-    if (line.includes("|")) {
-      const parts = line.split("|").map((p) => p.trim()).filter(Boolean);
-      const pairs = [];
-      for (const part of parts) {
-        const pair = parseSingleChunk(part);
-        if (pair) pairs.push(pair);
-      }
-      return pairs;
-    }
-
+    // Formato explícito "EN : PT"
     if (line.includes(":")) {
-      const [en, ...rest] = line.split(":");
-      const pt = rest.join(":").trim();
-      if (en && pt) return [{ english: en.trim(), portuguese: pt.trim() }];
+      const byColon = splitByColon(line);
+      if (!byColon) return [];
+
+      const enParts = splitPipes(byColon.english);
+      const ptParts = splitPipes(byColon.portuguese);
+
+      if (!enParts.length || !ptParts.length) return [];
+
+      // Pareamento posicional quando as contagens batem
+      if (enParts.length === ptParts.length && enParts.length > 1) {
+        const pairs = [];
+        for (let i = 0; i < enParts.length; i++) {
+          const en = enParts[i];
+          const pt = ptParts[i];
+          if (isQualityPair(en, pt)) {
+            pairs.push({ english: en, portuguese: pt });
+          }
+        }
+        return pairs;
+      }
+
+      // Caso contrário: EN inteiro <-> PT inteiro (sinônimos agrupados)
+      const en = enParts.join(" | ");
+      const pt = ptParts.join(" | ");
+      if (isQualityPair(en, pt)) {
+        return [{ english: en, portuguese: pt }];
+      }
+      return [];
     }
 
+    // Fallback: heurística (linhas antigas sem ":") — modo estrito
     const pair = splitEnglishPortuguese(line);
-    return pair ? [pair] : [];
+    if (!pair) return [];
+    if (!isQualityPair(pair.english, pair.portuguese, "strict")) return [];
+    return [pair];
   }
 
-  function parseSingleChunk(chunk) {
-    const trimmed = chunk.trim();
-    if (!trimmed) return null;
-
-    if (trimmed.includes(":")) {
-      const [en, ...rest] = trimmed.split(":");
-      const pt = rest.join(":").trim();
-      if (en && pt) return { english: en.trim(), portuguese: pt.trim() };
-    }
-
-    const pair = splitEnglishPortuguese(trimmed);
-    if (!pair) return null;
-
-    if (pair.english.toLowerCase() === pair.portuguese.toLowerCase()) return null;
-    if (pair.english.split(/\s+/).length > 6) return null;
-
-    if (!isQualityPair(pair.english, pair.portuguese)) return null;
-
-    return pair;
-  }
-
-  function isQualityPair(english, portuguese) {
-    const en = english.trim();
-    const pt = portuguese.trim();
+  /**
+   * Verifica se um par (EN, PT) é aceitável para o jogo.
+   *
+   * Modos:
+   *  - "relaxed" (padrão para formato ":" explícito): aceita quase tudo,
+   *    só rejeita tamanho excessivo, meta-anotações entre parênteses e
+   *    pares degenerados. O ":" já garante a separação correta.
+   *  - "strict" (para o fallback heurístico sem ":"): aplica filtros
+   *    mais agressivos de anotação/explicação para evitar falsos positivos.
+   */
+  function isQualityPair(english, portuguese, mode = "relaxed") {
+    const en = String(english || "").trim();
+    const pt = String(portuguese || "").trim();
     if (!en || !pt) return false;
 
     const enWords = en.split(/\s+/).filter(Boolean);
     const ptWords = pt.split(/\s+/).filter(Boolean);
-    if (enWords.length < 1 || enWords.length > 4) return false;
-    if (ptWords.length < 1 || ptWords.length > 8) return false;
 
-    if (EN_ANNOTATION.test(en)) return false;
-    if (PT_EXPLANATION.test(pt)) return false;
-    if (/^\(.*\)$/u.test(pt)) return false;
-    if (/\.\.\./.test(en)) return false;
-    if (/\.\//.test(en)) return false;
-    if (/[-,\/:]$/.test(en)) return false;
-    if (/\b(possível tradução|possivel traducao|Dica para lembrar|dependendo do contexto)\b/iu.test(pt)) {
+    // Limites comuns
+    const maxEnWords = mode === "strict" ? 6 : 10;
+    const maxPtWords = mode === "strict" ? 10 : 20;
+    if (enWords.length < 1 || enWords.length > maxEnWords) return false;
+    if (ptWords.length < 1 || ptWords.length > maxPtWords) return false;
+    if (en.length > 140 || pt.length > 200) return false;
+
+    // Descarta pares idênticos
+    if (en.toLowerCase() === pt.toLowerCase()) return false;
+
+    // Exige letras no inglês e no português
+    if (!/[A-Za-z]/.test(en)) return false;
+    if (!/[A-Za-zÀ-ÿ]/.test(pt)) return false;
+
+    // Descarta se começar/terminar com pontuação estranha
+    if (/^[-,\/:|]$/.test(en) || /^[-,\/:|]$/.test(pt)) return false;
+
+    // Meta-anotações explicitamente entre parênteses
+    if (/\(\s*(poss[íi]vel tradu[cç][aã]o|Dica para lembrar|dependendo do contexto)\s*\)/iu.test(pt)) {
       return false;
     }
-    if ((pt.match(/\(/g) || []).length !== (pt.match(/\)/g) || []).length) return false;
-    if ((en.match(/"/g) || []).length % 2 !== 0) return false;
-    if (!/[A-Za-z]/.test(en)) return false;
+    // Frases de alerta/instrução explícitas
+    if (/\b(N[ãa]o confundir|Dica para lembrar|conforme a anota[cç][aã]o)\b/iu.test(pt)) {
+      return false;
+    }
+    if (/\b(Dica para lembrar|N[ãa]o confundir)\b/iu.test(en)) return false;
 
-    const lastEn = en.split(/\s+/).pop().toLowerCase().replace(/[.,!?;:"'()]/g, "");
-    if (PT_MARKERS.has(lastEn)) return false;
-
-    if (!/[A-Za-zÀ-ÿ]/.test(pt)) return false;
-    if (enWords.length === 1 && en.length <= 2) return false;
+    // No modo estrito, aplica filtros agressivos de anotação/explicação
+    if (mode === "strict") {
+      if (EN_ANNOTATION.test(en)) return false;
+      if (PT_EXPLANATION.test(pt)) return false;
+    }
 
     return true;
   }
 
   function parseTipsFile(content) {
-    const lines = content.split(/\r?\n/);
+    const lines = String(content || "").split(/\r?\n/);
     const pairs = [];
     const seen = new Set();
 
     for (const line of lines) {
-      if (!line.includes("🇬🇧")) continue;
+      const trimmed = line.trim();
+      if (!trimmed) continue;
 
-      const extracted = extractPairsFromLine(line);
+      const extracted = extractPairsFromLine(trimmed);
       for (const p of extracted) {
         const en = p.english.trim();
         const pt = p.portuguese.trim();
         if (!en || !pt) continue;
-        if (en.length > 80 || pt.length > 100) continue;
         if (!isQualityPair(en, pt)) continue;
 
         const key = `${en.toLowerCase()}::${pt.toLowerCase()}`;
@@ -512,6 +581,76 @@
   }
 
   /* =========================================================
+     FASE DE MEMORIZAÇÃO (preview de 10s)
+     ========================================================= */
+  function clearMemorizeTimers() {
+    if (state.memorizeTimeoutId) {
+      clearTimeout(state.memorizeTimeoutId);
+      state.memorizeTimeoutId = null;
+    }
+    if (state.memorizeCountdownId) {
+      clearInterval(state.memorizeCountdownId);
+      state.memorizeCountdownId = null;
+    }
+  }
+
+  function startMemorizePhase() {
+    clearMemorizeTimers();
+
+    const cards = Array.from(boardEl.querySelectorAll(".card"));
+    if (!cards.length) return;
+
+    state.memorizeActive = true;
+    state.lock = true;
+
+    // Vira todas as cartas para cima (sem falar áudio)
+    cards.forEach((card) => {
+      card.classList.add("is-flipped");
+      card.setAttribute("aria-pressed", "true");
+      const textEl = card.querySelector(".card__text");
+      const label = textEl ? textEl.textContent : "carta";
+      card.setAttribute("aria-label", `Carta virada: ${label}`);
+      card.classList.add("is-disabled");
+    });
+
+    let remaining = Math.ceil(MEMORIZE_DURATION / 1000);
+
+    const renderHint = () => {
+      hintEl.textContent = `🧠 Memorize as posições! As cartas viram em ${remaining}s…`;
+    };
+    renderHint();
+
+    state.memorizeCountdownId = setInterval(() => {
+      remaining -= 1;
+      if (remaining > 0) {
+        renderHint();
+      }
+    }, 1000);
+
+    state.memorizeTimeoutId = setTimeout(() => {
+      endMemorizePhase();
+    }, MEMORIZE_DURATION);
+  }
+
+  function endMemorizePhase() {
+    clearMemorizeTimers();
+
+    const cards = Array.from(boardEl.querySelectorAll(".card"));
+    cards.forEach((card) => {
+      card.classList.remove("is-disabled");
+      unflipCard(card);
+    });
+
+    state.memorizeActive = false;
+    state.lock = false;
+
+    hintEl.textContent =
+      speechSupported && state.soundEnabled
+        ? "Agora é sua vez! Clique em duas cartas. Cartas em inglês falam a pronúncia! 🔊"
+        : "Agora é sua vez! Clique em duas cartas para tentar formar um par. Boa sorte! 🍀";
+  }
+
+  /* =========================================================
      CRONÔMETRO E ESTATÍSTICAS
      ========================================================= */
   function startTimer() {
@@ -544,6 +683,9 @@
      LÓGICA DO JOGO
      ========================================================= */
   function onCardClick(event) {
+    // Durante a fase de memorização, ignora qualquer clique
+    if (state.memorizeActive) return;
+
     const card = event.currentTarget;
 
     // Carta já virada (e ainda não é par): re-fala se for EN
@@ -651,6 +793,8 @@
      ========================================================= */
   function startNewGame() {
     stopTimer();
+    clearMemorizeTimers();
+    state.memorizeActive = false;
     state.attempts = 0;
     state.matches = 0;
     state.seconds = 0;
@@ -667,10 +811,6 @@
     statTimeEl.textContent = "00:00";
     statAttemptsEl.textContent = "0";
     statMatchesEl.textContent = `0/${PAIRS_COUNT}`;
-    hintEl.textContent =
-      speechSupported && state.soundEnabled
-        ? "Clique em duas cartas. Cartas em inglês falam a pronúncia! 🔊"
-        : "Clique em duas cartas para tentar formar um par. Boa sorte! 🍀";
 
     winModal.hidden = true;
 
@@ -682,6 +822,9 @@
     state.deck = buildDeck(state.pool);
     renderBoard(state.deck);
     bindCards();
+
+    // Inicia a fase de memorização (cartas reveladas por 10s)
+    startMemorizePhase();
   }
 
   function bindCards() {

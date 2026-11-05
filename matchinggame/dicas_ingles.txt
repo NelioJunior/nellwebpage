@@ -1,397 +1,197 @@
-[5/3/26, 10:23:40 AM] Você: 🇬🇧 Follow my lead Siga meu exemplo
-
-[5/4/26, 8:43:16 AM] Você: 🇬🇧 to break the bank Gastar uma fortuna
-
-[5/5/26, 9:12:44 AM] Você: 🇬🇧 cluttered / messy Desordenado/bagunçado
-
-[5/5/26, 9:21:54 AM] Você: 🇬🇧  counterintuitive contra-intuitivo
-
-[5/5/26, 9:32:01 AM] Você: 🇬🇧 crowded Lotado | Poluído (dependendo do contexto)
-
-[5/6/26, 7:55:23 AM] Você: 🇬🇧 user-friendly fácil de usar
-
-[5/6/26, 8:01:23 AM] Você: 🇬🇧 holding back atrapalhando
-
-[5/6/26, 4:45:40 PM] Você: 🇬🇧 crossroads encruzilhada
-
-[5/7/26, 11:22:47 AM] Você: 🇬🇧 ran into | came across Se encontrar de repente | Dar de cara
-
-[5/9/26, 11:16:07 AM] Você: 🇬🇧 In my day Em minha época (possível tradução)
-
-[5/9/26, 11:18:43 AM] Você: 🇬🇧 Stand  out  Destacar | chamar a atenção
-
-[5/10/26, 11:21:14 AM] Você: 🇬🇧 the next month Correto, mas o 'the' é redundante,  então é mais natural "dropa-lo"
-
-[5/12/26, 8:02:23 AM] Você: 🇬🇧 get through aguentar
-
-[5/12/26, 8:06:14 AM] Você: 🇬🇧 Nao confundir!  assurance Garantia | insurance Seguro  (Dica para lembrar: Assegurar é garantir)
-
-[5/15/26, 11:47:22 AM] Você: 🇬🇧 leaving: saindo 
-
-[5/15/26, 11:47:25 AM] Você: 🇬🇧 arriving chegando
-
-[5/16/26, 9:35:02 PM] Você: 🇬🇧 storytelling : narrativa
-
-[5/17/26, 7:40:05 AM] Você: 🇬🇧 regardless por mais (que) .... |  independentemente | De qualquer forma
-
-[5/17/26, 8:06:48 AM] Você: 🇬🇧 It’s a bit of a tight spot É uma situação um pouco complicada
-
-[5/18/26, 8:01:55 AM] Você: 🇬🇧 turning point Ponto de virada
-
-[5/18/26, 6:21:21 PM] Você: 🇬🇧 I was looking for some kind of ... Algumas vezes looking for tem o sentido de  esperando (expected)
-
-[5/19/26, 3:09:04 PM] Você: 🇬🇧 Grasp Compreender
-
-[5/19/26, 3:34:45 PM] Você: 🇬🇧  Após referência a uma coisa (que não tenha gênero masculino ou feminino), lembrar de usar it no caso de voltar a referenciar novamente.
-
-[5/20/26, 10:24:50 AM] Você: 🇬🇧 overhaul mudar | revisar
-
-[5/24/26, 11:48:44 AM] Você: 🇬🇧 upbeat otimista
-
-[5/26/26, 6:05:56 PM] Você: 🇬🇧 Paraphrasing Explicar algo com outras palavras (Tentar explicar algo , quando vc nao sabe ou nao lembra as palavras exatas a utilizar)
-
-[5/27/26, 9:40:54 AM] Você: 🇬🇧 soak up absorver
-
-[5/27/26, 9:55:03 AM] Você: 🇬🇧 peak/high season Alta temporada
-
-[5/27/26, 4:40:12 PM] Você: 🇬🇧 You got this Voce consegue! ( expressão de encorajamento)                                🇬🇧 You got it É pra já | É isso ai, vc entendeu certo.
-
-[5/29/26, 8:00:32 AM] Você: 🇬🇧 beforehand  antecipadamente
-
-[5/31/26, 7:55:16 AM] Você: 🇬🇧 Turn it around Virar o jogo/Reverter uma situação/dar a volta por cima.
-
-[5/31/26, 7:59:47 AM] Você: 🇬🇧 This caught me off guard! Isto me pegou de surpresa
-
-[5/31/26, 8:35:11 AM] Você: 🇬🇧 I am game if you are Significa "Eu topo, se você topar" ou "Se você for, eu vou". Indica disposição para um plano. Também usamos "Estou dentro", sendo "I'm in" uma expressão equivalente e muito usual.
-
-[5/31/26, 11:15:40 AM] Você: 🇬🇧 everything went fine Tudo correu bem | Deu tudo certo
-
-[6/1/26, 11:36:24 AM] Você: 🇬🇧 on going Em curso | Em andamento
-
-[6/2/26, 9:41:01 AM] Você: 🇬🇧 operating hours Horas de funcionamento
-
-[6/2/26, 5:42:01 PM] Você: 🇬🇧 The cherry on top A cereja do bolo 🍰
-
-[6/3/26, 9:53:05 AM] Você: 🇬🇧 tracks Monitorar (possível tradução)
-
-[6/3/26, 11:23:54 AM] Você: 🇬🇧 A preposição for é usada para indicar o beneficiário de uma ação (para alguém), o motivo ou finalidade dela (por que, para que), a duração de tempo (por quanto tempo), ou ainda um destino (para onde)."
-
-[6/3/26, 11:28:04 AM] Você: 🇬🇧 Use leave for ao partir para um destino. Use go to para se deslocar em direção a um lugar."
-
-[6/4/26, 11:53:29 AM] Você: 🇬🇧 Is it a request or a demand É um pedido ou uma exigência?
-
-[6/4/26, 11:57:11 AM] Você: 🇬🇧I do not know either./ I know too O either é para frases negativas e too para frases positivas.
-
-[6/4/26, 7:27:25 PM] Você: 🇬🇧 withdraw Saque / retirar
-
-[6/5/26, 11:56:04 AM] Você: 🇬🇧 Don't be nosy  não seja intrometido
-
-[6/6/26, 12:27:16 PM] Você: 🇬🇧 weird Nao pronuncie a letra "E" e deixe o "I" mas longo.
-
-[6/10/26, 11:02:50 PM] Você: 🇬🇧Network É na verdade, juntar pessoas pra tentar fechar negócio. 🤔
-
-[6/12/26, 5:25:29 PM] Você: 🇬🇧 Ingles nao tem que ser um teste o tempo todo, a função do inglês é simplesmente se comunicar (Carina)
-
-[6/12/26, 5:27:44 PM] Você: 🇬🇧has gotten use to Se acostumou
-
-[6/16/26, 9:14:07 AM] Você: 🇬🇧 look into Investigar
-
-[6/16/26, 5:12:48 PM] Você: 🇬🇧 please allow me some time  Por favor, me dê algum tempo.
-
-[6/17/26, 6:32:40 PM] Você: 🇬🇧 duolingo: Nas questões de português para o inglês monte a frase na cabeça antes de preencher a resposta
-
-[6/18/26, 8:15:09 AM] Você: 🇬🇧 flight boards Embarque (avião)
-
-[6/18/26, 10:33:35 AM] Você: 🇬🇧Giving away Distribuindo, Dando de graça
-
-[6/19/26, 8:07:22 AM] Você: 🇬🇧 several Diversas/diversos  (possível tradução)
-
-[6/20/26, 7:50:29 AM] Você: 🇬🇧 spare Sobrando  (Ex: Do you have any spare? )
-
-[6/20/26, 10:42:36 AM] Você: 🇬🇧 to tranforma algo em verbo
-
-[6/21/26, 8:34:03 AM] Você: 🇬🇧 No avião ou ônibus,  o banheiro é chamado de lavatory
-
-[6/21/26, 8:35:34 AM] Você: 🇬🇧 O "y" usado como  sufixo , transforma uma palavra em um adjetivo, já o "ly" é usado em advérbio.
-
-[6/21/26, 8:41:32 PM] Você: 🇬🇧 I am boring eu sou entediante  | I am bored Eu estou entediado
-
-[6/22/26, 8:07:43 AM] Você: 🇬🇧 Value Também obviamente pode ser o verbo valorizar
-
-[6/23/26, 11:58:33 AM] Você: 🇬🇧 Fashion = moda, especialmente roupas e estilo.
-Trendy = popular ou na moda no momento, em qualquer área inclusive roupa.
-
-[6/25/26, 12:13:12 AM] Você: 🇬🇧 rules out Elimina, discarta (um problema)
-
-[6/26/26, 8:42:12 AM] Você: 🇬🇧 "Genre" é para categorias de arte e filmes. Use "gender" para identidade social ou sexo de uma pessoa.
-
-[6/26/26, 7:52:27 PM] Você: 🇬🇧 Yes, it is É sim, - (Usar com frequência)
-
-[6/27/26, 11:16:36 AM] Você: 🇬🇧 running late Chegando atrasado
-
-[6/28/26, 10:47:27 AM] Você: 🇬🇧 who- Quando a pergunta envolve who,  nao se usa o auxiliar does/did
-
-[6/29/26, 8:16:42 AM] Você: 🇬🇧 catches up Alcançar,  Recuperar o atraso.
-
-[6/30/26, 8:13:21 AM] Você: 🇬🇧I came to find out Eu acabei descobrindo
-
-[6/30/26, 8:14:05 AM] Você: 🇬🇧 what's your major? Qual é a sua especialização
-
-[7/1/26, 8:27:14 AM] Você: 🇬🇧 Em um verbo no passado o E do sufixo ed é praticamente mudo.
-
-[7/1/26, 10:29:56 AM] Você: 🇬🇧 What I was going for É o que eu queria
-
-[7/2/26, 7:43:47 AM] Você: 🇬🇧 listed Também pode ser algo que vc anunciou para alugar ou vender.
-
-[7/2/26, 7:49:25 AM] Você: 🇬🇧 willing Disposto. Desejoso
-
-[7/2/26, 7:53:37 AM] Você: 🇬🇧 up soon Em breve
-
-[7/3/26, 3:30:51 PM] Você: 🇬🇧hire Contratar | hide Esconder
-
-[7/3/26, 3:32:38 PM] Você: 🇬🇧 Ao fazer perguntas no passado com o auxiliar 'did', o verbo principal permanece  na sua forma base. Por outro lado, ao usar 'was' ou 'were', o verbo pode ter terminação '-ing' ou estar no particípio/particípio passado"
-
-[7/3/26, 7:22:48 PM] Você: 🇬🇧 ​Dica de Inglês: Passado (Used to vs. Would)
-​Para falar de hábitos passados e não soar repetitivo, varie entre os dois.
-​Used to: Serve para tudo (ações e estados passados).
-​Would: Serve apenas para ações repetidas (dá um tom nostálgico de história). Nunca use would para estados (como live, be, have).
-​Exemplo:
-"I used to live in a big house. Every morning, I would sit in the garden and drink coffee." (Morar = estado [used to] / Sentar e beber = ações [would]). - (Sentava, bebia)
-
-[7/4/26, 7:36:18 AM] Você: 🇬🇧 rushing fazendo algo apressadamente.
-
-[7/5/26, 8:43:05 AM] Você: 🇬🇧 Em vez de usar choose  para escolher, que tal usar pick/pick out de vez em quando? 🤔
-
-[7/6/26, 11:02:03 AM] Você: 🇬🇧 Put away significa guardar. Throw away é jogar fora.
-
-[7/7/26, 4:46:49 PM] Você: 🇬🇧 Food for thought (Bem próximo de nosso pano para manga)
-
-[7/9/26, 8:43:04 AM] Você: 🇬🇧 fried apple pies É o nome do dessert que gosto 😋
-
-[7/9/26, 12:46:35 PM] Você: 🇬🇧 get bent Vai se ferrar!
-
-[7/9/26, 4:45:19 PM] Você: 🇬🇧 overwhelming insuportável , massacrante
-
-[7/10/26, 7:45:20 AM] Você: 🇬🇧 Set up: Preparar , configurar, ajustar
-
-[7/10/26, 8:33:45 AM] Você: 🇬🇧 In progress Em andamento
-
-[7/11/26, 8:34:09 AM] Você: 🇬🇧 Em inglês americano, "isn't" soa como "ízen", cortando o som do T.
-
-[7/11/26, 5:52:43 PM] Você: 🇬🇧 Change: geral, tornar diferente. Exchange: troca mútua, dar um/receber outro. Switch: troca de posições/alternância binária. Shift: deslocamento, mudança de foco ou posição. Swap: troca direta, substituição.
-
-[7/12/26, 8:31:25 AM] Você: 🇬🇧 Com would like*ou *would love, use:o próximo verbo no infinitivo com "to", não gerúndio.
-
-[7/12/26, 8:40:25 AM] Você: 🇬🇧 come up pode ser  Surgir , subir ou se aproximar.
-
-[7/12/26, 11:09:06 AM] Você: 🇬🇧 "A/a few" é para contáveis. "A few" = alguns (positivo); "few" = poucos (negativo). Para não contáveis, use "little/a little". Ex.: "I have very few lemons" (contável), versus "I have very little lemon juice" (incontável). Regra rápida: "few" vai com coisas que você conta; "little" vai com coisas que você mede ou trata como massa, tipo money, water ou advice.
-
-[7/13/26, 11:07:39 AM] Você: 🇬🇧 Alguns verbos (help, make, let, watch) podem usar o infinitivo sem to. A maioria pede to, e os verbos que exigem gerúndio não aceitam to. Modais (can, must, will, etc.) nunca levam to e usam o verbo base.
-
-[7/14/26, 11:25:45 AM] Você: 🇬🇧 Cuidado , usar other no ligar de another pode dar a ideia de adicionar e nao substituir.
-
-[7/15/26, 10:07:44 AM] Você: 🇬🇧 I got offered Me ofereceram
-
-[7/16/26, 10:12:44 PM] Você: 🇬🇧  📜outcome first Resultado em primeiro lugar
-
-[7/17/26, 5:36:26 PM] Você: 🇬🇧 Nao esqueça de usar a tradução automática por legendas do Google meeting.
-
-[7/17/26, 9:54:13 PM] Você: 🇬🇧   She/he pulls out all the stops   Ela/Ele não mede esforços
-
-[7/18/26, 5:19:10 PM] Você: 🇬🇧  come get some Vem encarar
-
-[7/19/26, 7:41:54 AM] Você: 🇬🇧 Workaround gambiarra, alternativa temporária Bypass Alternativa mais permanente
-
-[7/20/26, 10:34:02 AM] Você: 🇬🇧 Present perfect Quando uma coisa aconteceu de uma ver por todas!
-
-[7/21/26, 11:09:38 AM] Você: 🇬🇧 Turns out Pelo visto...
-
-[7/22/26, 8:31:26 AM] Você: 🇬🇧 Who did you go with? Com quem voce foi?
-
-[7/22/26, 8:48:47 AM] Você: 🇬🇧 Have you been to new teather? | Did you visite the new teather? As duas formas estão corretas
-
-[7/22/26, 11:19:11 AM] Você: 🇬🇧 right away Imediatamente
-
-[7/22/26, 11:47:37 AM] Você: 🇬🇧 Jaw drops Queixo caido
-
-[7/23/26, 7:54:21 AM] Você: 🇬🇧  struggles Ter/enfrentar dificuldades
-
-[7/23/26, 9:57:42 AM] Você: 🇬🇧 Each of the Cada um dos
-
-[7/24/26, 7:36:26 AM] Você: 🇬🇧 Pará variar em vez de dizer excited use thrilled
-
-[7/26/26, 8:09:36 AM] Você: 🇬🇧 Traduções de "Ponto Turístico":
-• Tourist attraction (mais comum)
-• Tourist spot (informal)
-• Landmark (monumento/símbolo)
-• Sight (lugares para visitar)
-❌ Evitar: "touristic point"
-
-[7/26/26, 8:38:35 AM] Você: 🇬🇧 Get straight to the point Va direto ao ponto.
-
-[7/28/26, 1:28:15 PM] Você: 🇬🇧 assignment missão (uma possível tradução)
-
-[7/29/26, 8:40:42 AM] Você: 🇬🇧 locksmith É o nome do profissional 🔑  chaveiro.
-
-[7/31/26, 8:08:17 AM] Você: 🇬🇧I miss my turn back there: Eu passei direto onde deveria ter virando  é praticamente usado só pra trânsito. Quando você está dirigindo
-
-[7/31/26, 8:12:42 AM] Você: 🇬🇧 Tenha em prioridade se um texto é ou nao uma pergunta 😡
-
-[7/31/26, 8:27:56 AM] Você: 🇬🇧 aisle Lembra um pouco o som de owl 🦉, mas inicia com A
-
-[8/1/26, 8:51:35 AM] Você: 🇬🇧 Use May I  em vez de Could I  com a primeira pessoa para maior formalidade e polidez ao pedir permissão.
-
-[8/2/26, 8:18:33 AM] Você: 🇬🇧 Speaking of which Falando nisso
-
-[8/3/26, 8:37:09 AM] Você: 🇬🇧 So we switched, and now I am going in her place.
-
-[8/4/26, 8:39:24 AM] Você: 🇬🇧  Use long como advérbio modificando o verbo. Use long time após for para indicar um período de duração.
-
-[8/4/26, 8:46:32 AM] Você: 🇬🇧 Para evitar probabilidade de erros, ser econômico com as palavras pode ser uma boa ideia 💡
-
-[8/4/26, 9:50:24 AM] Você: 🇬🇧 The lipstick marks gave away that I got kisses: As marcas de batom revelaram que eu ganhei beijos.
-
-[8/6/26, 8:01:58 AM] Você: 🇬🇧 Comparativo: Quite vs. Very
-​Very significa apenas "muito", intensificando adjetivos graduáveis (very cold).
-​Quite é mais versátil: pode significar "bastante" (quite good), "completamente" com adjetivos absolutos (quite right), modificar verbos (quite agree) e substantivos (quite a day). Acompanha também expressões como quite a few e quite a lot.
-
-[8/7/26, 7:57:11 AM] Você: 🇬🇧 streamlines Simplifica , agiliza
-
-[8/10/26, 6:45:20 PM] Você: 🇬🇧 Em ingles americano,  o t assume o som de r quando este é uma sílaba atona (fraca) e entre vocais (y é incluso nas vocais)
-
-[8/14/26, 11:31:52 AM] Você: 🇬🇧 Without é uma preposições,  logo um verbo apos Without precisa estar no gerúndio.
-
-[8/14/26, 11:48:10 AM] Você: 🇬🇧 Ever go Costuma (possível tradução)
-
-[8/15/26, 10:18:47 AM] Você: 🇬🇧 At all É normalmente usada em frases negativas.
-
-[8/16/26, 8:15:10 AM] Você: 🇬🇧 Se você disser "I've just sent the email", você acabou de apertar o botão de enviar. Se disser "I've already sent the email", você está enfatizando que a tarefa já foi feita
-
-[8/19/26, 7:56:06 AM] Você: 🇬🇧 Pricy is the same that expence
-
-[8/19/26, 10:19:53 AM] Você: 🇬🇧 overlook Ignorar (possível tradução)
-
-[8/21/26, 7:37:46 AM] Você: 🇬🇧 wild As vezes pode ter uma conotação positiva como insano, incrível
-
-[8/23/26, 8:16:29 AM] Você: 🇬🇧 Nao ser tão prolixo. 😮
-
-[8/23/26, 8:26:26 AM] Você: 🇬🇧 Chop up =  picar | cut off cortar
-
-[8/24/26, 7:56:58 AM] Você: 🇬🇧 That'll be everything, Isso é tudo (que vou levar, comprar, querer, precisar)
-
-[8/24/26, 8:22:52 AM] Você: 🇬🇧 I want a dozen sweet pastries, please Em inglês, usamos o nome do produto diretamente após a quantidade, sem a preposição 'of' para indicar o tipo
-
-[8/24/26, 9:17:10 AM] Você: 🇬🇧 anyway = anyhow
-
-[8/25/26, 6:54:02 PM] Você: 🇬🇧 Must have Tem que ter
-
-[8/26/26, 7:44:52 AM] Você: 🇬🇧 tied up Literalmente significa amarrado mas pode significar ocupado
-
-[8/30/26, 8:14:53 AM] Você: 🇬🇧last long durar muito (Sim!  Last pode ser traduzido como o verbo durar 🤔)   Ex: How long does this tour last?
-
-[8/30/26, 8:35:33 AM] Você: 🇬🇧 Como diria minha old tutor:  "Da onde que vem este tch ?"  Exemplo falar watch em vez de what 😠
-
-[9/1/26, 12:31:53 PM] Você: 🇬🇧 sell out Esgotar (vendas)
-
-[9/1/26, 12:32:08 PM] Você: 🇬🇧 run into you Te encontrar
-
-[9/2/26, 8:05:14 AM] Você: 🇬🇧 stay on track ficar no caminho certo.
-
-[9/2/26, 8:15:34 AM] Você: 🇬🇧 out sick Ausente por estar doente.
-
-[9/2/26, 8:23:02 AM] Você: 🇬🇧 stepping in Substituir alguém temporariamente  (possível tradução)
-
-[9/2/26, 8:42:03 AM] Você: 🇬🇧 On time é ser pontual, no horário exato. In time é chegar com tempo de folga, antes que seja tarde. E just in time é em cima da hora, no limite.
-
-[9/5/26, 7:58:35 AM] Você: 🇬🇧 catching up on colocar em dia
-
-[9/6/26, 8:08:11 AM] Você: 🇬🇧 to diving deep into Mergulhar de cabeça em
-
-[9/9/26, 8:04:39 AM] Você: 🇬🇧 swing by Dar uma passada rápida.
-
-[9/9/26, 8:09:11 AM] Você: 🇬🇧 I am thrilled to tackle Estou animado em enfrentar o desafio
-
-[9/9/26, 8:27:09 AM] Você: 🇬🇧 He slipped out Ele escapuliu
-
-[9/9/26, 8:30:57 AM] Você: 🇬🇧 Have you spotted Voce viu ?
-
-[9/9/26, 6:23:59 PM] Você: 🇬🇧🪞✂️ tenant Inquilino
-
-[9/10/26, 8:14:34 AM] Você: 🇬🇧 His breed is Chihuahua
-
-[9/17/26, 8:17:44 AM] Você: 🇬🇧 Press (Pressionar / Apertar): Aplicar pressão pontual ou em um botão/tecla (ex.: Press the button).
-​Push (Empurrar): Exercer força para afastar algo de você (ex.: Push the door).
-​Pull (Puxar): Exercer força para aproximar algo de você (ex.: Pull the handle).
-
-[9/18/26, 8:13:10 AM] Você: 🇬🇧 touch base Entrar em contato
-
-[9/19/26, 8:47:50 AM] Você: 🇬🇧 those aos (possível tradução)
-
-[9/22/26, 8:09:34 AM] Você: 🇬🇧 run over passar alem do limite (possível tradução)
-
-[9/23/26, 8:09:36 AM] Você: 🇬🇧 turned around Perdido, desorientada, dando voltas  (Possível tradução)
-
-[9/25/26, 8:13:52 AM] Você: 🇬🇧 Use some em frases afirmativas e em convites ou ofertas quando esperamos um "sim" (Exemplo: Do you want some tacos?).
-Usamos any em perguntas genéricas para saber se algo existe, ou em frases negativas (Exemplo: "Please, press any key / Do you have any questions?).
-
-[9/25/26, 8:23:44 AM] Você: 🇬🇧Use some em afirmativas e perguntas que pressupõem uma resposta positiva ou ofertas. Use any em frases negativas e perguntas abertas para indagar sobre quantidades ou existência sem presumir a resposta.
-
-[9/26/26, 9:10:59 AM] Você: 🇬🇧 wrap up terminar
-
-[9/26/26, 9:22:35 AM] Você: 🇬🇧 quick second tempinho, momento, um instante
-
-[9/29/26, 7:46:37 AM] Você: 🇬🇧 stalled out Paralisar
-
-[9/29/26, 7:54:48 AM] Você: 🇬🇧 departure partida
-
-[9/30/26, 7:56:52 AM] Você: 🇬🇧 take over assumir
-
-[10/1/26, 8:08:40 AM] Você: 🇬🇧 clumsy desajeitado
-
-[10/1/26, 9:23:26 AM] Você: 🇬🇧 O verbo "acting" já expressa a ideia de comportamento. Por isso, não é necessário usar "way" na frase.
-
-[10/2/26, 7:56:46 AM] Você: 🇬🇧 to file registrar
-
-[10/4/26, 7:41:11 AM] Você: 🇬🇧 guessing intrigado (possível tradução)
-
-[10/4/26, 8:45:28 AM] Você: 🇬🇧 miss out perder a oportunidade
-
-[10/5/26, 8:09:07 AM] Você: 🇬🇧 missed the mark Deixou a desejar
-
-[10/5/26, 8:12:17 AM] Você: 🇬🇧 wasn't that great Não foi estas coisas.
-
-[10/7/26, 7:59:07 AM] Você: 🇬🇧 I'm really into Eu adoro
-
-[10/9/26, 8:24:19 AM] Você: 🇬🇧 That works for me Combinado. (Mais casual do que algo que envolva deal)
-
-[10/11/26, 10:24:02 AM] Você: 🇬🇧 Turns out .... Aconte que ....
-
-[10/13/26, 7:55:13 AM] Você: 🇬🇧 you've got this! Voce consegue!
-
-[10/13/26, 8:02:01 AM] Você: 🇬🇧 drop by Visitar,  dar uma "passadinha"
-
-[10/14/26, 7:48:50 AM] Você: 🇬🇧 already owns ja tem
-
-[10/16/26, 8:00:28 AM] Você: 🇬🇧 browsing passear (possível tradução)
-
-[10/23/26, 8:21:49 AM] Você: 🇬🇧 packed with... repleto com...  (possível tradução)
-
-[10/24/26, 7:56:38 AM] Você: 🇬🇧 running into you te encontrar
-
-[10/26/26, 8:20:59 AM] Você: 🇬🇧 Use "off" para indicar distância da costa ou algo muito distante, como "miles off".
-
-[10/27/26, 8:02:23 AM] Você: 🇬🇧 caught me off guard Me pegou de surpresa.
-
-[10/27/26, 8:08:17 AM] Você: 🇬🇧 Upset é chateado ou virada no esporte , depende do contexto. Se for emoção, é "chateado". Se for competição, é zebra, surpresa.
-
-[10/29/26, 8:16:14 AM] Você: 🇬🇧 Do you like that kind of stuff? Voce gosta deste tipo de coisa?
-
-[10/29/26, 8:19:20 AM] Você: 🇬🇧 Turns out .... Aconte que ....
-
-[10/31/26, 7:58:12 AM] Você: 🇬🇧 settle into Se ambientar
-
-[11/1/26, 8:13:42 AM] Você: 🇬🇧 look back on recordar  (possível tradução)
-
-[11/2/26, 8:06:16 AM] Você: 🇬🇧 He/She nailed it Ele/Ela acertou em cheio.  | Arrasou!
-
-[11/3/26, 8:14:17 AM] Você: 🇬🇧 setback Contratempo
+Follow my lead : Siga meu exemplo
+to break the bank : Gastar uma fortuna
+cluttered / messy : Desordenado/bagunçado
+counterintuitive : contra-intuitivo
+crowded : Lotado | Poluído (dependendo do contexto)
+user-friendly : fácil de usar
+holding back : atrapalhando
+crossroads : encruzilhada
+ran into | came across : Se encontrar de repente | Dar de cara
+In my day : Em minha época (possível tradução)
+Stand out : Destacar | chamar a atenção
+the next month : Correto, mas o 'the' é redundante, então é mais natural "dropa-lo"
+get through : aguentar
+assurance | insurance : Não confundir! Garantia | Seguro (Dica para lembrar: Assegurar é garantir)
+leaving : saindo
+arriving : chegando
+storytelling : narrativa
+regardless : por mais (que) ... | independentemente | De qualquer forma
+It’s a bit of a tight spot : É uma situação um pouco complicada
+turning point : Ponto de virada
+I was looking for some kind of ... | looking for | expected : Algumas vezes looking for tem o sentido de esperando (expected)
+Grasp : Compreender
+it : Após referência a uma coisa (que não tenha gênero masculino ou feminino), lembrar de usar it no caso de voltar a referenciar novamente.
+overhaul : mudar | revisar
+upbeat : otimista
+Paraphrasing : Explicar algo com outras palavras (Tentar explicar algo, quando vc nao sabe ou nao lembra as palavras exatas a utilizar)
+soak up : absorver
+peak / high season : Alta temporada
+You got this | You got it | I'm in : Você consegue! (expressão de encorajamento) | É pra já | É isso aí, vc entendeu certo.
+beforehand : antecipadamente
+Turn it around : Virar o jogo/Reverter uma situação/dar a volta por cima.
+This caught me off guard! : Isto me pegou de surpresa
+I am game if you are | I'm in : Significa "Eu topo, se você topar" ou "Se você for, eu vou". Indica disposição para um plano. Também usamos "Estou dentro", sendo "I'm in" uma expressão equivalente e muito usual.
+everything went fine : Tudo correu bem | Deu tudo certo
+ongoing : Em curso | Em andamento
+operating hours : Horas de funcionamento
+The cherry on top : A cereja do bolo
+tracks : Monitorar (possível tradução)
+for : A preposição for é usada para indicar o beneficiário de uma ação (para alguém), o motivo ou finalidade dela (por que, para que), a duração de tempo (por quanto tempo), ou ainda um destino (para onde).
+leave for | go to : Use leave for ao partir para um destino. Use go to para se deslocar em direção a um lugar.
+Is it a request or a demand : É um pedido ou uma exigência?
+I do not know either | I know too : O either é para frases negativas e too para frases positivas.
+withdraw : Saque / retirar
+Don't be nosy : não seja intrometido
+weird : Não pronuncie a letra "E" e deixe o "I" mais longo.
+Network : É, na verdade, juntar pessoas pra tentar fechar negócio.
+: Inglês não tem que ser um teste o tempo todo; a função do inglês é simplesmente se comunicar (Carina).
+has gotten used to : Se acostumou
+look into : Investigar
+please allow me some time : Por favor, me dê algum tempo.
+: Duolingo: Nas questões de português para o inglês monte a frase na cabeça antes de preencher a resposta.
+flight boards : Embarque (avião)
+Giving away : Distribuindo, dando de graça
+several : Diversas/diversos (possível tradução)
+spare : Sobrando (Ex.: Do you have any spare?)
+to : Transforma algo em verbo
+lavatory : No avião ou ônibus, o banheiro é chamado de lavatory.
+-y | -ly : O "y" usado como sufixo transforma uma palavra em adjetivo; já o "ly" é usado em advérbio.
+I am boring | I am bored : Eu sou entediante | Eu estou entediado
+Value : Também pode ser o verbo valorizar
+Fashion | Trendy : Fashion = moda, especialmente roupas e estilo. Trendy = popular ou na moda no momento, em qualquer área, inclusive roupa.
+rules out : Elimina, descarta (um problema)
+Genre | gender : "Genre" é para categorias de arte e filmes. Use "gender" para identidade social ou sexo de uma pessoa.
+Yes, it is : É sim (usar com frequência)
+running late : Chegando atrasado
+who | does | did : Quando a pergunta envolve who, não se usa o auxiliar does/did.
+catches up : Alcançar, recuperar o atraso.
+I came to find out : Eu acabei descobrindo
+what's your major? : Qual é a sua especialização
+-ed : Em um verbo no passado, o E do sufixo ed é praticamente mudo.
+What I was going for : É o que eu queria
+listed : Também pode ser algo que você anunciou para alugar ou vender.
+willing : Disposto. Desejoso
+up soon : Em breve
+hire | hide : Contratar | Esconder
+did | was | were | -ing : Ao fazer perguntas no passado com o auxiliar 'did', o verbo principal permanece na sua forma base. Por outro lado, ao usar 'was' ou 'were', o verbo pode ter terminação '-ing' ou estar no particípio/particípio passado.
+Used to | Would | I used to live in a big house. Every morning, I would sit in the garden and drink coffee. : Dica de inglês: passado (Used to vs. Would). Para falar de hábitos passados e não soar repetitivo, varie entre os dois. Used to: serve para tudo (ações e estados passados). Would: serve apenas para ações repetidas (dá um tom nostálgico de história). Nunca use would para estados (como live, be, have). Exemplo: morar = estado [used to] / sentar e beber = ações [would] (sentava, bebia).
+rushing : fazendo algo apressadamente.
+choose | pick | pick out : Em vez de usar choose para escolher, que tal usar pick/pick out de vez em quando?
+Put away | Throw away : Put away significa guardar. Throw away é jogar fora.
+Food for thought : Bem próximo de nosso pano para manga
+fried apple pies | dessert : É o nome do dessert que gosto
+get bent : Vai se ferrar!
+overwhelming : insuportável, massacrante
+Set up : Preparar, configurar, ajustar
+In progress : Em andamento
+isn't : Em inglês americano, "isn't" soa como "ízen", cortando o som do T.
+Change | Exchange | Switch | Shift | Swap : Change: geral, tornar diferente. Exchange: troca mútua, dar um/receber outro. Switch: troca de posições/alternância binária. Shift: deslocamento, mudança de foco ou posição. Swap: troca direta, substituição.
+would like | would love | to : Com would like ou would love, use o próximo verbo no infinitivo com "to", não gerúndio.
+come up : pode ser surgir, subir ou se aproximar.
+A few | few | little | a little : "A/a few" é para contáveis. "A few" = alguns (positivo); "few" = poucos (negativo). Para não contáveis, use "little/a little". Ex.: "I have very few lemons" (contável), versus "I have very little lemon juice" (incontável). Regra rápida: "few" vai com coisas que você conta; "little" vai com coisas que você mede ou trata como massa, tipo money, water ou advice.
+help | make | let | watch | to | -ing | can | must | will : Alguns verbos (help, make, let, watch) podem usar o infinitivo sem to. A maioria pede to, e os verbos que exigem gerúndio não aceitam to. Modais (can, must, will etc.) nunca levam to e usam o verbo base.
+other | another : Cuidado: usar other no lugar de another pode dar a ideia de adicionar e não substituir.
+I got offered : Me ofereceram
+outcome first : Resultado em primeiro lugar
+Google Meet : Não esqueça de usar a tradução automática por legendas do Google Meet.
+She/he pulls out all the stops : Ela/Ele não mede esforços
+come get some : Vem encarar
+Workaround | Bypass : gambiarra, alternativa temporária | alternativa mais permanente
+Present perfect : Quando uma coisa aconteceu de uma vez por todas!
+Turns out : Pelo visto...
+Who did you go with? : Com quem você foi?
+Have you been to new theater? | Did you visit the new theater? : As duas formas estão corretas
+right away : Imediatamente
+Jaw drops : Queixo caído
+struggles : Ter/enfrentar dificuldades
+Each of the : Cada um dos
+excited | thrilled : Para variar, em vez de dizer excited use thrilled.
+Tourist attraction | Tourist spot | Landmark | Sight | touristic point : Traduções de "Ponto Turístico": Tourist attraction (mais comum); Tourist spot (informal); Landmark (monumento/símbolo); Sight (lugares para visitar). Evitar: "touristic point".
+Get straight to the point : Vá direto ao ponto.
+assignment : missão (uma possível tradução)
+locksmith : É o nome do profissional: chaveiro.
+I missed my turn back there : Eu passei direto onde deveria ter virado; é praticamente usado só para trânsito, quando você está dirigindo.
+aisle | owl : Lembra um pouco o som de owl, mas inicia com A.
+May I | Could I : Use May I em vez de Could I com a primeira pessoa para maior formalidade e polidez ao pedir permissão.
+Speaking of which : Falando nisso
+So we switched, and now I am going in her place. :
+long | long time | for : Use long como advérbio modificando o verbo. Use long time após for para indicar um período de duração.
+: Para evitar probabilidade de erros, ser econômico com as palavras pode ser uma boa ideia.
+The lipstick marks gave away that I got kisses : As marcas de batom revelaram que eu ganhei beijos.
+Very cold : Muito frio
+Quite good : Bastante bom
+Quite right : Completamente certo
+Quite a few : Muitos; vários
+Quite a lot : Bastante; muito
+streamlines : Simplifica, agiliza
+T (Flap T) : No inglês americano, o T entre vogais, quando a sílaba seguinte é átona, soa como um R fraco do português. O Y também pode participar dessa regra.
+Without : É uma preposição; logo, um verbo após Without precisa estar no gerúndio.
+Ever go : Costuma (possível tradução)
+At all : É normalmente usada em frases negativas.
+I've just sent the email | I've already sent the email : Se você disser "I've just sent the email", você acabou de apertar o botão de enviar. Se disser "I've already sent the email", você está enfatizando que a tarefa já foi feita.
+Pricy | expensive : Pricy is the same that expence
+overlook : Ignorar (possível tradução)
+wild : Às vezes pode ter uma conotação positiva como insano, incrível
+: Não ser tão prolixo.
+Chop up | cut off : picar | cortar
+That'll be everything : Isso é tudo (que vou levar, comprar, querer, precisar)
+I want a dozen sweet pastries, please : Em inglês, usamos o nome do produto diretamente após a quantidade, sem a preposição 'of' para indicar o tipo.
+anyway | anyhow : equivalentes (conforme a anotação original)
+Must have : Tem que ter
+tied up : Literalmente significa amarrado, mas pode significar ocupado
+last long | How long does this tour last? : durar muito (Last pode ser traduzido como o verbo durar)
+watch | what : Como diria minha old tutor: "Da onde que vem este tch?" Exemplo: falar watch em vez de what.
+sell out : Esgotar (vendas)
+run into you : Te encontrar
+stay on track : ficar no caminho certo.
+out sick : Ausente por estar doente.
+stepping in : Substituir alguém temporariamente (possível tradução)
+On time | In time | just in time : On time é ser pontual, no horário exato. In time é chegar com tempo de folga, antes que seja tarde. Just in time é em cima da hora, no limite.
+catching up on : colocar em dia
+diving deep into : Mergulhar de cabeça em
+swing by : Dar uma passada rápida.
+I am thrilled to tackle : Estou animado em enfrentar o desafio
+He slipped out : Ele escapuliu
+Have you spotted : Você viu?
+tenant : Inquilino
+His breed is Chihuahua : Exemplo raça cachorro
+Press: Pressionar ou apertar, geralmente um botão ou tecla.
+Push: Empurrar, exercer força para afastar algo.
+Pull: Puxar, exercer força para aproximar algo.
+touch base : Entrar em contato
+those : aos (possível tradução)
+run over : passar além do limite (possível tradução)
+turned around : Perdido, desorientada, dando voltas (possível tradução)
+some | any : Use some em frases afirmativas e em convites ou ofertas quando esperamos um "sim" (Exemplo: Do you want some tacos?). Usamos any em perguntas genéricas para saber se algo existe, ou em frases negativas (Exemplo: Please, press any key / Do you have any questions?).
+some | any : Use some em afirmativas e perguntas que pressupõem uma resposta positiva ou ofertas. Use any em frases negativas e perguntas abertas para indagar sobre quantidades ou existência sem presumir a resposta.
+wrap up : terminar
+quick second : tempinho, momento, um instante
+stalled out : Paralisar
+departure : partida
+take over : assumir
+clumsy : desajeitado
+acting | way : O verbo "acting" já expressa a ideia de comportamento. Por isso, não é necessário usar "way" na frase.
+to file : registrar
+guessing : intrigado (possível tradução)
+miss out : perder a oportunidade
+missed the mark : Deixou a desejar
+wasn't that great : Não foi estas coisas.
+I'm really into : Eu adoro
+That works for me | deal : Combinado. (Mais casual do que algo que envolva deal)
+Turns out : Acontece que...
+you've got this! : Você consegue!
+drop by : Visitar, dar uma "passadinha"
+already owns : já tem
+browsing : passear (possível tradução)
+packed with... : repleto com... (possível tradução)
+running into you : te encontrar
+off | miles off : Use "off" para indicar distância da costa ou algo muito distante, como "miles off".
+caught me off guard : Me pegou de surpresa.
+Upset : É chateado ou virada no esporte, depende do contexto. Se for emoção, é "chateado". Se for competição, é zebra, surpresa.
+Do you like that kind of stuff? : Você gosta deste tipo de coisa?
+Turns out : Acontece que...
+settle into : Se ambientar
+look back on : recordar (possível tradução)
+He/She nailed it : Ele/Ela acertou em cheio. | Arrasou!
+setback : Contratempo
+picky: Exigente
