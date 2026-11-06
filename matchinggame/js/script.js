@@ -10,6 +10,7 @@
   const MEMORIZE_DURATION = 10000; // 10s de pré-visualização
   const DATA_URL = "dicas_ingles.txt";
   const SOUND_STORAGE_KEY = "emg-sound-enabled";
+  const BEST_STORAGE_KEY = "emg-best-attempts";
 
   const boardEl = document.getElementById("board");
   const statTimeEl = document.getElementById("stat-time");
@@ -31,6 +32,7 @@
   const winTime = document.getElementById("win-time");
   const winAttempts = document.getElementById("win-attempts");
   const winMatches = document.getElementById("win-matches");
+  const winRecord = document.getElementById("win-record");
   const winRestart = document.getElementById("win-restart");
 
   const state = {
@@ -171,7 +173,26 @@
     try {
       localStorage.setItem(SOUND_STORAGE_KEY, value ? "true" : "false");
     } catch {
-      /* ignora */
+      // ignora
+    }
+  }
+
+  function readBestAttempts() {
+    try {
+      const raw = localStorage.getItem(BEST_STORAGE_KEY);
+      if (raw === null) return null;
+      const n = parseInt(raw, 10);
+      return Number.isFinite(n) && n > 0 ? n : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function saveBestAttempts(value) {
+    try {
+      localStorage.setItem(BEST_STORAGE_KEY, String(value));
+    } catch {
+      // ignora
     }
   }
 
@@ -433,6 +454,7 @@
     for (const line of lines) {
       const trimmed = line.trim();
       if (!trimmed) continue;
+      if (trimmed.startsWith("#")) continue;
 
       const extracted = extractPairsFromLine(trimmed);
       for (const p of extracted) {
@@ -779,10 +801,33 @@
 
   function finishGame() {
     stopTimer();
+    const prevBest = readBestAttempts();
+    const isNewRecord = prevBest === null || state.attempts < prevBest;
+
+    if (isNewRecord) {
+      saveBestAttempts(state.attempts);
+    }
+    const best = isNewRecord ? state.attempts : prevBest;
+
     setTimeout(() => {
       winTime.textContent = formatTime(state.seconds);
       winAttempts.textContent = String(state.attempts);
       winMatches.textContent = `${state.matches}/${PAIRS_COUNT}`;
+
+      if (winRecord) {
+        if (isNewRecord && prevBest !== null) {
+          winRecord.textContent = `🏅 Novo recorde! ${state.attempts} tentativas (anterior: ${prevBest}).`;
+          winRecord.classList.add("is-record");
+        } else if (isNewRecord) {
+          winRecord.textContent = `🏅 Primeiro recorde registrado: ${state.attempts} tentativas!`;
+          winRecord.classList.add("is-record");
+        } else {
+          winRecord.textContent = `Recorde atual: ${best} tentativas.`;
+          winRecord.classList.remove("is-record");
+        }
+        winRecord.hidden = false;
+      }
+
       winModal.hidden = false;
       winRestart.focus();
     }, 500);
@@ -813,6 +858,7 @@
     statMatchesEl.textContent = `0/${PAIRS_COUNT}`;
 
     winModal.hidden = true;
+    if (winRecord) { winRecord.hidden = true; winRecord.classList.remove("is-record"); winRecord.textContent = ""; }
 
     if (!state.pool.length) {
       init();

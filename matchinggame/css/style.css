@@ -335,6 +335,9 @@ body {
   color: transparent;
 }
 .modal__desc { margin: 0 0 20px; color: var(--text-muted); font-size: 14px; line-height: 1.5; }
+.modal__record { margin: -8px 0 20px; padding: 12px 14px; border-radius: 14px; font-size: 14px; font-weight: 600; color: var(--text); background: var(--surface); border: 1px solid var(--border); }
+.modal__record.is-record { color: #0b1020; background: linear-gradient(135deg, #fde68a, #fbbf24); border-color: #fbbf24; box-shadow: 0 10px 26px -10px rgba(251, 191, 36, 0.7); animation: recordPulse 1.2s ease-in-out infinite; }
+@keyframes recordPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
 .modal__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 24px; }
 .modal__stat { padding: 12px 8px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border); }
 .modal__stat dt { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
