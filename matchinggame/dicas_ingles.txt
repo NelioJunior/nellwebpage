@@ -63,8 +63,6 @@ to : Transforma algo em verbo
 lavatory : No avião ou ônibus, o banheiro é chamado de lavatory
 -y : O "y" como sufixo transforma uma palavra em adjetivo
 -ly : O "ly" é usado em advérbio
-I am boring : Eu sou entediante
-I am bored : Eu estou entediado
 Value : Também pode ser o verbo valorizar
 Fashion : Moda, especialmente roupas e estilo
 Trendy : Popular ou na moda no momento, em qualquer área
@@ -248,3 +246,7 @@ She nailed it : Ela acertou em cheio
 setback : Contratempo
 whereas : Equivale ao while, porém mais formal
 picky : Exigente
+ended up : Terminou em, acabou por
+I am boring | I am bored : Eu sou entediante | Eu estou entediado
+Solve|Resolve : Encontrar resposta para problemas|Resolve: Solucionar conflitos ou situações complexas.
+Play it by ear : Improvisar
