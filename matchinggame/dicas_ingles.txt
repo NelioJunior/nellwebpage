@@ -132,8 +132,7 @@ come get some : Vem encarar
 Workaround : gambiarra, alternativa temporária
 Bypass : alternativa mais permanente
 Present perfect : Quando uma coisa aconteceu de uma vez por todas
-Turns out : Pelo visto
-Turns out : Acontece que
+Turns out : Acontece que, Pelo visto
 Who did you go with? : Com quem você foi?
 Have you been to new theater? : Você já foi ao novo teatro?
 Did you visit the new theater? : Você visitou o novo teatro?
