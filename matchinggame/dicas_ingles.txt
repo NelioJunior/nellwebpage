@@ -140,7 +140,6 @@ Did you visit the new theater? : Você visitou o novo teatro?
 right away : Imediatamente
 Jaw drops : Queixo caído
 struggles : Ter dificuldades
-struggles : enfrentar dificuldades
 Each of the : Cada um dos
 excited : Em vez de dizer excited, use thrilled para variar
 thrilled : Em vez de dizer excited, use thrilled para variar
@@ -164,8 +163,7 @@ Quite good : Bastante bom
 Quite right : Completamente certo
 Quite a few : Muitos (Apenas para substantivos contaveis)
 Quite a lot : muitos   
-streamlines : Simplifica
-streamlines : agiliza
+streamlines : Simplifica, agiliza  
 T (Flap T) : No inglês americano, o T entre vogais, quando a sílaba seguinte é átona, soa como um R fraco do português
 Without : É uma preposição; logo, um verbo após Without precisa estar no gerúndio
 Ever go : Costuma
@@ -250,3 +248,6 @@ ended up : Terminou em, acabou por
 I am boring | I am bored : Eu sou entediante | Eu estou entediado
 Solve|Resolve : Encontrar resposta para problemas|Resolve: Solucionar conflitos ou situações complexas.
 Play it by ear : Improvisar
+wrapped up : terminado
+So we switched, and now I am going in her place : Entao trocamos e agora eu vou no lugar dela.
+called in sick : Ligou avisando que estava doente.

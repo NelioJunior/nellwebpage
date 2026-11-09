@@ -63,8 +63,8 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="https://storage.googleapis.com/multi_salao_front_end/view/login.html">Login</a></li>
-          <li><a href="https://storage.googleapis.com/multi_salao_front_end/view/signup.html">Cadastre-se</a></li>
+          <li><a href="./login">Login</a></li>
+          <li><a href="./signup">Cadastre-se</a></li>
           <li><a href="/videos_promo/">🎬 Outros projetos</a></li>                  
         </ul>
       </nav><!-- .navbar -->
@@ -303,7 +303,7 @@
       navigator.serviceWorker.getRegistrations().then(registrations => {
         registrations.forEach(reg => {
           reg.unregister();
-          console.log('� SW antigo removido (desenvolvimento)');
+          console.log('SW antigo removido (desenvolvimento)');
         });
       });
     }

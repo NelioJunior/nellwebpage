@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecionando - Nell</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .logo {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .redirecting {
+      display: block;
+    }
+
+    .maintenance {
+      display: none;
+    }
+
+    .maintenance-icon {
+      font-size: 4em;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    .message {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .maintenance .message {
+      font-size: 1.1em;
+    }
+
+    .schedule {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-weight: 500;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    .maintenance-spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid #ffd700;
+      border-radius: 50%;
+      animation: spin 2s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    .subtitle {
+      font-size: 0.9em;
+      opacity: 0.8;
+      margin-top: 15px;
+    }
+
+    .maintenance .subtitle {
+      color: #ffd700;
+      font-weight: 500;
+    }
+
+    .time-display {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 15px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Nell</div>
+    
+    <div id="redirecting" class="redirecting">
+      <div class="message">Redirecionando você para nossa plataforma...</div>
+      <div class="spinner"></div>
+      <div class="subtitle">Aguarde um momento</div>
+    </div>
+
+    <div id="maintenance" class="maintenance">
+      <div class="maintenance-icon">🔧</div>
+      <div class="message">
+        Nossos serviços estão temporariamente indisponíveis para manutenção preventiva
+      </div>
+      <div class="schedule">
+        <strong>Horário de Manutenção:</strong><br>
+        23h00 às 07h00 (todos os dias)
+      </div>
+      <div class="maintenance-spinner"></div>
+      <div class="message">
+        Este período é dedicado ao aprimoramento de nossos sistemas para oferecer<br>
+        a melhor experiência aos nossos clientes e parceiros.
+      </div>
+      <div class="subtitle">
+        ⏰ Retornaremos em breve com novidades!
+      </div>
+      <div id="currentTime" class="time-display"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    const targetUrl = "https://storage.googleapis.com/multi_salao_front_end/view/signup.html";
+    
+    function updateCurrentTime() {
+      const now = new Date();
+      const timeString = now.toLocaleString('pt-BR', {
+        timeZone: 'America/Sao_Paulo',
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      document.getElementById('currentTime').textContent = `Horário atual: ${timeString}`;
+    }
+
+    function isMaintenanceTime() {
+      const now = new Date();
+      const hour = now.getHours();
+      // Horário de manutenção: 21h às 9h (21:00 - 08:59)
+      return hour >= 23 || hour < 7;
+    }
+
+    function handleRedirect() {
+      // Verifica se está no horário de manutenção
+      if (isMaintenanceTime()) {
+        showMaintenancePage();
+        return;
+      }
+
+      // Abordagem simples: tenta carregar uma imagem do servidor para testar conectividade
+      const testImg = new Image();
+      let redirected = false;
+      
+      // Se conseguir carregar a imagem, servidor está OK
+      testImg.onload = function() {
+        if (!redirected) {
+          redirected = true;
+          setTimeout(() => {
+            window.location.replace(targetUrl);
+          }, 1500);
+        }
+      };
+      
+      // Se não conseguir carregar, pode estar fora do ar
+      testImg.onerror = function() {
+        if (!redirected) {
+          redirected = true;
+          showMaintenancePage();
+        }
+      };
+      
+      // Timeout: se demorar muito para responder, considera indisponível
+      setTimeout(() => {
+        if (!redirected) {
+          redirected = true;
+          showMaintenancePage();
+        }
+      }, 8000);
+      
+      // Tenta carregar uma imagem simples do servidor (favicon ou logo)
+      testImg.src = 'https://nelltekbrazil.ddns.net/favicon.ico?' + Date.now();
+    }
+
+    function showMaintenancePage() {
+      document.getElementById('redirecting').style.display = 'none';
+      document.getElementById('maintenance').style.display = 'block';
+      
+      // Atualiza o horário atual a cada segundo
+      updateCurrentTime();
+      setInterval(updateCurrentTime, 1000);
+      
+      // Verifica a cada segundo se já saiu do horário de manutenção
+      setInterval(() => {
+        if (!isMaintenanceTime()) {
+          location.reload();
+        }
+      }, 1000);
+    }
+
+    // Inicia o processo
+    handleRedirect();
+  </script>
+</body>
+</html>
