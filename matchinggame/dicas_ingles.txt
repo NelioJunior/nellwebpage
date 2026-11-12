@@ -233,8 +233,7 @@ running into you : te encontrar
 off : Use off para indicar distância da costa ou algo muito distante
 miles off : Use off para indicar distância da costa ou algo muito distante, como miles off
 caught me off guard : Me pegou de surpresa
-Upset : chateado (emoção)
-Upset : zebra, surpresa (esporte)
+Upset : chateado (emoção)|zebra, surpresa (esporte)
 Do you like that kind of stuff? : Você gosta deste tipo de coisa?
 settle into : Se ambientar
 look back on : recordar
@@ -250,3 +249,6 @@ Play it by ear : Improvisar
 wrapped up : terminado
 So we switched, and now I am going in her place : Entao trocamos e agora eu vou no lugar dela.
 called in sick : Ligou avisando que estava doente.
+Turns out : Acontece que, pelo visto.
+Come up with : Criar ideias, planos soluções ou desculpas abstrações.
+
